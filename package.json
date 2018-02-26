@@ -1,0 +1,8 @@
+{
+  "name": "open_a_ticket",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3",
+    "jquery": "^3.3.1"
+  }
+}
