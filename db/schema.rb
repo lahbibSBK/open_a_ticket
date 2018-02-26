@@ -39,6 +39,23 @@ ActiveRecord::Schema.define(version: 20180226153117) do
     t.index ["skill_id"], name: "index_tags_on_skill_id"
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "price"
+    t.string "ticket_skills"
+    t.string "ticket_duration"
+    t.string "ticket_location"
+    t.string "priority"
+    t.string "status"
+    t.integer "alumni_id"
+    t.integer "mentor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
+    t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
