@@ -9,8 +9,8 @@ class CreateTickets < ActiveRecord::Migration[5.1]
       t.string :ticket_location
       t.string :priority
       t.string :status
-      t.references :alumni_id, foreign_key: true
-      t.references :mentor_id, foreign_key: true
+      t.integer :alumni_id, foreign_key: true, index: true
+      t.integer :mentor_id, foreign_key: true, index: true
 
       t.timestamps
     end
