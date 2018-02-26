@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mentor_profil: one
+  skill: one
+
+two:
+  mentor_profil: two
+  skill: two
