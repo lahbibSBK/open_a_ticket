@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226153117) do
+ActiveRecord::Schema.define(version: 20180226155635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20180226153117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_mentor_profils_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
+    t.integer "rating"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_reviews_on_ticket_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180226153117) do
   end
 
   add_foreign_key "mentor_profils", "users"
+  add_foreign_key "reviews", "tickets"
   add_foreign_key "tags", "mentor_profils"
   add_foreign_key "tags", "skills"
 end
