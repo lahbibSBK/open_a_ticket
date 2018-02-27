@@ -1,19 +1,44 @@
 class TagsController < ApplicationController
-  def edit
-  end
+  before_action :set_tag, only: [:show, :edit, :update, :destroy ]
 
-  def new
-  end
-
-  def create
+  def index
+    @tags = Tag.all
   end
 
   def show
   end
 
+  def new
+    @tag = Tag.new
+  end
+
+  def create
+    @tag = Tag.new(tag_params)
+    @tag.save
+    redirect_to tags_path
+  end
+
+  def edit
+  end
+
+
   def update
+    @tag.update(tag_params)
+    redirect_to tag_path(@tag)
   end
 
   def destroy
+    @tag.destroy
+    redirect_to tags_path
+  end
+
+  private
+
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
+
+  def tag_params
+    params.require(:tag).permit(:mentor_profil_id, :skill_id)
   end
 end

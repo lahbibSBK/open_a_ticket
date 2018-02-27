@@ -16,15 +16,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   resources :tickets do
     resources :reviews, only: [:index, :new, :create]
   end
   resources :reviews, only: [:show, :edit, :update, :destroy]
 
-  resources :tags do
-    resources :skills, only: [:index, :new, :create]
+  resources :mentor_profils do
+    resources :tags, only: [:index, :new, :create]
+    resources :tags do
+      resources :skills, only: [:index, :new, :create]
+    end
+    resources :skills, only: [:show, :edit, :update, :destroy]
   end
-  resources :skills, only: [:show, :edit, :update, :destroy]
 end
 
