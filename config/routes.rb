@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
+  get 'mentor_profils/new'
 
-  get 'reviews/create'
+  get 'mentor_profils/create'
+
+  get 'mentor_profils/update'
+
+  get 'mentor_profils/destroy'
+
+  get 'mentor_profils/show'
+
+  get 'mentor_profils/edit'
+
+  get 'mentor_profils/index'
 
   devise_for :users
   root to: 'pages#home'
