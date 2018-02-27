@@ -112,6 +112,8 @@ ticket1 = Ticket.create!(
       ticket_location: "Dakar",
       ticket_duration: "3 semaines",
       price: "300€",
+      priority: "low",
+      status: "closed",
     )
 ticket2 = Ticket.create!(
       title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
@@ -121,6 +123,8 @@ ticket2 = Ticket.create!(
       ticket_location: "Lyon",
       ticket_duration: "1 semaines",
       price: "150€",
+      priority: "low",
+      status: "Pending",
     )
 
 ticket3 = Ticket.create!(
@@ -131,6 +135,8 @@ ticket3 = Ticket.create!(
       ticket_location: "Paris",
       ticket_duration: "3 mois",
       price: "1300€",
+      priority: "High",
+      status: "cancelled",
     )
 
 ticket4 = Ticket.create!(
@@ -141,6 +147,8 @@ ticket4 = Ticket.create!(
       ticket_location: "Marseille",
       ticket_duration: "1 jours",
       price: "30€",
+      priority: "high",
+      status: "pending",
     )
 
 puts 'Creating Reviews Seeds...'
