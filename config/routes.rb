@@ -18,7 +18,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :tickets do
-    resources :reviews, only: [:index, :new, :create ]
+    resources :reviews, only: [:index, :new, :create]
   end
-  resources :reviews, only: [ :show, :edit, :update, :destroy ]
+  resources :reviews, only: [:show, :edit, :update, :destroy]
+
+  resources :tags do
+    resources :skills, only: [:index, :new, :create]
+  end
+  resources :skills, only: [:show, :edit, :update, :destroy]
 end
+

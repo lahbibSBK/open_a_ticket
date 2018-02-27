@@ -1,2 +1,7 @@
 <h1>MentorProfils#edit</h1>
-<p>Find me in app/views/mentor_profils/edit.html.erb</p>
+<h1>MentorProfils#index</h1>
+<% @mentor_profils.each do |mentor_profil| %>
+  <h2><%= mentor_profil.experience %></h2>
+  <p><%= mentor_profil.minium_rate %></p>
+
+<% end %>

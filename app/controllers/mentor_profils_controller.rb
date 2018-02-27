@@ -2,15 +2,15 @@ class MentorProfilsController < ApplicationController
   before_action :set_mentor_profil, only: [:show, :edit, :update, :destroy]
 
   def index
-    @mentor_profils = Mentor_profil.all
+    @mentor_profils = MentorProfil.all
   end
 
   def new
-    @mentor_profil = Mentor_profil.new
+    @mentor_profil = MentorProfil.new
   end
 
   def create
-    @mentor_profil = Mentor_profil.new(mentor_profil_params)
+    @mentor_profil = MentorProfil.new(mentor_profil_params)
     if @mentor_profil.save
       redirect_to mentor_profil_path(@mentor_profil)
     else
@@ -40,7 +40,7 @@ class MentorProfilsController < ApplicationController
   private
 
   def set_mentor_profil
-    @mentor_profil = Mentor_profil.find(params[:id])
+    @mentor_profil = MentorProfil.find(params[:id])
   end
 
   def mentor_profil_params
