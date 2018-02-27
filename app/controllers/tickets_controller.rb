@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.save
-    redirect_to tickets_path
+    redirect_to dashboard_path
   end
 
   def edit

@@ -167,6 +167,11 @@ Review.create!(
       description: "C'est Un Mentor de guedin!!!!!",
       rating: 1
   )
+Review.create!(
+      ticket_id: ticket4.id,
+      description: "Hooops I did it Again!!!!!",
+      rating: 4
+  )
 puts 'Creating XXXXs Seeds...'
 
 puts 'Finished!'
