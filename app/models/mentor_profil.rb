@@ -1,6 +1,8 @@
 class MentorProfil < ApplicationRecord
   has_many :tags
   has_many :skills, through: :tags
-  has_one :user
+  belongs_to :user
+  has_many :tickets
+  has_many :reviews, through: :tickets
 
 end
