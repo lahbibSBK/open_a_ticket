@@ -91,21 +91,21 @@ puts 'Creating Tickets Seeds...'
 #       ticket_duration: "1 jours",
 #       price: "30€",
 #     )
-# puts 'Creating Skills Seeds...'
-# skill1 = Skill.create!(
-#       name: "Ruby",
-#   )
-# skill2 = Skill.create!(
-#       name: "HTML",
-#   )
-# skill3 = Skill.create!(
-#       name: "CSS",
-#   )
-# skill4 = Skill.create!(
-#       name: "Python",
-#   )
-# skill5 = Skill.create!(
-#       name: "Javascript",
-#   )
+puts 'Creating Skills Seeds...'
+skill1 = Skill.create!(
+      name: "Ruby",
+  )
+skill2 = Skill.create!(
+      name: "HTML",
+  )
+skill3 = Skill.create!(
+      name: "CSS",
+  )
+skill4 = Skill.create!(
+      name: "Python",
+  )
+skill5 = Skill.create!(
+      name: "Javascript",
+  )
 
  puts 'Finished!'
