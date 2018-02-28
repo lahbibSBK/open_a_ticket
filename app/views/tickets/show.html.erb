@@ -30,3 +30,10 @@
   </div>
 </div>
 
+<h1>Selected mentors</h1>
+  <ul class="mentor_selected">
+    <% @mentor_profils.each do |mentor_profil| %>
+    <li><%= render 'shared/mentorcard', mentor: mentor_profil %></li>
+    <% end %>
+  </ul>
+

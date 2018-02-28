@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @mentor_profils = MentorProfil.all
   end
 
   def new
