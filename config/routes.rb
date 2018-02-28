@@ -19,14 +19,17 @@ Rails.application.routes.draw do
   resources :tickets do
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :reviews, only: [:show, :edit, :update, :destroy]
+
 
   resources :mentor_profils do
     resources :tags, only: [:index, :new, :create]
     resources :tags do
       resources :skills, only: [:index, :new, :create]
     end
+    resources :reviews, only: [:show, :edit, :index]
     resources :skills, only: [:show, :edit, :update, :destroy]
   end
+
+  get '/dashboard', to: 'tickets#index'
 end
 

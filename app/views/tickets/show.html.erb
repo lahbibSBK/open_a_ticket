@@ -1,2 +1,32 @@
 <h1>Tickets#show</h1>
+<div class="container">
+  <div class="ticket">
+    <table>
+      <tr>
+        <th>Pic ?</th>
+        <th>title</th>
+        <th>created_at</th>
+        <th>alumni_id</th>
+        <th>mentor_id</th>
+        <th>ticket_skills</th>
+        <th>ticket_location</th>
+        <th>ticket_duration</th>
+        <th>Status</th>
+        <th>price</th>
+      </tr>
+      <tr>
+        <th><img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></th>
+        <th><p><%= @ticket.title %></p></th>
+        <th><p><%= @ticket.created_at %></p></th>
+        <th><p><%= @ticket.alumni_id %></p></th>
+        <th><p><%= @ticket.mentor_id %></p></th>
+        <th><p><%= @ticket.ticket_skills %></p></th>
+        <th><p><%= @ticket.ticket_location %></p></th>
+        <th><p><%= @ticket.ticket_duration %></p></th>
+        <th><p class="status pending"><%= @ticket.status %></p></th>
+        <th><p class="price"><%= @ticket.price %></p></th>
+      </tr>
+    </table>
+  </div>
+</div>
 
