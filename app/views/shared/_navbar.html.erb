@@ -10,25 +10,16 @@
       <div class="flex_box space-between">
 
         <a href="/tickets/new" class="btn-open font-20 text-white" id="open_btn">Open a ticket</a>
-        <a href="/mentor_profils/new" class="btn-open font-20 text-white" id="open_btn">Become a Mentor</a>
+        <a href="/mentor_profils/new" class="btn-open font-20 text-white ml-3" id="open_btn">Become a Mentor</a>
 
         <!-- avatar -->
-        <div class="p-2 text-gray font-20 ml-2"><i class="fas fa-circle"></i></div>
+        <div class="p-2 text-gray little-circle ml-2"><i class="fas fa-circle"></i></div>
         <!-- avatar -->
 
         <div class="dropdown">
           <% if current_user %>
             <img src=<%= current_user.pic_url %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-          <% else %>
-            <div class="p-2 text-white font-20 ml-2"><i class="fas fa-circle"></i></div>
           <% end %>
-
-          <div class="dropdown-menu" aria-labelledby="control">
-            <a class="dropdown-item" href="#">Dashboard</a>
-            <a class="dropdown-item" href="#">Settings</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Log out</a>
-          </div>
         </div>
       </div>
 
