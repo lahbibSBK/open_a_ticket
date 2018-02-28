@@ -61,6 +61,13 @@ matmentor = MentorProfil.create!(
 )
 
 puts 'Creating Skills Seeds...'
+# Constante Pour afficher dans le formulaire mentor
+
+Skill = ["javascript", "rails", "php", "ios", "html/css", "angularJs", "Python", "Android",
+"Mysql", "Wordpress", "Xcode", "Java", "C", "Node.js", "asp.net", "bootstrap", "shopify",
+"github", "go", "heroku", "raect", "MongoDb", "Magento", "postgresql", "ruby", "SEO",
+"UX/UI"]
+
 skill1 = Skill.create!(
       name: "Ruby",
   )

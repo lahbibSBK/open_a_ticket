@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180226170616) do
     t.string "priority"
     t.string "status"
     t.integer "alumni_id"
-    t.integer "mentor_id"
+    t.integer "mentor_profil_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
