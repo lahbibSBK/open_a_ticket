@@ -1,6 +1,7 @@
-Tickets index
+Dashboard
 <div class="container">
   <div class="ticket">
+    My Ticket As Alumni
     <table>
       <tr>
         <th>Pic ?</th>
@@ -20,14 +21,16 @@ Tickets index
         <th><p><%= ticket.title %></p></th>
         <th><p><%= ticket.created_at %></p></th>
         <th><p><%= ticket.alumni_id %></p></th>
-        <th><p><%= ticket.mentor_id %></p></th>
+        <th><p><%= ticket.mentor_profil_id %></p></th>
         <th><p><%= ticket.ticket_skills %></p></th>
         <th><p><%= ticket.ticket_location %></p></th>
         <th><p><%= ticket.ticket_duration %></p></th>
-        <th><p class="status pending">Pending</p></th>
+        <th><p class="status pending"><%= ticket.status %></p></th>
         <th><p class="price"><%= ticket.price %></p></th>
       </tr>
       <% end %>
     </table>
   </div>
 </div>
+
+

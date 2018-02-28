@@ -1,2 +1,22 @@
 <h1>MentorProfils#show</h1>
-<p>Find me in app/views/mentor_profils/show.html.erb</p>
+<div class="container">
+  <div class="Mentor">
+    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/">
+    <p><%= @mentor_profil.user_id %></p>
+
+    <p><%= @mentor_profil.minimum_price %></p>
+    <p><%= @mentor_profil.experience %></p>
+
+    <br>
+    <br>
+    <ul>
+      <% @reviews.each do |review| %>
+        <%= review.description %>
+        <% review.rating.to_i.times do |i| %>
+          <li><i class="fa fa-star"></i></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

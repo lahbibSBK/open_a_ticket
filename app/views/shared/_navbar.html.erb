@@ -9,16 +9,20 @@
 
       <div class="flex_box space-between">
 
-        <a href="#" class="btn-open font-20 btn-color-gray">Open a ticket</a>
+        <a href="/tickets/new" class="btn-open font-20 text-white" id="open_btn">Open a ticket</a>
+        <a href="/mentor_profils/new" class="btn-open font-20 text-white" id="open_btn">Become a Mentor</a>
 
         <!-- avatar -->
         <div class="p-2 text-gray font-20 ml-2"><i class="fas fa-circle"></i></div>
         <!-- avatar -->
 
         <div class="dropdown">
-          <button class="btn-open btn-color-gray dropdown-toggle" type="button" id="control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user font-15"></i>
-          </button>
+          <% if current_user %>
+            <img src=<%= current_user.pic_url %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <% else %>
+            <div class="p-2 text-white font-20 ml-2"><i class="fas fa-circle"></i></div>
+          <% end %>
+
           <div class="dropdown-menu" aria-labelledby="control">
             <a class="dropdown-item" href="#">Dashboard</a>
             <a class="dropdown-item" href="#">Settings</a>
@@ -30,3 +34,4 @@
 
     </div>
 </nav>
+
