@@ -1,15 +1,28 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<body class="bg-dark">
+  <diV class="flexbox">
+    <div class="form">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          <div class="form-actions">
+             <%= f.button :submit, "SIGN IN" %>
+          </div>
+          <div class="social-login-content">
+                            <div class="social-button">
+                                <button type="button" class="btn social linkedin btn-flat btn-addon mb-3"></i>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+</i>SIGN IN WITH LINKEDIN</button>
+                                <button type="button" class="btn social github btn-flat btn-addon mt-2"><i class="ti-twitter"></i>SIGN IN WITH GITHUB</button>
+                            </div>
+                        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </diV>
 
-<%= render "devise/shared/links" %>
+
+</body>
