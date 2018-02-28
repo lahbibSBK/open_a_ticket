@@ -52,6 +52,7 @@ end
       user_id: users.sample.id
 )
 
+
 puts 'Creating Tickets Seeds...'
   ticket1 = Ticket.create!(
       title: "Besoin d'aide pour installer ruby",
@@ -82,15 +83,7 @@ puts 'Creating Tickets Seeds...'
 #       price: "1300€",
 #     )
 
-# ticket4 = Ticket.create!(
-#       title: "need help with git xxxxxxxxx",
-#       alumni_id: moh.id,
-#       mentor_id: isamentor.id,
-#       ticket_skills: "Git",
-#       ticket_location: "Marseille",
-#       ticket_duration: "1 jours",
-#       price: "30€",
-#     )
+
 puts 'Creating Skills Seeds...'
 skill1 = Skill.create!(
       name: "Ruby",
@@ -108,4 +101,102 @@ skill5 = Skill.create!(
       name: "Javascript",
   )
 
- puts 'Finished!'
+puts 'Creating Tags Seeds...'
+tagisa = Tag.create!(
+      mentor_profil_id: isamentor.id,
+      skill_id: skill1.id
+  )
+Tag.create!(
+      mentor_profil_id: isamentor.id,
+      skill_id: skill2.id
+  )
+Tag.create!(
+      mentor_profil_id: isamentor.id,
+      skill_id: skill3.id
+  )
+Tag.create!(
+      mentor_profil_id: isamentor.id,
+      skill_id: skill4.id
+  )
+Tag.create!(
+      mentor_profil_id: isamentor.id,
+      skill_id: skill5.id
+  )
+tagmat = Tag.create!(
+      mentor_profil_id: matmentor.id,
+      skill_id: skill2.id
+  )
+
+puts 'Creating Tickets Seeds...'
+ticket1 = Ticket.create!(
+      title: "Besoin d'aide pour installer ruby",
+      alumni_id: moh.id,
+      mentor_profil: isa,
+      ticket_skills: "Ruby",
+      ticket_location: "Dakar",
+      ticket_duration: "3 semaines",
+      price: "300€",
+      priority: "low",
+      status: "closed",
+    )
+ticket2 = Ticket.create!(
+      title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
+      alumni_id: lah.id,
+      mentor_profil: mat,
+      ticket_skills: "Rails",
+      ticket_location: "Lyon",
+      ticket_duration: "1 semaines",
+      price: "150€",
+      priority: "low",
+      status: "Pending",
+    )
+
+ticket3 = Ticket.create!(
+      title: "pbm avec n git push",
+      alumni_id: mat.id,
+      mentor_profil: isa,
+      ticket_skills: "Git",
+      ticket_location: "Paris",
+      ticket_duration: "3 mois",
+      price: "1300€",
+      priority: "High",
+      status: "cancelled",
+    )
+
+ticket4 = Ticket.create!(
+      title: "need help with git xxxxxxxxx",
+      alumni_id: moh.id,
+      mentor_profil: isa,
+      ticket_skills: "Git",
+      ticket_location: "Marseille",
+      ticket_duration: "1 jours",
+      price: "30€",
+      priority: "high",
+      status: "pending",
+    )
+
+puts 'Creating Reviews Seeds...'
+Review.create!(
+      ticket_id: ticket1.id,
+      description: "C'est Un Mentor de guedin!!!!!",
+      rating: 5
+  )
+Review.create!(
+      ticket_id: ticket2.id,
+      description: "C'est Un Mentor bidon!!!!!",
+      rating: 1
+  )
+Review.create!(
+      ticket_id: ticket3.id,
+      description: "C'est Un Mentor de guedin!!!!!",
+      rating: 1
+  )
+Review.create!(
+      ticket_id: ticket4.id,
+      description: "Hooops I did it Again!!!!!",
+      rating: 4
+  )
+puts 'Creating XXXXs Seeds...'
+
+puts 'Finished!'
+

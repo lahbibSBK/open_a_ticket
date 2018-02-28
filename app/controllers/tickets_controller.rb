@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
-before_action :set_ticket, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy ]
+
   def index
     @tickets = Ticket.all
   end
@@ -14,7 +15,7 @@ before_action :set_ticket, only: [ :show, :edit, :update, :destroy ]
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.save
-    redirect_to tickets_path
+    redirect_to dashboard_path
   end
 
   def edit
