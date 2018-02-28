@@ -10,14 +10,13 @@
     <br>
     <br>
     <ul>
-    <% @mentor_profil.reviews.each do |review| %>
-      <%= review.description %>
-      <% review.rating.times %>
-        <li><i class="fa fa-star"></i></li>
+      <% @reviews.each do |review| %>
+        <%= review.description %>
+        <% review.rating.each do |i| %>
+          <li><i class="fa fa-star"></i></li>
+        <% end %>
       <% end %>
-    <% end %>
     </ul>
-
   </div>
 </div>
 
