@@ -1,3 +1,8 @@
+require 'open-uri'
+require 'nokogiri'
+require 'json'
+
+
 puts 'Cleaning database...'
 
 Review.destroy_all
@@ -7,14 +12,84 @@ Skill.destroy_all
 MentorProfil.destroy_all
 User.destroy_all
 
+COOKIES = "_kitt2017_=Z04yK20wWDFFdXFyN2VwUFVHK0RNMTh1cG5MMVUrQnN6TDZuZTJHY3pHQjVEWnhpdVFmb1JlVDVycjBHSk9wdWJHaWt1VnE3cllmdUZKZzFubWpYV0haRzIxemNYanVDMXovZjVkZDdsL1oxTlRScUJoM3puQ2FLVDZBWmtkVitEeFR0MUZ2cEtOVVFjVWs1cDJWWk9FNzBQcFZhR3RPdDhJY1pVdlNFalU0Z09kY1ZrYkoyL3V0OEFuWVBib1lTYnNuR3d3RmcvVFFGd3pYMHk3WWlFbnN5cTRNOU9vTWNsaEcrc29Ia1FwcTZmZ0ZLNTE0NFhKQ2QrbnBVQ0Q5ZHFQb1ppZEpTb052Sjgrak1qMDZEdVFFTnRDenh2ZU1zVUpGRWRFNzhuVUhDZGlJSFI5QWNkSVNKS2JnUG5rTitTeExCWXlvZXdaMG0zVDh2Y0ttSEdRUUZWZGFTSk1hRzRmSWlVd2xVSXdsQS9BQmE0Y3ptZ0ErOVhaRlBqQSs4LS0xbkpMMUpoVW5KeElVc0cyWUtDWDJnPT0%3D--321cb1189533c5490dc086095b595fd2e253338f"
+url = "https://kitt.lewagon.com/camps/121/classmates"
+
+html_file = open(url, "Cookie" => COOKIES).read
+
+students = []
+html_doc = Nokogiri::HTML(html_file)
+html_doc.css('.img-thumbnail').each do |element|
+ students << element.parent.first[1][(8..-1)]
+end
+
+users = []
+students.each do |element|
+  url = "https://kitt.lewagon.com/api/v1/users/#{element}"
+  student_url = open(url, "Cookie" => COOKIES).read
+  student = JSON.parse(student_url)
+   users << User.create!(
+    email: student["email"],
+    password: "azerty",
+    first_name: student["first_name"],
+    last_name: student["last_name"],
+    phone_number: student["phone"],
+    batch_wagon: "121"
+  )
+end
 
 
+ puts 'Creating Mentor Profils Seeds...'
+jos = User.create!(
+      email: "jos@gmail.com",
+      password: "azerty",
+      first_name: "joseph",
+      last_name: "Blachard",
+      phone_number: "0612345677",
+      address: "12 rue de saint fons 69007 LYON",
+      batch_wagon: "XXX"
+)
+josephmentor = MentorProfil.create!(
+      experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
+      minimum_price: "50",
+      user_id: jos.id
+)
+kev = User.create!(
+      email: "kev@gmail.com",
+      password: "azerty",
+      first_name: "kévin",
+      last_name: "Chavanne",
+      phone_number: "0612345676",
+      address: "12 rue de saint fons 42001  saint-étienne",
+      batch_wagon: "XYX"
+)
+ kevinmentor = MentorProfil.create!(
+      experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
+      minimum_price: "100",
+      user_id: kev.id
+)
+
+
+puts 'Creating Tickets Seeds...'
+  ticket1 = Ticket.create!(
+      title: "Besoin d'aide pour installer ruby",
+      alumni: users.first,
+      mentor: josephmentor.user,
+      ticket_skills: "Ruby",
+      ticket_location: "Dakar",
+      ticket_duration: "3 semaines",
+      price: "300€",
+    )
+
+
+
+#seeds pour le débug à supprimer à la fin
 puts 'Creating Users Seeds...'
 isa = User.create!(
       email: "iza@gmail.com",
       password: "azerty",
-      first_name: "isabelle",
-      last_name: "Pontoizeau",
+      first_name: "isabelle2",
+      last_name: "Pontoizeau2",
       phone_number: "0612345678",
       address: "12 rue de Marseille 69007 LYON",
       batch_wagon: "121"
@@ -22,8 +97,8 @@ isa = User.create!(
 lah = User.create!(
       email: "lah@gmail.com",
       password: "azerty",
-      first_name: "lahbib",
-      last_name: "belhaddad",
+      first_name: "lahbib2",
+      last_name: "belhaddad2",
       phone_number: "0612345679",
       address: "12 rue de la planète Mars 69007 LYON",
       batch_wagon: "111"
@@ -31,8 +106,8 @@ lah = User.create!(
 moh = User.create!(
       email: "moh@gmail.com",
       password: "azerty",
-      first_name: "mohamed",
-      last_name: "Diop",
+      first_name: "mohamed2",
+      last_name: "Diop2",
       phone_number: "0612345680",
       address: "123 avenue Jean Jaures 69007 LYON",
       batch_wagon: "404"
@@ -41,8 +116,8 @@ moh = User.create!(
 mat = User.create!(
       email: "mat@gmail.com",
       password: "azerty",
-      first_name: "Mathieu",
-      last_name: "Nicolas",
+      first_name: "Mathieu2",
+      last_name: "Nicolas2",
       phone_number: "0612345681",
       address: "23 rue de Montrochet 69002 LYON",
       batch_wagon: "89"
