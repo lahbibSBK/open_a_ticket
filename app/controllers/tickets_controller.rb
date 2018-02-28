@@ -6,6 +6,9 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @review = @ticket.review
+    @mentor_profils = MentorProfil.all
+
   end
 
   def new
