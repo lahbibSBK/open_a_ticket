@@ -27,7 +27,7 @@ students.each do |element|
   url = "https://kitt.lewagon.com/api/v1/users/#{element}"
   student_url = open(url, "Cookie" => COOKIES).read
   student = JSON.parse(student_url)
-  users << User.create!(
+   users << User.create!(
     email: student["email"],
     password: "azerty",
     first_name: student["first_name"],
@@ -40,28 +40,28 @@ end
 
  puts 'Creating Mentor Profils Seeds...'
 
-p josephmentor = MentorProfil.create!(
+  p josephmentor = MentorProfil.create!(
       experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
       minimum_price: "50",
       user_id: users.sample.id
 )
 
-p kevinmentor = MentorProfil.create!(
+ kevinmentor = MentorProfil.create!(
       experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
       minimum_price: "100",
       user_id: users.sample.id
 )
 
-# puts 'Creating Tickets Seeds...'
-#  ticket1 = Ticket.create!(
-#       title: "Besoin d'aide pour installer ruby",
-#       alumni_id: users.first.id,
-#       mentor_id: josephmentor.id,
-#       ticket_skills: "Ruby",
-#       ticket_location: "Dakar",
-#       ticket_duration: "3 semaines",
-#       price: "300€",
-#     )
+puts 'Creating Tickets Seeds...'
+  ticket1 = Ticket.create!(
+      title: "Besoin d'aide pour installer ruby",
+      alumni: users.first,
+      mentor: josephmentor.user,
+      ticket_skills: "Ruby",
+      ticket_location: "Dakar",
+      ticket_duration: "3 semaines",
+      price: "300€",
+    )
 # ticket2 = Ticket.create!(
 #       title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
 #       alumni_id: lah.id,
