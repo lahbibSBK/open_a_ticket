@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226170616) do
+ActiveRecord::Schema.define(version: 20180228140048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 20180226170616) do
     t.string "priority"
     t.string "status"
     t.integer "alumni_id"
-    t.integer "mentor_profil_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mentor_profil_id"
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
-    t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
+    t.index ["mentor_profil_id"], name: "index_tickets_on_mentor_profil_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,4 +91,5 @@ ActiveRecord::Schema.define(version: 20180226170616) do
   add_foreign_key "reviews", "tickets"
   add_foreign_key "tags", "mentor_profils"
   add_foreign_key "tags", "skills"
+  add_foreign_key "tickets", "mentor_profils"
 end
