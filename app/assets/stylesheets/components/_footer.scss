@@ -2,8 +2,12 @@
   font-size: 15px;
 }
 
-.footer-color {
-  color: #eaeaea;
+.bottom-0 {
+  bottom: 0;
+}
+
+.p-absolute {
+  position: absolute;
 }
 
 .no-deco {
@@ -15,4 +19,40 @@
 
 .active-footer-color {
   color: #aeaeae ;
+}
+
+.footer-font-size {
+  font-size: 15px;
+  @media screen and(max-width: "943px") {
+    font-size: 13px;
+  }
+  @media screen and(max-width: "685px") {
+    font-size: 8px;
+  }
+}
+
+.footer-icon-size {
+  font-size: 30px;
+  @media screen and(max-width: "943px") {
+    font-size: 23px;
+  }
+  @media screen and(max-width: "685px") {
+    font-size: 18px;
+  }
+}
+
+.flex-grow {
+  flex-grow: 1000;
+}
+
+.margin-1 {
+  margin-left: 4px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.width-15 {
+  width: 15%;
 }
