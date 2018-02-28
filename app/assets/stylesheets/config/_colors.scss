@@ -10,3 +10,17 @@ $gray: #000000;
 $light-gray: #F4F4F4;
 
 $open-red: #cd474a;
+$text-gray: #aeaeae;
+.text-gray {color: #aeaeae;}
+.text-gray-hover {
+  color: #aeaeae;
+  &:hover {
+    color: #888;
+  }
+}
+.btn-color-gray {
+  color: white;
+  &:hover {
+    color: #aeaeae;
+  }
+}
