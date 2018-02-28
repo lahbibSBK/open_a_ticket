@@ -34,7 +34,8 @@ students.each do |element|
     first_name: student["first_name"],
     last_name: student["last_name"],
     phone_number: student["phone"],
-    batch_wagon: "121"
+    batch_wagon: "121",
+    pic_url: student["avatar"]
   )
 end
 
@@ -47,7 +48,8 @@ jos = User.create!(
       last_name: "Blachard",
       phone_number: "0612345677",
       address: "12 rue de saint fons 69007 LYON",
-      batch_wagon: "XXX"
+      batch_wagon: "XXX",
+      pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4"
 )
 josephmentor = MentorProfil.create!(
       experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
@@ -61,7 +63,8 @@ kev = User.create!(
       last_name: "Chavanne",
       phone_number: "0612345676",
       address: "12 rue de saint fons 42001  saint-étienne",
-      batch_wagon: "XYX"
+      batch_wagon: "XYX",
+      pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4"
 )
  kevinmentor = MentorProfil.create!(
       experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
@@ -92,7 +95,8 @@ isa = User.create!(
       last_name: "Pontoizeau2",
       phone_number: "0612345678",
       address: "12 rue de Marseille 69007 LYON",
-      batch_wagon: "121"
+      batch_wagon: "121",
+      pic_url: "https://avatars2.githubusercontent.com/u/34674849?v=4"
 )
 lah = User.create!(
       email: "lah@gmail.com",
@@ -101,7 +105,8 @@ lah = User.create!(
       last_name: "belhaddad2",
       phone_number: "0612345679",
       address: "12 rue de la planète Mars 69007 LYON",
-      batch_wagon: "111"
+      batch_wagon: "111",
+      pic_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg"
 )
 moh = User.create!(
       email: "moh@gmail.com",
@@ -110,7 +115,8 @@ moh = User.create!(
       last_name: "Diop2",
       phone_number: "0612345680",
       address: "123 avenue Jean Jaures 69007 LYON",
-      batch_wagon: "404"
+      batch_wagon: "404",
+      pic_url: "https://avatars2.githubusercontent.com/u/30232344?v=4"
 )
 
 mat = User.create!(
@@ -120,7 +126,8 @@ mat = User.create!(
       last_name: "Nicolas2",
       phone_number: "0612345681",
       address: "23 rue de Montrochet 69002 LYON",
-      batch_wagon: "89"
+      batch_wagon: "89",
+      pic_url: "https://avatars3.githubusercontent.com/u/31872246?v=4"
 )
 
 puts 'Creating Mentor Profils Seeds...'
