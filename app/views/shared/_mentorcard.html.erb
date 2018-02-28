@@ -1,6 +1,21 @@
 <div class="card">
-  <ul>
-    <li><%=mentor.user.first_name %></li>
-    <li><%= link_to mentor.user.last_name, tickets_path %></li>
-  </ul>
+  <div class="informations">
+    <img src="http://placehold.it/80x80" alt="">
+    <p><%= mentor.user.first_name %> <%= mentor.user.last_name %></p>
+    <%= link_to "choose #{mentor.user.first_name} #{mentor.user.last_name}", tickets_path %>
+  </div>
+
+  <div class="reviews">
+    <% if mentor.reviews.blank? %>
+      <p>No review yet</p>
+    <% else %>
+      <ul>
+        <% mentor.reviews.each do |review| %>
+          <li><%= review.description %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
+
+
