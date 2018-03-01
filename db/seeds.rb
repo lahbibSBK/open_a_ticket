@@ -82,6 +82,8 @@ puts 'Creating Tickets Seeds...'
       ticket_location: "Dakar",
       ticket_duration: "3 semaines",
       price: "300€",
+      priority: "low",
+      status: "active",
     )
 
 

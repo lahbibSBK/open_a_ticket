@@ -1,11 +1,10 @@
 <div class="card">
   <div class="informations">
-    <img src="http://placehold.it/80x80" alt="">
+    <img src=<%= mentor.user.pic_url %> class="avatar-large" alt="avatar">
     <p><%= mentor.user.first_name %> <%= mentor.user.last_name %></p>
     <%= link_to "choose #{mentor.user.first_name} #{mentor.user.last_name}", tickets_path %>
   </div>
-
-  <div class="reviews">
+  <div class="card-description">
     <% if mentor.reviews.blank? %>
       <p>No review yet</p>
     <% else %>
@@ -17,5 +16,4 @@
     <% end %>
   </div>
 </div>
-
 

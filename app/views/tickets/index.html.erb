@@ -17,7 +17,6 @@ Dashboard
       </tr>
       <% @tickets.each do |ticket| %>
       <tr>
-        <th><img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></th>
         <th><p><%= link_to ticket.title , ticket_path(ticket) %></p></th>
         <th><p><%= link_to ticket.created_at , ticket_path(ticket) %></p></th>
         <th><p><%= link_to ticket.alumni_id , ticket_path(ticket) %></p></th>
