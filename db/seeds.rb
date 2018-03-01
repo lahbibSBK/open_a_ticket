@@ -11,6 +11,13 @@ Tag.destroy_all
 Skill.destroy_all
 MentorProfil.destroy_all
 User.destroy_all
+Gutentag::Tag.destroy_all
+
+
+['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI'].each do |tag_name|
+  Gutentag::Tag.create(name: tag_name)
+end
+
 
 COOKIES = "_kitt2017_=Z04yK20wWDFFdXFyN2VwUFVHK0RNMTh1cG5MMVUrQnN6TDZuZTJHY3pHQjVEWnhpdVFmb1JlVDVycjBHSk9wdWJHaWt1VnE3cllmdUZKZzFubWpYV0haRzIxemNYanVDMXovZjVkZDdsL1oxTlRScUJoM3puQ2FLVDZBWmtkVitEeFR0MUZ2cEtOVVFjVWs1cDJWWk9FNzBQcFZhR3RPdDhJY1pVdlNFalU0Z09kY1ZrYkoyL3V0OEFuWVBib1lTYnNuR3d3RmcvVFFGd3pYMHk3WWlFbnN5cTRNOU9vTWNsaEcrc29Ia1FwcTZmZ0ZLNTE0NFhKQ2QrbnBVQ0Q5ZHFQb1ppZEpTb052Sjgrak1qMDZEdVFFTnRDenh2ZU1zVUpGRWRFNzhuVUhDZGlJSFI5QWNkSVNKS2JnUG5rTitTeExCWXlvZXdaMG0zVDh2Y0ttSEdRUUZWZGFTSk1hRzRmSWlVd2xVSXdsQS9BQmE0Y3ptZ0ErOVhaRlBqQSs4LS0xbkpMMUpoVW5KeElVc0cyWUtDWDJnPT0%3D--321cb1189533c5490dc086095b595fd2e253338f"
 url = "https://kitt.lewagon.com/camps/121/classmates"
@@ -72,6 +79,8 @@ kev = User.create!(
       user_id: kev.id
 )
 
+ kevinmentor.tag_names = ['html', 'css', 'RUBY ON RAILS', 'RUBY']
+kevinmentor.save
 
 puts 'Creating Tickets Seeds...'
   ticket10 = Ticket.create!(
@@ -144,6 +153,9 @@ matmentor = MentorProfil.create!(
       user_id: mat.id
 )
 
+matmentor.tag_names = ['PYTHON', 'ANDROID']
+matmentor.save
+
 puts 'Creating Skills Seeds...'
 skill1 = Skill.create!(
       name: "Ruby",
@@ -211,6 +223,9 @@ ticket2 = Ticket.create!(
       status: "Pending",
     )
 
+ticket2.tag_names = ['PYTHON', 'ANDROID', 'BOOTSTRAP']
+ticket2.save
+
 ticket3 = Ticket.create!(
       title: "pbm avec n git push",
       alumni_id: mat.id,
@@ -223,6 +238,9 @@ ticket3 = Ticket.create!(
       status: "cancelled",
     )
 
+ticket3.tag_names = ['RUBY', 'BOOTSTRAP']
+ticket3.save
+
 ticket4 = Ticket.create!(
       title: "need help with git xxxxxxxxx",
       alumni_id: moh.id,
@@ -234,6 +252,9 @@ ticket4 = Ticket.create!(
       priority: "high",
       status: "pending",
     )
+
+  ticket4.tag_names = ['HTML', 'CSS']
+  ticket4.save
 
 puts 'Creating Reviews Seeds...'
 Review.create!(

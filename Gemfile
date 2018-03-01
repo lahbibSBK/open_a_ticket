@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'awesome_print'
+gem 'gutentag', '~> 2.1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
