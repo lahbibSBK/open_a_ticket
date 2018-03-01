@@ -14,7 +14,6 @@ new Choices('#ticket_ticket_skills');
 
 // import 'choices.js/assets/styles/css/base.css';
 import 'choices.js/assets/styles/css/choices.css';
-=======
 console.log('Hello World from Webpacker')
 
 import { loadDynamicBannerText } from '../components/_banner';
