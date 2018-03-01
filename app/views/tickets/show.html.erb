@@ -1,48 +1,35 @@
 <div class="container">
-  <h1>Tickets#show</h1>
-  <div class="ticket">
-    <table>
-      <tr>
-        <th>Pic ?</th>
-        <th>title</th>
-        <th>created_at</th>
-        <th>alumni_id</th>
-        <th>mentor_id</th>
-        <th>ticket_skills</th>
-        <th>ticket_location</th>
-        <th>ticket_duration</th>
-        <th>Status</th>
-        <th>price</th>
-      </tr>
-      <tr>
-        <th><img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></th>
-        <th><p><%= @ticket.title %></p></th>
-        <th><p><%= @ticket.created_at %></p></th>
-        <th><p><%= @ticket.alumni_id %></p></th>
-        <th><p><%= @ticket.mentor_profil_id %></p></th>
-        <th><p><%= @ticket.ticket_skills %></p></th>
-        <th><p><%= @ticket.ticket_location %></p></th>
-        <th><p><%= @ticket.ticket_duration %></p></th>
-        <th><p class="status pending"><%= @ticket.status %></p></th>
-        <th><p class="price"><%= @ticket.price %></p></th>
-      </tr>
-    </table>
+  <h1>My tickets</h1>
+  <div class="mission">
+    <div class="mission-name">
+      <h3><p><%= @ticket.title %></p></h3>
+      <p><%= @ticket.created_at %></p>
+    </div>
+    <div class="mission-body">
+      <p><strong><%= @ticket.ticket_skills %></strong></p>
+      <p><%= @ticket.ticket_location %></p>
+      <p><%= @ticket.ticket_duration %></p>
+    </div>
+    <div class="mission-status">
+       <p class="status pending"><%= @ticket.status %></p>
+       <p class="price"><%= @ticket.price %></p>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div id="container_mentor">
+  <div class="container">
     <h2>Recommended mentors</h2>
-    <ul id="mentor_recommended">
+    <div class="row">
       <% @mentor_profils.each do |mentor_profil| %>
-        <li><%= render 'shared/mentorcard', mentor: mentor_profil %></li>
+        <div class="col-xs-12 col-sm-4 col-md-6">
+          <%= render 'shared/mentorcard', mentor: mentor_profil %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div id="container_mentor">
-    <h2>Selected mentor</h2>
+  <div class="container">
+    <div id="container_mentor">
+      <h2>Selected mentor</h2>
+    </div>
   </div>
 </div>
