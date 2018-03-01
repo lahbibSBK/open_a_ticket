@@ -9,8 +9,18 @@
 
       <div class="flex_box space-between">
 
-        <a href="/tickets/new" class="btn-open font-20 text-gray">Open a ticket</a>
-        <a href="/mentor_profils/new" class="btn-open font-20 text-gray ml-3" id="open_btn">Become a Mentor</a>
+        <a href="/tickets/new" class="btn-open font-20 text-gray-hover btn-nav">Open a ticket</a>
+        <a href="/mentor_profils/new" class="btn-open font-20 text-gray-hover ml-3 btn-nav" id="open_btn">Become a Mentor</a>
+
+        <div class="dropdown d-none" id="drop">
+          <button class="btn-open dropdown-toggle text-gray-hover" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ticket
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button onclick="location.href='/tickets/new';" class="dropdown-item" type="button">Open a ticket</button>
+              <button onclick="location.href='mentor_profils/new';" class="dropdown-item" type="button">Become a mentor</button>
+            </div>
+        </div>
 
         <!-- avatar -->
         <div class="p-2 text-gray little-circle ml-2"><i class="fas fa-circle"></i></div>

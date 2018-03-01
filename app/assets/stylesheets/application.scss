@@ -20,3 +20,7 @@
 @import "components/footer";
 @import "components/banner";
 @import "components/ticket";
+
+body {
+  min-height: 100vh;
+}
