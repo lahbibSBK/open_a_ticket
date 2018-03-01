@@ -77,7 +77,7 @@ puts 'Creating Tickets Seeds...'
   ticket10 = Ticket.create!(
       title: "Besoin d'aide pour installer ruby",
       alumni: users.first,
-      mentor: jos,
+
       ticket_skills: "Ruby",
       ticket_location: "Dakar",
       ticket_duration: "3 semaines",
@@ -191,7 +191,7 @@ puts 'Creating Tickets Seeds...'
 ticket1 = Ticket.create!(
       title: "Besoin d'aide pour installer ruby",
       alumni_id: moh.id,
-      mentor: isa,
+
       ticket_skills: "Ruby",
       ticket_location: "Dakar",
       ticket_duration: "3 semaines",
@@ -202,7 +202,7 @@ ticket1 = Ticket.create!(
 ticket2 = Ticket.create!(
       title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
       alumni_id: lah.id,
-      mentor: mat,
+
       ticket_skills: "Rails",
       ticket_location: "Lyon",
       ticket_duration: "1 semaines",
@@ -214,7 +214,7 @@ ticket2 = Ticket.create!(
 ticket3 = Ticket.create!(
       title: "pbm avec n git push",
       alumni_id: mat.id,
-      mentor: isa,
+
       ticket_skills: "Git",
       ticket_location: "Paris",
       ticket_duration: "3 mois",
@@ -226,7 +226,7 @@ ticket3 = Ticket.create!(
 ticket4 = Ticket.create!(
       title: "need help with git xxxxxxxxx",
       alumni_id: moh.id,
-      mentor: isa,
+
       ticket_skills: "Git",
       ticket_location: "Marseille",
       ticket_duration: "1 jours",

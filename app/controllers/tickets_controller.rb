@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor ]
 
   def index
     @tickets = Ticket.all
@@ -8,7 +8,6 @@ class TicketsController < ApplicationController
   def show
     @review = @ticket.review
     @mentor_profils = MentorProfil.all
-
   end
 
   def new
@@ -34,6 +33,11 @@ class TicketsController < ApplicationController
   def destroy
     @ticket.destroy
     redirect_to tickets_path
+  end
+
+  def mentor
+    @ticket.mentor = User.find(params[:mid])
+    @ticket.save
   end
 
   private

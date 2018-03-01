@@ -32,7 +32,7 @@ class MentorProfilsController < ApplicationController
   end
 
   def show
-    @reviews = @mentor_profil.reviews
+    @reviews = @mentor_profil.user.reviews
   end
 
   def edit

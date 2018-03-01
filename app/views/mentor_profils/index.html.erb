@@ -1,5 +1,6 @@
 <h1>MentorProfils#index</h1>
 <% @mentor_profils.each do |mentor_profil| %>
+  <img class="avatar-large" src=<%= mentor_profil.user.pic_url%>>
   <h2><%= mentor_profil.experience %></h2>
   <p><%= mentor_profil.minimum_price %></p>
 

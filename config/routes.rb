@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'tickets#index'
+  get '/tickets/:id/mentor/:mid', to: 'tickets#mentor', as: 'tickets_mentor'
 end
 
