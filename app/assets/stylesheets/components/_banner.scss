@@ -1,0 +1,55 @@
+.top-0 {
+  top: 0;
+}
+
+.z-last {
+  z-index: -1;
+}
+
+.hundred-viewport {
+  height: 100vh;
+}
+
+.no-repeat {
+  background-repeat: none;
+}
+
+.cover {
+  background-size: cover;
+}
+
+.display-8 {
+  font-size: 13rem;
+  font-weight: lighter;
+}
+
+.display-7 {
+  font-size: 5rem;
+  @media screen and (max-width: "800px") {
+    font-size: 3.5rem;
+  }
+}
+
+.display-6 {
+  font-size: 5rem;
+}
+
+.text-light {
+  font-weight: lighter;
+}
+
+.height-12 {
+  height: 6rem;
+}
+
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.roundish {
+  border-radius: 15px;
+}
+
+.o-visible {
+  overflow: visible;
+}

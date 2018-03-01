@@ -1,5 +1,5 @@
-<h1>Tickets#show</h1>
 <div class="container">
+  <h1>Tickets#show</h1>
   <div class="ticket">
     <table>
       <tr>
@@ -19,7 +19,7 @@
         <th><p><%= @ticket.title %></p></th>
         <th><p><%= @ticket.created_at %></p></th>
         <th><p><%= @ticket.alumni_id %></p></th>
-        <th><p><%= @ticket.mentor_id %></p></th>
+        <th><p><%= @ticket.mentor_profil_id %></p></th>
         <th><p><%= @ticket.ticket_skills %></p></th>
         <th><p><%= @ticket.ticket_location %></p></th>
         <th><p><%= @ticket.ticket_duration %></p></th>
@@ -30,3 +30,19 @@
   </div>
 </div>
 
+<div class="container">
+  <div id="container_mentor">
+    <h2>Recommended mentors</h2>
+    <ul id="mentor_recommended">
+      <% @mentor_profils.each do |mentor_profil| %>
+        <li><%= render 'shared/mentorcard', mentor: mentor_profil %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div id="container_mentor">
+    <h2>Selected mentor</h2>
+  </div>
+</div>

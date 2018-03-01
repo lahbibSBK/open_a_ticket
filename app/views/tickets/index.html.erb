@@ -18,15 +18,16 @@ Dashboard
       <% @tickets.each do |ticket| %>
       <tr>
         <th><img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></th>
-        <th><p><%= ticket.title %></p></th>
-        <th><p><%= ticket.created_at %></p></th>
-        <th><p><%= ticket.alumni_id %></p></th>
-        <th><p><%= ticket.mentor_id %></p></th>
-        <th><p><%= ticket.ticket_skills %></p></th>
-        <th><p><%= ticket.ticket_location %></p></th>
-        <th><p><%= ticket.ticket_duration %></p></th>
-        <th><p class="status pending"><%= ticket.status %></p></th>
-        <th><p class="price"><%= ticket.price %></p></th>
+        <th><p><%= link_to ticket.title , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.created_at , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.alumni_id , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.mentor_profil_id , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.ticket_skills , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.ticket_location , ticket_path(ticket) %></p></th>
+        <th><p><%= link_to ticket.ticket_duration , ticket_path(ticket) %></p></th>
+        <th><p class="status pending"><%= link_to ticket.status , ticket_path(ticket) %></p></th>
+        <th><p class="price"><%= link_to ticket.price , ticket_path(ticket) %></p></th>
+        <th><%= link_to "details", ticket_path(ticket) %>
       </tr>
       <% end %>
     </table>

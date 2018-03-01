@@ -32,7 +32,7 @@ class MentorProfilsController < ApplicationController
   end
 
   def show
-    @mentor_profil.reviews = Review.find(mentor_profil_id: @mentor_profil.id)
+    @reviews = @mentor_profil.reviews
   end
 
   def edit
