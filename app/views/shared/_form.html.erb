@@ -1,0 +1,23 @@
+<div class="wrapper bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10  col-sm-offset-1">
+        <div class="form-container-large">
+          <h1>Create a Ticket</h1>
+          <%= simple_form_for @ticket do |f| %>
+            <%= f.input :title, placeholder:"Title of the ticket" %>
+            <%= f.input :content, placeholder:"Description of the ticket" %>
+            <%= f.input :ticket_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
+            <%= f.input :price, placeholder: "Enter a price" %>
+            <%= f.input :ticket_duration, placeholder:"Enter the duration of the mission" %>
+            <%= f.input :ticket_location, placeholder: "where are you situed ?" %>
+            <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of the mission" %>
+            <%= f.input :status %>
+            <%= f.submit "Create your ticket", class: "btn btn-primary " %>
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
