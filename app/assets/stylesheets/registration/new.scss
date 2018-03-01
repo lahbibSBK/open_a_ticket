@@ -1,0 +1,44 @@
+.bg-dark {
+  background-color: #343a40;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 40px)
+
+}
+
+.form-container-large {
+  min-width: 250px;
+  margin: 8vh auto;
+  background: #ffffff;
+  padding: 30px 30px 20px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.form-container-large h1 {
+  text-align: center;
+  color: black;
+}
+
+textarea.form-control {
+  height: 300px;
+}
+
+.choices {
+  color: black;
+}
+
+.control-label {
+  color: black;
+}
+
+.container {
+  max-width: 100%;
+}
