@@ -2,33 +2,26 @@
     <div class="flex_box width-90 space-between marginx-auto">
 
       <div class="logo_part">
-        <a id="logo" href="#" text-gray-hover>
+        <a id="logo" href="/" text-gray-hover>
           <i class="fas fa-ticket-alt font-30 text-gray"></i>
         </a>
       </div>
 
       <div class="flex_box space-between">
 
-        <a href="/tickets/new" class="btn-open font-20 text-white" id="open_btn">Open a ticket</a>
-        <a href="/mentor_profils/new" class="btn-open font-20 text-white" id="open_btn">Become a Mentor</a>
+        <a href="/tickets/new" class="btn-open font-20 text-gray">Open a ticket</a>
+        <a href="/mentor_profils/new" class="btn-open font-20 text-gray ml-3" id="open_btn">Become a Mentor</a>
 
         <!-- avatar -->
-        <div class="p-2 text-gray font-20 ml-2"><i class="fas fa-circle"></i></div>
+        <div class="p-2 text-gray little-circle ml-2"><i class="fas fa-circle"></i></div>
         <!-- avatar -->
 
         <div class="dropdown">
           <% if current_user %>
             <img src=<%= current_user.pic_url %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <% else %>
-            <div class="p-2 text-white font-20 ml-2"><i class="fas fa-circle"></i></div>
+            <img src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/unknown2-512.png" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <% end %>
-
-          <div class="dropdown-menu" aria-labelledby="control">
-            <a class="dropdown-item" href="#">Dashboard</a>
-            <a class="dropdown-item" href="#">Settings</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Log out</a>
-          </div>
         </div>
       </div>
 

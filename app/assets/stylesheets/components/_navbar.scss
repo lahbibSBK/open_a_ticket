@@ -46,6 +46,8 @@
   border-radius: 50%;
 }
 
-.navbar {
-  margin-bottom: 0;
-}
+.little-circle {
+  font-size: 5px;
+  @media screen and (max-width: "660") {
+    font-size: 2px;
+  }
