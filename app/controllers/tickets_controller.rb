@@ -14,7 +14,9 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.alumni = current_user
     @ticket.save
+    binding.pry
     redirect_to dashboard_path
   end
 
@@ -39,6 +41,22 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:content, :price, :ticket_skills, :ticket_duration, :ticket_location, :priority, :title, :stats)
+    params
+      .require(:ticket)
+      .permit(
+        :content,
+        :price,
+        :ticket_duration,
+        :alumni_id,
+        :ticket_location,
+        :priority,
+        :title,
+        :stats,
+        ticket_skills: []
+      )
   end
 end
+
+
+
+params.require(:ticket).permit(:content,:price,:ticket_duration,:alumni_id,:ticket_location,:priority,:title,:stats,ticket_skills: [])

@@ -24,8 +24,21 @@
 
 .form-container-large h1 {
   text-align: center;
+  color: black;
 }
 
 textarea.form-control {
   height: 300px;
+}
+
+.choices {
+  color: black;
+}
+
+.control-label {
+  color: black;
+}
+
+.container {
+  max-width: 100%;
 }
