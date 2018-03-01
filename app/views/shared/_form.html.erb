@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-sm-10  col-sm-offset-1">
         <div class="form-container-large">
           <h1>Create a Ticket</h1>
-          <%= simple_form_for @ticket do |f| %>
+          <%= simple_form_for ticket do |f| %>
             <%= f.input :title, placeholder:"Title of the ticket" %>
             <%= f.input :content, placeholder:"Description of the ticket" %>
             <%= f.input :ticket_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
