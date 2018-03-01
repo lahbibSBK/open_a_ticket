@@ -21,7 +21,7 @@
     <div class="row">
       <% @mentor_profils.each do |mentor_profil| %>
         <div class="col-xs-12 col-sm-4 col-md-6">
-          <%= render 'shared/mentorcard', mentor: mentor_profil %>
+          <%= render 'shared/mentorcard', mentor: mentor_profil.user %>
         </div>
       <% end %>
     </div>

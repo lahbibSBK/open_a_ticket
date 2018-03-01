@@ -1,8 +1,8 @@
 <div class="card">
   <div class="informations">
-    <img src=<%= mentor.user.pic_url %> class="avatar-large" alt="avatar">
-    <p><%= mentor.user.first_name %> <%= mentor.user.last_name %></p>
-    <%= link_to "choose #{mentor.user.first_name} #{mentor.user.last_name}", tickets_path %>
+    <img src=<%= mentor.pic_url %> class="avatar-large" alt="avatar">
+    <p><%= mentor.first_name %> <%= mentor.last_name %></p>
+    <%= link_to "choose #{mentor.first_name} #{mentor.last_name}", tickets_path %>
   </div>
   <div class="card-description">
     <% if mentor.reviews.blank? %>
