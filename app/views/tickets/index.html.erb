@@ -1,36 +1,22 @@
 Dashboard
-<div class="container">
+
+  <div class="container">
+    <div class="boutons">
+   <ul class="list-inline">
+      <li><%= link_to "Open", tickets_path(status: "open") %></li>
+      <li><%= link_to "Pending", tickets_path(status: "pending") %></li>
+      <li><%= link_to "Closed", tickets_path(status: "closed") %></li>
+      <li><%= link_to "Cancelled", tickets_path(status: "cancelled") %></li>
+   </ul>
+  </div>
+
   <div class="ticket">
-    My Ticket As Alumni
-    <table>
-      <tr>
-        <th>Pic ?</th>
-        <th>title</th>
-        <th>created_at</th>
-        <th>alumni_id</th>
-        <th>mentor_id</th>
-        <th>ticket_skills</th>
-        <th>ticket_location</th>
-        <th>ticket_duration</th>
-        <th>Status</th>
-        <th>price</th>
-      </tr>
-      <% @tickets.each do |ticket| %>
-      <tr>
-        <th><p><%= link_to ticket.title , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.created_at , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.alumni_id , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.mentor_id , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.ticket_skills , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.ticket_location , ticket_path(ticket) %></p></th>
-        <th><p><%= link_to ticket.ticket_duration , ticket_path(ticket) %></p></th>
-        <th><p class="status pending"><%= link_to ticket.status , ticket_path(ticket) %></p></th>
-        <th><p class="price"><%= link_to ticket.price , ticket_path(ticket) %></p></th>
-        <th><%= link_to "details", ticket_path(ticket) %>
-      </tr>
-      <% end %>
-    </table>
+   <% @tickets.each do |ticket| %>
+  <%= render 'shared/ticketcard', ticket: ticket %>
+  <% end %>
   </div>
 </div>
+
+
 
 
