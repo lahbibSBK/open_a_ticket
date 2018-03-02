@@ -1,0 +1,41 @@
+<!--?xml version="1.0" standalone="no"?-->
+
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="600.000000pt" height="600.000000pt" viewBox="0 0 600.000000 600.000000" preserveAspectRatio="xMidYMid meet" style="">
+<metadata>
+Created by potrace 1.15, written by Peter Selinger 2001-2017
+</metadata>
+<g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+<path d="M2640 4773 c-1089 -45 -2001 -145 -2340 -256 -78 -26 -139 -81 -158
+-143 -9 -31 -12 -205 -12 -688 l0 -646 2348 -2 2347 -3 95 -34 c223 -79 434
+-235 552 -407 50 -73 120 -220 142 -297 l17 -58 77 3 77 3 -4 244 -3 244 36
+-6 c57 -9 71 21 71 153 0 128 -13 163 -65 170 l-35 5 -12 163 -13 164 -61 146
+c-138 333 -297 591 -514 837 l-27 30 42 5 42 5 -29 26 c-47 45 -148 105 -241
+144 -252 106 -580 163 -1062 184 -217 10 -1137 20 -1270 14z m-1036 -499 c14
+-14 16 -71 16 -475 0 -424 -1 -460 -17 -476 -17 -17 -52 -18 -486 -17 -339 2
+-472 5 -480 13 -19 19 -17 932 2 954 12 15 58 17 482 17 412 0 469 -2 483 -16z
+m1236 -4 c16 -24 13 -922 -3 -944 -11 -16 -49 -17 -484 -19 -371 -1 -475 1
+-485 11 -10 10 -13 115 -13 478 0 452 1 466 20 480 30 22 951 16 965 -6z
+m1224 4 c14 -14 16 -71 16 -478 0 -409 -2 -465 -16 -477 -23 -19 -947 -20
+-966 -1 -20 20 -19 932 1 955 12 15 58 17 482 17 412 0 469 -2 483 -16z m902
+-18 c66 -32 152 -101 233 -190 99 -107 223 -309 276 -450 40 -105 32 -243 -15
+-294 l-21 -22 -580 0 -581 0 -29 29 -29 29 0 432 c0 361 2 436 15 460 8 15 20
+30 27 33 7 3 153 6 323 6 l311 1 70 -34z" class="aMeIonbc_0"></path>
+<path d="M2445 2879 c-710 -3 -1523 -7 -1807 -8 l-518 -1 0 -440 c0 -381 -2
+-440 -15 -440 -54 0 -72 -227 -21 -269 10 -8 114 -14 334 -18 l319 -6 12 82
+c24 164 76 268 192 383 255 253 666 248 920 -13 99 -102 164 -238 177 -377 l7
+-67 910 -3 911 -2 11 84 c46 337 341 582 678 563 318 -18 580 -265 610 -575
+l7 -70 287 4 c368 6 387 8 421 44 57 61 73 226 31 314 -37 76 -64 86 -232 86
+-79 0 -153 3 -165 6 -14 4 -24 19 -32 50 -33 124 -126 267 -266 412 -141 145
+-272 222 -439 256 -65 14 -151 16 -560 14 -265 -1 -1062 -5 -1772 -9z" class="aMeIonbc_1"></path>
+<path d="M1307 2230 c-95 -15 -218 -79 -290 -152 -304 -307 -147 -818 278
+-905 140 -28 288 5 411 93 229 163 292 489 139 720 -120 181 -328 276 -538
+244z m187 -250 c122 -46 190 -146 191 -280 0 -63 -5 -84 -28 -129 -51 -99
+-127 -149 -243 -159 -85 -6 -154 18 -217 77 -74 69 -92 109 -92 211 0 104 24
+159 98 226 81 72 188 92 291 54z" class="aMeIonbc_2"></path>
+<path d="M4445 2229 c-236 -33 -425 -225 -454 -459 -24 -192 48 -369 199 -491
+159 -128 385 -152 570 -59 214 108 336 358 286 584 -63 282 -321 464 -601 425z
+m150 -240 c102 -28 183 -112 211 -219 47 -183 -94 -360 -287 -360 -70 0 -155
+35 -203 84 -59 59 -80 107 -84 198 -4 66 -1 84 21 130 40 84 92 133 169 159
+61 21 116 24 173 8z" class="aMeIonbc_3"></path>
+</g>
+<style>.aMeIonbc_0{stroke-dasharray:30795 30797;stroke-dashoffset:30796;animation:aMeIonbc_draw_0 7200ms linear 0ms infinite,aMeIonbc_fade 7200ms linear 0ms infinite;}.aMeIonbc_1{stroke-dasharray:14935 14937;stroke-dashoffset:14936;animation:aMeIonbc_draw_1 7200ms linear 0ms infinite,aMeIonbc_fade 7200ms linear 0ms infinite;}.aMeIonbc_2{stroke-dasharray:5207 5209;stroke-dashoffset:5208;animation:aMeIonbc_draw_2 7200ms linear 0ms infinite,aMeIonbc_fade 7200ms linear 0ms infinite;}.aMeIonbc_3{stroke-dasharray:5206 5208;stroke-dashoffset:5207;animation:aMeIonbc_draw_3 7200ms linear 0ms infinite,aMeIonbc_fade 7200ms linear 0ms infinite;}@keyframes aMeIonbc_draw{100%{stroke-dashoffset:0;}}@keyframes aMeIonbc_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}@keyframes aMeIonbc_draw_0{11.11111111111111%{stroke-dashoffset: 30796}38.88888888888889%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes aMeIonbc_draw_1{15.740740740740739%{stroke-dashoffset: 14936}43.51851851851851%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes aMeIonbc_draw_2{20.37037037037037%{stroke-dashoffset: 5208}48.148148148148145%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes aMeIonbc_draw_3{25%{stroke-dashoffset: 5207}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}</style></svg>
