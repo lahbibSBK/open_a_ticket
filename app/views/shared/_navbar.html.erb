@@ -9,30 +9,44 @@
 
       <div class="flex_box space-between">
 
-        <a href="/tickets/new" class="btn-open font-20 text-gray-hover btn-nav">Open a ticket</a>
-        <a href="/mentor_profils/new" class="btn-open font-20 text-gray-hover ml-3 btn-nav" id="open_btn">Become a Mentor</a>
+        <a href="/tickets/new" class="btn-open font-20 text-gray-hover btn-nav hidden-xs">Open a ticket</a>
+        <a href="/mentor_profils/new" class="btn-open font-20 text-gray-hover ml-3 btn-nav hidden-xs" id="open_btn">Become a Mentor</a>
 
-        <div class="dropdown d-none" id="drop">
+        <div class="dropdown visible-xs" id="drop">
           <button class="btn-open dropdown-toggle text-gray-hover" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Ticket
           </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button onclick="location.href='/tickets/new';" class="dropdown-item" type="button">Open a ticket</button>
-              <button onclick="location.href='mentor_profils/new';" class="dropdown-item" type="button">Become a mentor</button>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button onclick="location.href='/tickets/new';" class="dropdown-item" type="button">Open a ticket</button>
+            <button onclick="location.href='mentor_profils/new';" class="dropdown-item" type="button">Become a mentor</button>
+          </div>
         </div>
-
-        <!-- avatar -->
-        <div class="p-2 text-gray little-circle ml-2"><i class="fas fa-circle"></i></div>
-        <!-- avatar -->
 
         <div class="dropdown">
           <% if current_user %>
-            <img src=<%= current_user.pic_url %> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-          <% else %>
-            <img src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/unknown2-512.png" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="p-2 text-gray little-circle ml-2"><i class="fas fa-circle"></i></div>
+              <div class="btn-group">
+                <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src=<%= current_user.pic_url %> class="avatar dropdown-toggle" id="user-control" data-toggle="dropdown">
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                  <a class="dropdown-item" href="/users/edit">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/users/sign_out" data-method="delete" data-confirm="Are you sure you want to log out?">Log out</a>
+                </div>
+              </div>
+            </div>
           <% end %>
+
+          <div class="dropdown-menu" aria-labelledby="user-control">
+            <button onclick="location.href='/tickets/new';" class="dropdown-item" type="button">Open a ticket</button>
+            <button onclick="location.href='mentor_profils/new';" class="dropdown-item" type="button">Become a mentor</button>
+          </div>
+
         </div>
+
       </div>
 
     </div>

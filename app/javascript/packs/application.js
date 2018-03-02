@@ -27,6 +27,3 @@ removePrivacyFromPolicy();
 
 import { changeWhenScrolled } from '../components/_change_when_scrolled' ;
 changeWhenScrolled();
-
-import { showDropdownOnMobile } from '../components/_show_dropdown_on_mobile'
-showDropdownOnMobile();

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  devise :omniauthable, omniauth_providers: [:github]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,4 +13,22 @@ class User < ApplicationRecord
   has_many :reviews, through: :mentor_tickets
 
   validates :last_name, :first_name, :email, uniqueness: true
+
+  def self.find_for_github_oauth(auth)
+    login = auth.extra.raw_info.login
+    email = "#{login.downcase}.github@open.fr"
+    @avatar = auth.extra.raw_info.avatar_url
+
+    user = User.find_by(email: email)
+    if user
+      user.update(email: email)
+    else
+      user = User.new(email: email)
+      user.password = Devise.friendly_token[0,20]
+      user.pic_url = @avatar
+      user.save
+    end
+
+    return user
+  end
 end
