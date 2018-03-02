@@ -1,21 +1,19 @@
-Dashboard
 
-  <div class="container">
-    <div class="boutons">
-   <ul class="list-inline">
-      <li><%= link_to "Open", tickets_path(status: "open") %></li>
-      <li><%= link_to "Pending", tickets_path(status: "pending") %></li>
-      <li><%= link_to "Closed", tickets_path(status: "closed") %></li>
-      <li><%= link_to "Cancelled", tickets_path(status: "cancelled") %></li>
-   </ul>
-  </div>
+    <div class="state">
+      <ul class="list-inline flex">
+        <li class="state-item"><%= link_to "Open", tickets_path(status: "open") %></li>
+        <li class="state-item"><%= link_to "Pending", tickets_path(status: "pending") %></li>
+        <li class="state-item"><%= link_to "Closed", tickets_path(status: "closed") %></li>
+        <li class="state-item"><%= link_to "Cancelled", tickets_path(status: "cancelled") %></li>
+      </ul>
+    </div>
 
-  <div class="ticket">
-   <% @tickets.each do |ticket| %>
-  <%= render 'shared/ticketcard', ticket: ticket %>
-  <% end %>
+    <div class="ticket-container">
+      <% @tickets.each do |ticket| %>
+      <%= render 'shared/ticketlist', ticket: ticket %>
+      <% end %>
+    </div>
   </div>
-</div>
 
 
 
