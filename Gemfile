@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'awesome_print'
+gem "figaro"
+gem 'omniauth-github'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
