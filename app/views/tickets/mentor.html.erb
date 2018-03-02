@@ -1,0 +1,29 @@
+<h1>Selected mentor for your mission</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="card">
+  <div class="informations">
+    <img src=<%= @ticket.mentor.pic_url %> class="avatar-large" alt="avatar">
+    <p><%= @ticket.mentor.first_name %> <%= @ticket.mentor.last_name %></p>
+  </div>
+
+  <div class="card-description">
+    <% if @ticket.mentor.reviews.blank? %>
+      <p>No review yet</p>
+    <% else %>
+      <ul>
+        <% @ticket.mentor.reviews.each do |review| %>
+          <li><%= review.description %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to"Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket) %>
+  </div>
+</div>
+
+
