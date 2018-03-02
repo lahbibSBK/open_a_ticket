@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor ]
 
   def index
     @tickets = Ticket.all
@@ -42,7 +42,11 @@ class TicketsController < ApplicationController
 
   def match_mentors
     @match_mentors_list = MentorProfil.tagged_with(:names => [@ticket.tag_names[0], @ticket.tag_names[1]], :match => :any)
+  end
 
+  def mentor
+    @ticket.mentor = User.find(params[:mid])
+    @ticket.save
   end
 
   private
