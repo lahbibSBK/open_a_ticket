@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
-
+require 'faker'
 
 puts 'Cleaning database...'
 
@@ -278,5 +278,78 @@ Review.create!(
       rating: 4
   )
 puts 'Creating XXXXs Seeds...'
+
+SKILL = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
+
+User.all.each do |user|
+  if user.last_name != "Pontoizeau"
+    mentor = MentorProfil.create!(
+      experience: Faker::ChuckNorris.fact,
+      minimum_price: Faker::Number.number(5),
+      user_id: user.id
+    )
+    mentor.tag_names = SKILL.sample(rand(15))
+    mentor.save
+    #seed ticket closed avec Reviews
+    5.times do
+      ticket = Ticket.create!(
+        title: Faker::HowIMetYourMother.quote,
+        alumni_id: isa.id,
+        mentor: mentor.user,
+        ticket_skills: SKILL.sample(rand(15)),
+        ticket_location: Faker::Address.city,
+        ticket_duration: "#{rand(52)} semaines",
+        price: Faker::Number.number(4),
+        priority: ["low", "medium", "high"].sample,
+        status: "Reviewed by Alumni"
+      )
+
+      ticket.tag_names = ticket.ticket_skills.split(",")
+      ticket.save
+      Review.create!(
+        ticket_id: ticket.id,
+        description: Faker::BackToTheFuture.quote,
+        rating: rand(1..5).to_i
+      )
+    end
+#ticket sans mentor donc sans review
+    5.times do
+      ticket23 = Ticket.create!(
+        title: Faker::HowIMetYourMother.quote,
+        alumni_id: isa.id,
+        ticket_skills: SKILL.sample(rand(15)),
+        ticket_location: Faker::Address.city,
+        ticket_duration: "#{rand(52)} semaines",
+        price: Faker::Number.number(4),
+        priority: ["low", "medium", "high"].sample,
+        status: "Open-pending mentor selection",
+      )
+
+      ticket23.tag_names = ticket23.ticket_skills.split(",")
+      ticket23.save
+    end
+#ticket en attente de Review
+    5.times do
+      ticket34 = Ticket.create!(
+        title: Faker::HowIMetYourMother.quote,
+        alumni_id: isa.id,
+        mentor: mentor.user,
+        ticket_skills: SKILL.sample(rand(15)),
+        ticket_location: Faker::Address.city,
+        ticket_duration: "#{rand(52)} semaines",
+        price: Faker::Number.number(4),
+        priority: ["low", "medium", "high"].sample,
+        status: "Closed/Waiting for a Review"
+      )
+
+      ticket34.tag_names = ticket34.ticket_skills.split(",")
+      ticket34.save
+
+    end
+  end
+end
+
+
+
 
 puts 'Finished!'
