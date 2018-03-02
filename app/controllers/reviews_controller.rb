@@ -6,11 +6,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.ticket = @ticket
-    @review.mentor_profil = Mentor_profil.find(@review.ticket.mentor_id)
+     @review = Review.new(review_params)
+     @review.ticket = @ticket
     if @review.save
-      redirect_to dashboard_path()
+      redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
     else
       render :new
     end
@@ -23,6 +22,6 @@ class ReviewsController < ApplicationController
   end
 
   def set_ticket
-    @ticket = ticket.find(params[:ticket_id])
+    @ticket = Ticket.find(params[:ticket_id])
   end
 end

@@ -19,6 +19,8 @@ gem 'webpacker'
 gem 'awesome_print'
 gem "figaro"
 gem 'omniauth-github'
+gem 'gutentag', '~> 2.1.0'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

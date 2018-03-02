@@ -11,4 +11,6 @@ class Ticket < ApplicationRecord
 
   validates :title, :alumni_id, :ticket_skills, :ticket_location, :ticket_duration, :price,  presence: true
 
+  Gutentag::ActiveRecord.call self
+
 end
