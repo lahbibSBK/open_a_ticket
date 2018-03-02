@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
      @review = Review.new(review_params)
      @review.ticket = @ticket
     if @review.save
-      redirect_to mentor_profil_path(@ticket)
+      redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
     else
       render :new
     end
