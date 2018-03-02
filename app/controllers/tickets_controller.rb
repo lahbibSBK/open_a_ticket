@@ -2,7 +2,12 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor ]
 
   def index
-    @tickets = Ticket.all
+    if params[:status]
+      @tickets = Ticket.where(status:params[:status])
+    elsif
+      @tickets = Ticket.where(status:params[status: "open"])
+    else
+    end
   end
 
   def show
