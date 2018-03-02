@@ -92,7 +92,7 @@ puts 'Creating Tickets Seeds...'
       ticket_duration: "3 semaines",
       price: "300€",
       priority: "low",
-      status: "active",
+      status: "pending",
     )
 
 
@@ -220,7 +220,7 @@ ticket2 = Ticket.create!(
       ticket_duration: "1 semaines",
       price: "150€",
       priority: "low",
-      status: "Pending",
+      status: "pending",
     )
 
 ticket2.tag_names = ['PYTHON', 'ANDROID', 'BOOTSTRAP']
@@ -301,7 +301,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Reviewed by Alumni"
+        status: "closed"
       )
 
       ticket.tag_names = ticket.ticket_skills.split(",")
@@ -322,7 +322,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Open-pending mentor selection",
+        status: "open",
       )
 
       ticket23.tag_names = ticket23.ticket_skills.split(",")
@@ -339,7 +339,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Closed/Waiting for a Review"
+        status: "closed"
       )
 
       ticket34.tag_names = ticket34.ticket_skills.split(",")
