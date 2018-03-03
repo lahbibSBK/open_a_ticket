@@ -1,2 +1,7 @@
 <h1>Tickets#edit</h1>
+<% if policy(Ticket).create? %>
+  <%= render "shared/form", ticket: @ticket %>
+<% end %>
+
+
 

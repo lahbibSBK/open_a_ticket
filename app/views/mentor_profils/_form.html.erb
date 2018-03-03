@@ -1,11 +1,23 @@
 
 <strong>A Modifier en fonction des champs à remplir</strong>
-<%= current_user.pic_url %>
-<% ["javascript", "rails", "php", "ios", "html/css", "angularJs", "Python", "Android",
-"Mysql", "Wordpress", "Xcode", "Java", "C", "Node.js", "asp.net", "bootstrap", "shopify",
-"github", "go", "heroku", "raect", "MongoDb", "Magento", "postgresql", "ruby", "SEO",
-"UX/UI"].each do |i| %>
+<img src=<%= mentor.pic_url %> class="avatar-large" alt="avatar">
 
-  <li><%= i %></li>
+<div class="wrapper bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10  col-sm-offset-1">
+        <div class="form-container-large">
+          <h1>Create a Mentor Profil</h1>
+          <%= simple_form_for @mentor_profil do |f| %>
+            <%= f.input :experience, placeholder:"Describe your experiences" %>
+            <%= f.input :minimum_price, placeholder: "Enter a price" %>
+            <% #Rajouter un colonne dans la table mentor_profil pour ajouter les skills%>
+          	<% #f.input :mentor_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
+            <%= f.submit "Create your Profil", class: "btn btn-primary " %>
+          <% end %>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% end %>

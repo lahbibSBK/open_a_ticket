@@ -7,12 +7,13 @@
         <li class="state-item"><%= link_to "Cancelled", tickets_path(status: "cancelled") %></li>
       </ul>
     </div>
-
-    <div class="ticket-container">
+  <div class="ticket">
+    
       <% @tickets.each do |ticket| %>
-      <%= render 'shared/ticketlist', ticket: ticket %>
-      <% end %>
-    </div>
+      <% if policy(ticket).show? %>
+      <%= render 'shared/ticketcard', ticket: ticket %>
+    <% end %>
+  <% end %>
   </div>
 
 
