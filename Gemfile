@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'awesome_print'
+gem 'omniauth-github'
 gem 'gutentag', '~> 2.1.0'
 gem 'faker'
 

@@ -92,7 +92,7 @@ puts 'Creating Tickets Seeds...'
       ticket_duration: "3 semaines",
       price: "300€",
       priority: "low",
-      status: "Pending",
+      status: "pending",
     )
 
 

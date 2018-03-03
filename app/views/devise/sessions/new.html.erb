@@ -1,6 +1,5 @@
-
-<body class="bg-dark">
-  <diV class="flexbox">
+<body class="dark-bg">
+  <div class="flexbox">
     <div class="form">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
@@ -12,17 +11,14 @@
              <%= f.button :submit, "SIGN IN" %>
           </div>
           <div class="social-login-content">
-                            <div class="social-button">
-                                <button type="button" class="btn social linkedin btn-flat btn-addon mb-3"></i>
-
-</i>SIGN IN WITH LINKEDIN</button>
-                                <button type="button" class="btn social github btn-flat btn-addon mt-2"><i class="ti-twitter"></i>SIGN IN WITH GITHUB</button>
-                            </div>
-                        </div>
+            <div class="social-button">
+              <a type="button" class="btn social linkedin btn-flat btn-addon mb-3">
+                SIGN IN WITH LINKEDIN
+              </a>
+              <%= link_to "Sign in with Github", omniauth_authorize_path(resource_name, "github"), class: "btn social github btn-flat btn-addon mt-2" %>
+            </div>
+          </div>
       <% end %>
       <%= render "devise/shared/links" %>
     </div>
-  </diV>
-
-
-</body>
+  </div>
