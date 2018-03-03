@@ -62,6 +62,7 @@ class TicketsController < ApplicationController
 
   def mentor
     @ticket.mentor = User.find(params[:mid])
+    @ticket.status = "pending"
     authorize @ticket
     @ticket.save
   end

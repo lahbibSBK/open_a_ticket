@@ -4,9 +4,10 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @review.ticket = @ticket
+    @review.ticket.status = "closed"
     authorize @review
-    redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
-    #redirect_to dashboard_path()
+    #le redirect pose problème avec pundit
+    #redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
   end
 
   def create

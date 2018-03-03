@@ -12,9 +12,9 @@
     <ul>
       <% @reviews.each do |review| %>
         <%= review.description %>
-        <% review.rating.to_i.times do |i| %>
-          <li><i class="fa fa-star"></i></li>
-        <% end %>
+        <li><% review.rating.to_i.times do |i| %>
+          <i class="fa fa-star"></i>
+        <% end %></li>
       <% end %>
     </ul>
     <%= link_to "Dashboard", tickets_path %>

@@ -10,7 +10,9 @@
     <% else %>
       <ul>
         <% mentor.reviews.each do |review| %>
-          <li><%= review.description %></li>
+          <li><% review.rating.to_i.times do |i| %>
+          <i class="fa fa-star"></i>
+        <% end %><%= review.description %> <img src=<%= review.ticket.alumni.pic_url%>  class="avatar-xsmall"></li>
         <% end %>
       </ul>
     <% end %>
