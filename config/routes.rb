@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :skills, only: [:show, :edit, :update, :destroy]
   end
 
-  get '/dashboard', to: 'tickets#index'
+  get '/dashboard', to: 'tickets#index', as: 'dashboard'
   get '/tickets/:id/mentor/:mid', to: 'tickets#mentor', as: 'tickets_mentor'
 end
 

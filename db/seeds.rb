@@ -47,7 +47,7 @@ students.each do |element|
 end
 
 
- puts 'Creating Mentor Profils Seeds...'
+puts 'Creating Mentor Profils Seeds...'
 jos = User.create!(
       email: "jos@gmail.com",
       password: "azerty",
@@ -92,7 +92,7 @@ puts 'Creating Tickets Seeds...'
       ticket_duration: "3 semaines",
       price: "300€",
       priority: "low",
-      status: "active",
+      status: "Pending",
     )
 
 
@@ -141,64 +141,6 @@ mat = User.create!(
       pic_url: "https://avatars3.githubusercontent.com/u/31872246?v=4"
 )
 
-puts 'Creating Mentor Profils Seeds...'
-isamentor = MentorProfil.create!(
-      experience: "Je sais répéter toutes les instructions git en rotant",
-      minimum_price: "50",
-      user_id: isa.id
-)
-matmentor = MentorProfil.create!(
-      experience: "Tinder a tout copié sur mon site perso",
-      minimum_price: "100",
-      user_id: mat.id
-)
-
-matmentor.tag_names = ['PYTHON', 'ANDROID']
-matmentor.save
-
-puts 'Creating Skills Seeds...'
-skill1 = Skill.create!(
-      name: "Ruby",
-  )
-skill2 = Skill.create!(
-      name: "HTML",
-  )
-skill3 = Skill.create!(
-      name: "CSS",
-  )
-skill4 = Skill.create!(
-      name: "Python",
-  )
-skill5 = Skill.create!(
-      name: "Javascript",
-  )
-
-puts 'Creating Tags Seeds...'
-tagisa = Tag.create!(
-      mentor_profil_id: isamentor.id,
-      skill_id: skill1.id
-  )
-Tag.create!(
-      mentor_profil_id: isamentor.id,
-      skill_id: skill2.id
-  )
-Tag.create!(
-      mentor_profil_id: isamentor.id,
-      skill_id: skill3.id
-  )
-Tag.create!(
-      mentor_profil_id: isamentor.id,
-      skill_id: skill4.id
-  )
-Tag.create!(
-      mentor_profil_id: isamentor.id,
-      skill_id: skill5.id
-  )
-tagmat = Tag.create!(
-      mentor_profil_id: matmentor.id,
-      skill_id: skill2.id
-  )
-
 puts 'Creating Tickets Seeds...'
 ticket1 = Ticket.create!(
       title: "Besoin d'aide pour installer ruby",
@@ -220,7 +162,7 @@ ticket2 = Ticket.create!(
       ticket_duration: "1 semaines",
       price: "150€",
       priority: "low",
-      status: "Pending",
+      status: "pending",
     )
 
 ticket2.tag_names = ['PYTHON', 'ANDROID', 'BOOTSTRAP']
@@ -250,7 +192,7 @@ ticket4 = Ticket.create!(
       ticket_duration: "1 jours",
       price: "30€",
       priority: "high",
-      status: "pending",
+      status: "Pending",
     )
 
   ticket4.tag_names = ['HTML', 'CSS']
@@ -259,12 +201,12 @@ ticket4 = Ticket.create!(
 puts 'Creating Reviews Seeds...'
 Review.create!(
       ticket_id: ticket1.id,
-      description: "C'est Un Mentor de guedin!!!!!",
+      description: "C'est Une Mentor de guedine!!!!!",
       rating: 5
   )
 Review.create!(
       ticket_id: ticket2.id,
-      description: "C'est Un Mentor bidon!!!!!",
+      description: "C'est Un Mentor génialissime!!!!!",
       rating: 1
   )
 Review.create!(
@@ -277,12 +219,12 @@ Review.create!(
       description: "Hooops I did it Again!!!!!",
       rating: 4
   )
-puts 'Creating XXXXs Seeds...'
+puts 'Creating ...'
 
 SKILL = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
-
+puts 'Creating X-Seeds (Users as Mentor/ Ticket Open/pending/closed / Review...'
 User.all.each do |user|
-  if user.last_name != "Pontoizeau"
+  if user.first_name.downcase.exclude?("pontoizeau")
     mentor = MentorProfil.create!(
       experience: Faker::ChuckNorris.fact,
       minimum_price: Faker::Number.number(5),
@@ -301,7 +243,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Reviewed by Alumni"
+        status: "closed"
       )
 
       ticket.tag_names = ticket.ticket_skills.split(",")
@@ -322,7 +264,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Open-pending mentor selection",
+        status: "open",
       )
 
       ticket23.tag_names = ticket23.ticket_skills.split(",")
@@ -339,7 +281,7 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "Closed/Waiting for a Review"
+        status: "pending"
       )
 
       ticket34.tag_names = ticket34.ticket_skills.split(",")

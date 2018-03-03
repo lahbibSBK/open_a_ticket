@@ -12,7 +12,6 @@
             <%= f.input :ticket_duration, placeholder:"Enter the duration of the mission" %>
             <%= f.input :ticket_location, placeholder: "where are you situed ?" %>
             <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of the mission" %>
-            <%= f.input :status %>
             <%= f.submit "Create your ticket", class: "btn btn-primary " %>
           <% end %>
       </div>

@@ -3,13 +3,18 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review.ticket = @ticket
+    authorize @review
+    redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
+    #redirect_to dashboard_path()
   end
 
   def create
      @review = Review.new(review_params)
      @review.ticket = @ticket
+     authorize @review
     if @review.save
-      redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
+      redirect_to mentor_profil_path(@review.ticket.mentor)
     else
       render :new
     end

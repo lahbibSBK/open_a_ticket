@@ -2,20 +2,33 @@
   <h1>My tickets</h1>
   <div class="mission">
     <div class="mission-name">
-      <h3><p><%= @ticket.title %></p></h3>
-      <p><%= @ticket.created_at %></p>
+      <h3><p><strong>Title : </strong><%= @ticket.title %></p></h3>
+      <p></strong>Date Of Creation : </strong><%= @ticket.created_at %></p>
     </div>
     <div class="mission-body">
-      <p><strong><%= @ticket.ticket_skills %></strong></p>
-      <p><%= @ticket.ticket_location %></p>
-      <p><%= @ticket.ticket_duration %></p>
+      <p><strong>Skills : </strong><%= @ticket.ticket_skills %></p>
+      <p><strong>Location : </strong><%= @ticket.ticket_location %></p>
+      <p><strong>Duration : </strong><%= @ticket.ticket_duration %></p>
     </div>
     <div class="mission-status">
-       <p class="status pending"><%= @ticket.status %></p>
-       <p class="price"><%= @ticket.price %></p>
+       <p class="status pending">Status : <%= @ticket.status %></p>
+       <p class="price">Proposed Price : <%= @ticket.price %></p>
+        <div>
+            <% if policy(@ticket).edit? %>
+              <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
+              <%= link_to 'Close', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
+              <% #lien delete à brancher %>
+              <%= link_to 'Cancel', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
+              <%= link_to "Destroy", edit_ticket_path(@ticket), class: 'btn btn-danger' %>
+
+            <% end %>
+          <%= link_to 'Back', dashboard_path, class: 'btn btn-info' %>
+        </div>
     </div>
   </div>
-
+<br>
+<br>
+<br>
   <div class="container">
     <h2>Recommended mentors</h2>
      <div class="row">

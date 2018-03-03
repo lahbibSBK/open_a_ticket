@@ -3,14 +3,18 @@ class MentorProfilsController < ApplicationController
 
   def index
     @mentor_profils = MentorProfil.all
+    authorize @mentor_profil
   end
 
   def new
     @mentor_profil = MentorProfil.new
+    authorize @mentor_profil
   end
 
   def create
     @mentor_profil = MentorProfil.new(mentor_profil_params)
+    @mentor_profil.user = current_user
+    authorize @mentor_profil
     if @mentor_profil.save
       redirect_to mentor_profil_path(@mentor_profil)
     else
@@ -19,6 +23,7 @@ class MentorProfilsController < ApplicationController
   end
 
   def update
+    authorize @mentor_profil
     if @mentor_profil.update(mentor_profil_params)
       redirect_to mentor_profil_path(@mentor_profil)
     else
@@ -27,11 +32,13 @@ class MentorProfilsController < ApplicationController
   end
 
   def destroy
+    authorize @mentor_profil
     @mentor_profil.destroy
     redirect_to mentor_profils_path
   end
 
   def show
+    authorize @mentor_profil
     @reviews = @mentor_profil.user.reviews
   end
 
@@ -42,6 +49,7 @@ class MentorProfilsController < ApplicationController
 
   def set_mentor_profil
     @mentor_profil = MentorProfil.find(params[:id])
+    authorize @mentor_profil
   end
 
   def mentor_profil_params
