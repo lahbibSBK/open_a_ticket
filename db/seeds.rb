@@ -257,7 +257,7 @@ User.all.each do |user|
           toto << Faker::Address.country
       end
       ticket = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
+        title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
@@ -267,7 +267,6 @@ User.all.each do |user|
         price: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "closed",
-        
         speaking_language: toto,
       )
 
@@ -308,7 +307,7 @@ User.all.each do |user|
         toto << Faker::Address.country
       end
       ticket34 = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
+        title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,

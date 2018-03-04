@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
       @tickets = Ticket.where(status:params[status: "open"])
     else
     end
-  
+
   end
 
   def show

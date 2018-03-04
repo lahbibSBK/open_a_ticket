@@ -1,18 +1,13 @@
 <div class="container">
+  <div>
+    <%= render 'shared/bigticketcard', ticket: @ticket %>
+  </div>
   <div class="mission">
-    <div class="mission-name">
-      <h3><p><strong>Title : </strong><%= @ticket.title %></p></h3>
-      <p></strong>Date Of Creation : </strong><%= @ticket.created_at %></p>
-    </div>
+    <% #à garder pour trouver comment afficher le drapeau en fonction de la langue %>
     <div class="mission-body">
-      <p><strong>Skills : </strong><%= @ticket.ticket_skills %></p>
-      <p><strong>Location : </strong><%= @ticket.ticket_location %></p>
-      <p><strong>Duration : </strong><%= @ticket.ticket_duration %></p>
-      <p><strong>Duration : </strong><%= @ticket.speaking_language %></p>
+      <p><strong>Language : </strong><%= @ticket.speaking_language %></p>
     </div>
     <div class="mission-status">
-       <p class="status pending">Status : <%= @ticket.status %></p>
-       <p class="price">Proposed Price/hours : <%= @ticket.price %></p>
         <div>
             <% if policy(@ticket).edit? %>
               <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
@@ -20,7 +15,7 @@
               <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary', 
                   #method: :close,
                   data: { confirm: "Are you sure?" } %>
-              <% #lien delete à brancher %>
+              <% #lien cancel à brancher %>
               <%= link_to 'Cancel', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
               <%= link_to "Delete", ticket_path(@ticket), class: 'btn btn-danger',
                   method: :delete,
@@ -57,4 +52,3 @@
     </div>
   </div>
 </div>
-
