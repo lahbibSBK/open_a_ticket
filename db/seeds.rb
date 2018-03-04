@@ -235,7 +235,7 @@ User.all.each do |user|
     #seed ticket closed avec Reviews
     5.times do
       ticket = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
+        title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
         mentor: mentor.user,
         ticket_skills: SKILL.sample(rand(15)),
@@ -243,7 +243,8 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "closed"
+        status: "closed",
+        content: "je n'arrive pas à faire marcher rails"
       )
 
       ticket.tag_names = ticket.ticket_skills.split(",")
@@ -273,7 +274,7 @@ User.all.each do |user|
 #ticket en attente de Review
     5.times do
       ticket34 = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
+        title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
         mentor: mentor.user,
         ticket_skills: SKILL.sample(rand(15)),
@@ -281,7 +282,8 @@ User.all.each do |user|
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(4),
         priority: ["low", "medium", "high"].sample,
-        status: "pending"
+        status: "pending",
+        content: "je n'arrive pas à travailler correctement quand il y a trop de monde, parce que je dois refaire tout le rails"
       )
 
       ticket34.tag_names = ticket34.ticket_skills.split(",")
