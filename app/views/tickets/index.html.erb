@@ -10,9 +10,9 @@
   <div class="ticket">
     
       <% @tickets.each do |ticket| %>
-      <% if policy(ticket).show? %>
-      <%= render 'shared/ticketcard', ticket: ticket %>
-    <% end %>
+        <% if policy(ticket).show? %>
+        <%= render 'shared/ticketcard', ticket: ticket %>
+      <% end %>
   <% end %>
   </div>
 

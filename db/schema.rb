@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302150557) do
+ActiveRecord::Schema.define(version: 20180304152254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180302150557) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mentor_skills"
     t.index ["user_id"], name: "index_mentor_profils_on_user_id"
   end
 
@@ -81,6 +82,8 @@ ActiveRecord::Schema.define(version: 20180302150557) do
     t.integer "mentor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "speaking_language"
+    t.string "mentor_recommanded_list"
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
     t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
   end
@@ -109,6 +112,7 @@ ActiveRecord::Schema.define(version: 20180302150557) do
     t.string "github_picture_url"
     t.string "token"
     t.datetime "token_expiry"
+    t.string "speaking_language"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
