@@ -6,8 +6,6 @@ class ReviewsController < ApplicationController
     @review.ticket = @ticket
     @review.ticket.status = "closed"
     authorize @review
-    #le redirect pose problème avec pundit
-    redirect_to ticket_path(@ticket)
   end
 
   def create
