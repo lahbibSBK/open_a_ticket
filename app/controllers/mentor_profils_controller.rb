@@ -14,6 +14,9 @@ class MentorProfilsController < ApplicationController
   def create
     @mentor_profil = MentorProfil.new(mentor_profil_params)
     @mentor_profil.user = current_user
+    tag = params[:mentor_profil][:mentor_skills]
+    tag.shift
+    @mentor_profil.tag_names = tag
     authorize @mentor_profil
     if @mentor_profil.save
       redirect_to mentor_profil_path(@mentor_profil)
@@ -48,7 +51,7 @@ class MentorProfilsController < ApplicationController
   private
 
   def set_mentor_profil
-    @mentor_profil = MentorProfil.find(params[:id])
+    @mentor_profil = MentorProfil.where(user_id: params[:id])
     authorize @mentor_profil
   end
 

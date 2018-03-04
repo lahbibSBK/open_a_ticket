@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close ]
 
   def index
     @tickets = policy_scope(Ticket)
@@ -31,10 +31,10 @@ class TicketsController < ApplicationController
     tag = params[:ticket][:ticket_skills]
     tag.shift
     @ticket.tag_names = tag
+    @ticket.ticket_skills = tag
     authorize @ticket
     if @ticket.save
-      match_mentors
-      authorize @ticket
+      @ticket.mentor_recommanded_list = match_mentors
       redirect_to dashboard_path, notice: 'Yeah Baby !!! Ticket was successfully created.'
     else
       render :new
@@ -61,12 +61,23 @@ class TicketsController < ApplicationController
 
 
   def mentor
-    @ticket.mentor = User.find(params[:mid])
+    @ticket.mentor = MentorProfil.find(params[:mid]).user
     @ticket.status = "pending"
     authorize @ticket
     @ticket.save
   end
 
+  def close
+    @ticket.status = "close"
+    authorize @ticket
+    @ticket.save
+  end
+
+  def cancel
+    @ticket.status = "cancelled"
+    authorize @ticket
+    @ticket.save
+  end
   private
 
   def set_ticket
