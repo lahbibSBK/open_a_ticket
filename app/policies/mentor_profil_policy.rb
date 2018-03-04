@@ -31,6 +31,6 @@ class MentorProfilPolicy < ApplicationPolicy
   end
 
   def edit?
-  	true
+  	record[0].user == user
   end
 end

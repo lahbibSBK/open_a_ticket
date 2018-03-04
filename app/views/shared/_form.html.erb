@@ -8,9 +8,10 @@
             <%= f.input :title, placeholder:"Title of the ticket" %>
             <%= f.input :content, placeholder:"Description of the ticket" %>
             <%= f.input :ticket_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
-            <%= f.input :price, placeholder: "Enter a price" %>
-            <%= f.input :ticket_duration, placeholder:"Enter the duration of the mission" %>
-            <%= f.input :ticket_location, placeholder: "where are you situed ?" %>
+            <%= f.input :price, placeholder: "Hours rate" %>
+            <%= f.input :ticket_duration, placeholder:"How many hours / what's the repartition?" %>
+            <%= f.input :ticket_location, placeholder: "Do you need someone close to your Location?" %>
+            <%= f.input :speaking_language, placeholder: "Your native language or Do you accept someone speaking english?" %>
             <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of the mission" %>
             <%= f.submit "Create your ticket", class: "btn btn-primary " %>
           <% end %>
