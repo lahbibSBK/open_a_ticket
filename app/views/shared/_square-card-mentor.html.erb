@@ -1,7 +1,10 @@
 
 <div class="square-mentor-card">
-  <img class="square-mentor-card-user" src=<%= @ticket.mentor.pic_url %> alt="mentor-avatar">
+  <img class="square-mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
   <a class="card-link" href="#" ></a>
+  <div class="square-mentor-card-name">
+    <h2> <%= mentor.first_name %> €/hour </h2>
+  </div>
   <div class="square-mentor-card-price">
     <h2> <%= @ticket.price %> €/hour </h2>
   </div>
