@@ -1,11 +1,11 @@
 <div class="long-ticket-card">
   <div class="long-card-created">
-    <h2>Ticket crée le </h2>
+    <h2>Ticket created the </h2>
     <p><%= ticket.created_at %></p>
   </div>
   <img class="long-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
   <div class="long-card-description">
-    <h2> <%= ticket.title  %> </h2>
+    <h2> <%= link_to ticket.title, ticket_path(ticket)  %> </h2>
     <p><%= ticket.content %></p>
   </div>
   <div class="long-card-price">

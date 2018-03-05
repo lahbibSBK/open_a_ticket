@@ -6,6 +6,7 @@
   color: black;
   background-color: #EAEAEA;
   margin-bottom: 10px;
+
 }
 .long-card-user {
   position: absolute;
@@ -44,7 +45,7 @@
   color: black;
   max-height: 55px;
   overflow: hidden;
-    text-overflow: clip;
+  text-overflow: clip;
   }
   h2{
     font-size: 24px;
@@ -53,6 +54,11 @@
     text-overflow: ellipsis;
     max-height: 55px;
     margin-bottom: 5px;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+
   }
 }
 
