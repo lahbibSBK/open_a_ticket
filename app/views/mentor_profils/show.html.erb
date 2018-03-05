@@ -8,8 +8,8 @@
     <p>Expérience : <%= @mentor_profil.experience %></p>
     <br>
     <br>
-
-    <% @mentor_profil.user.speaking_language.gsub('"',"").gsub('[',"").gsub(']',"").gsub(' ',"").split(',').each do |langue| %>
+<%= @mentor_profil.user.speaking_language %>
+    <% @mentor_profil.user.speaking_language.each do |langue| %>
     <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
     <% end %>
