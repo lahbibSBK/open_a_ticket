@@ -23,8 +23,12 @@
     <% else %>
       <p><%= mentor.reviews.count %> reviews </p>
       <div class="square-mentor-card-reviews-stars">
-        <%= mentor.reviews.average(:rating) %>
-        <i class="fa fa-star "></i>
+          <% mentor.reviews.average(:rating).round().times do |i| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - mentor.reviews.average(:rating).round()).times do |i| %>
+            <i class="far fa-star"></i>
+            <% end %>
       </div>
     <% end %>
   </div>
