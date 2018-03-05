@@ -9,4 +9,11 @@ class Ticket < ApplicationRecord
   validates :title, :alumni_id, :tag_names, :ticket_location, :ticket_duration, :price,  presence: true
 
   Gutentag::ActiveRecord.call(self)
+
+  def match_mentors
+    MentorProfil.tagged_with(
+      names: tag_names,
+      match: :any
+    )
+  end
 end

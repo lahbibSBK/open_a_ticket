@@ -15,7 +15,6 @@ class TicketsController < ApplicationController
   def show
     @review = @ticket.review
     @mentor_profils = MentorProfil.all
-    match_mentors
     authorize @ticket
   end
 
@@ -31,7 +30,6 @@ class TicketsController < ApplicationController
     authorize @ticket
 
     if @ticket.save
-      @ticket.mentor_recommanded_list = match_mentors
       redirect_to dashboard_path, notice: 'Yeah Baby !!! Ticket was successfully created.'
     else
       render :new
@@ -94,13 +92,6 @@ class TicketsController < ApplicationController
         :stats,
         tag_names: []
       )
-  end
-
-  def match_mentors
-    @match_mentors_list = MentorProfil.tagged_with(
-      names: @ticket.tag_names,
-      match: :any
-    )
   end
 end
 
