@@ -1,15 +1,26 @@
-.btn-open {
+.btn-choose {
   padding: 7px;
-  background-color: #555;
+  background-color: #D23333;
   border-radius: 5px;
   text-decoration: none;
   font-size: 15px;
   font-weight: lighter;
-  opacity: 0.6;
   border: 0;
+  max-width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 45px;
+
   &:hover {
     text-decoration: none;
-    background-color: #333;
+    background-color: #f7474a;
+  }
+  a{
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
   }
 }
 
@@ -38,4 +49,11 @@
   opacity: 1;
   text-decoration: none;
   color: #999999;
+}
+
+.button {
+  display: flex;
+  align-tems: center;
+  justify-content: center;
+
 }
