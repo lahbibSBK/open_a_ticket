@@ -11,7 +11,7 @@
           <%= simple_form_for @mentor_profil do |f| %>
             <%= f.input :experience, placeholder:"Describe your experiences" %>
             <%= f.input :minimum_price, placeholder: "Enter a price" %>
-          	<%= f.input :mentor_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
+          	<%= f.input :mentor_skills, collection: Gutentag::Tag.all, input_html: { multiple: true } %>
             <%= f.submit "Create your Profil", class: "btn btn-primary " %>
           <% end %>
       	</div>

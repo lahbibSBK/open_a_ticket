@@ -12,13 +12,11 @@
     <p> <%= ticket.price %> €/hour </p>
   </div>
   <div class="long-card-skills">
-    <% ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each_with_index do |skill,index| %>
-    <%if index <= 4 %>
-    <div class="skill">
-      <p><%= skill %></p>
-    </div>
-  <%end  %>
-  <% end %>
+    <% ticket.tag_names.take(4).each do |skill| %>
+      <div class="skill">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
   </div>
   <div class="long-card-flag">
     <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" width="20" >
