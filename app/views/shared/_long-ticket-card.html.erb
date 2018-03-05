@@ -19,7 +19,8 @@
     <% end %>
   </div>
   <div class="long-card-flag">
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" width="20" >
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/fr.png" width="20" >
+    <% ticket.speaking_language.each do |langue| %>
+    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+    <% end %>
   </div>
 </div>

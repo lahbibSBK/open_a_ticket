@@ -49,7 +49,7 @@ class MentorProfilsController < ApplicationController
   private
 
   def set_mentor_profil
-    @mentor_profil = MentorProfil.where(user_id: params[:id])
+    @mentor_profil = MentorProfil.find(params[:id])
     authorize @mentor_profil
   end
 
