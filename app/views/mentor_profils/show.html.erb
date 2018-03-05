@@ -8,7 +8,6 @@
     <p>Expérience : <%= @mentor_profil.experience %></p>
     <br>
     <br>
-<%= @mentor_profil.user.speaking_language %>
     <% @mentor_profil.user.speaking_language.each do |langue| %>
     <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 

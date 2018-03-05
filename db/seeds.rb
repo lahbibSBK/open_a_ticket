@@ -43,6 +43,8 @@ students.each do |element|
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"]
   )
+  ap "ligne 46"
+  ap users.last
 end
 
 jos = User.create!(
@@ -234,7 +236,8 @@ User.all.each do |user|
         status: "closed",
         speaking_language: toto,
       )
-
+      ap "ligne 238"
+      ap ticket
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
