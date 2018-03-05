@@ -255,12 +255,11 @@ User.all.each do |user|
     3.times do
       toto = []
       rand(4).times do
-          toto << Faker::Address.country
+          toto << Faker::Address.country_code
       end
       ticket = Ticket.create!(
-        title: Faker::WorldOfWarcraft.hero,
+        title: Faker::DrWho.quote,
         alumni_id: isa.id,
-        content: "J'ai un problème par rapport à un mission que je n'arrive pas à réaliser. J'ai besoin d'un mentor qui me permette de démarrer",
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
         ticket_skills: SKILL.sample(rand(15)),
@@ -284,7 +283,7 @@ User.all.each do |user|
     3.times do
       toto = []
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket23 = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,
@@ -306,10 +305,10 @@ User.all.each do |user|
     3.times do
       toto = []
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket34 = Ticket.create!(
-        title: Faker::WorldOfWarcraft.hero,
+        title: Faker::DrWho.quote,
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
@@ -366,7 +365,7 @@ mentor89github.each do |element|
     phone_number: mentor["phone"],
     batch_wagon: mentor["camp_name"],
     pic_url: mentor["avatar"],
-    speaking_language: Faker::Address.country,
+    speaking_language: Faker::Address.country_code,
   )
 
   mentor = MentorProfil.create!(
@@ -382,7 +381,7 @@ end
     50.times do
       toto = []
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,

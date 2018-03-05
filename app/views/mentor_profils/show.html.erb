@@ -2,10 +2,10 @@
 <div class="container">
   <div class="Mentor">
     <img class="avatar-large" src=<%= @mentor_profil.user.pic_url%>>
-    <p><%= @mentor_profil.user_id %></p>
+    <p><%= @mentor_profil.user.first_name %>  <%= @mentor_profil.user.last_name %></p>
 
-    <p><%= @mentor_profil.minimum_price %></p>
-    <p><%= @mentor_profil.experience %></p>
+    <p>Price / Hours : <%= @mentor_profil.minimum_price %></p>
+    <p>Expérience : <%= @mentor_profil.experience %></p>
 
     <br>
     <br>
@@ -17,7 +17,9 @@
         <% end %></li>
       <% end %>
     </ul>
-    <%= link_to "Dashboard", tickets_path %>
+    <br>
+    <br>
+    <%= link_to "back", mentor_profils_path %>
   </div>
 </div>
 
