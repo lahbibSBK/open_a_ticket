@@ -6,22 +6,21 @@
 
     <p>Price / Hours : <%= @mentor_profil.minimum_price %></p>
     <p>Expérience : <%= @mentor_profil.experience %></p>
+    <br>
+    <br>
 
-    <br>
-    <br>
+    <% @mentor_profil.user.speaking_language.gsub('"',"").gsub('[',"").gsub(']',"").gsub(' ',"").split(',').each do |langue| %>
+    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+
+    <% end %>
     <ul>
-      <% @reviews.each do |review| %>
-        <%= review.description %>
-        <li><% review.rating.to_i.times do |i| %>
-          <i class="fa fa-star"></i>
-        <% end %></li>
-      <% end %>
+      
     </ul>
     <br>
     <br>
     <%= link_to "back", mentor_profils_path %>
     <% @reviews.each do |review| %>
-  <%= render 'shared/reviewcard', review: review %> -->
+  <%= render 'shared/reviewcard', review: review %>
   <% end %>
   </div>
 </div>
