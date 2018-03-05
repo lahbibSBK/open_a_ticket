@@ -1,0 +1,27 @@
+<div class="long-ticket-card">
+  <div class="long-card-created">
+    <h2>Ticket crée le </h2>
+    <p><%= ticket.created_at %></p>
+  </div>
+  <img class="long-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <div class="long-card-description">
+    <h2> <%= ticket.title  %> </h2>
+    <p><%= ticket.content %></p>
+  </div>
+  <div class="long-card-price">
+    <p> <%= ticket.price %> €/hour </p>
+  </div>
+  <div class="long-card-skills">
+    <% ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each_with_index do |skill,index| %>
+    <%if index <= 4 %>
+    <div class="skill">
+      <p><%= skill %></p>
+    </div>
+  <%end  %>
+  <% end %>
+  </div>
+  <div class="long-card-flag">
+    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" class="" width="20" height="20"alt="">
+    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/fr.png" class="" width="20" height="20"alt="">
+  </div>
+</div>
