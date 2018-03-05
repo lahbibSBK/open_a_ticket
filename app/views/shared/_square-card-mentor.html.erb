@@ -1,5 +1,4 @@
-
-<div class="square-mentor-card">
+<div class="square-mentor-card" data-toggle="modal" data-target="#myModal<%= mentor.id%>">
   <img class="square-mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
   <a class="card-link" href="#" ></a>
   <div class="square-mentor-card-name">
@@ -27,13 +26,26 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
+<div class="modal fade" id="myModal<%= mentor.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img class="mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
+        <h4 class="modal-title" id="myModalLabel"><%= mentor.first_name %> <%= mentor.last_name %></h4>
+        <p><%= mentor.batch_wagon %></p>
+      </div>
+      <div class="modal-body">
+        <div class="skill"><p><%= mentor.mentor_profil.tag_names %></p></div>
+        <h4> Experiences </h4>
+        <p><%= mentor.mentor_profil.experience %></p>
+        <h4> Reviews </h4>
+        <p><%= render 'shared/reviewscard', reviews: mentor.reviews %>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
