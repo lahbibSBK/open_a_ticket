@@ -22,6 +22,7 @@ gem 'awesome_print'
 gem 'omniauth-github'
 gem 'gutentag', '~> 2.1.0'
 gem 'faker'
+gem 'flag-icons-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

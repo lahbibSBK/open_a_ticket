@@ -18,7 +18,10 @@
   <div class="bigcard-content"> <%= ticket.content %></div>
 
 
-  <div class="bigcard-flag"><p>drapeau</p></div>
+  <div class="bigcard-flag"><% ticket.speaking_language.each do |langue| %>
+    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+
+    <% end %></div>
 
   <div class="bigcard-price">
     <% if ticket.status == "open" %>

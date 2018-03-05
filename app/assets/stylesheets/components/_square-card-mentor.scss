@@ -43,7 +43,7 @@
 }
 
 .skill {
-  background-color: blue;
+  background-color: white;
   color:black;
   margin-right: 5px;
   padding: 10px 10px;
@@ -81,6 +81,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.square-mentor-card-name {
+  position: absolute;
+  right: 20px;
+  top: -15px;
 }
 
 .modal-header .mentor-card-user {
