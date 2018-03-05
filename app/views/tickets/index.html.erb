@@ -28,6 +28,16 @@
         <% end %>
       </div>
     </div>
+<<<<<<< HEAD
+  <div class="ticket">
+    
+      <% @tickets.each do |ticket| %>
+      <% if policy(ticket).show? %>
+      <%= render 'shared/ticketlist', ticket: ticket %>
+    <% end %>
+  <% end %>
+=======
+>>>>>>> eaf922bea0fe09007d112d5d0cc9f091a9ca26ce
   </div>
 </div>
 
