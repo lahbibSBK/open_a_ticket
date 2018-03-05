@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_reader :geolocation
   devise :omniauthable, omniauth_providers: [:github]
 
   # Include default devise modules. Others available are:
@@ -28,6 +29,15 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.pic_url = @avatar
       user.save
+    end
+
+    def geocode
+      if self.address
+        @data = JSON.parse(open("https://maps.googleapis.com/maps/api/geocode/json?address=<%= self.address %>&key=<%= ENV[G_GEOCODING_KEY] %>").read)
+        @geolocation = {}
+        @geolocation[:lat] = @data["results"][0]["geometry"]["location"]["lat"]
+        @geolocation[:lng] = @data["results"][0]["geometry"]["location"]["lng"]
+      end
     end
 
     return user

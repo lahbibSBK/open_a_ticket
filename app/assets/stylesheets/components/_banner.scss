@@ -6,6 +6,10 @@
   z-index: -1;
 }
 
+.bg-logo {
+  background-image: asset-url("logo");
+}
+
 .hundred-viewport {
   height: 100vh;
 }
@@ -30,6 +34,10 @@
   }
 }
 
+.bg-clear {
+  background-color: #F4F4F4;
+}
+
 .display-6 {
   font-size: 5rem;
 }
@@ -50,6 +58,32 @@
   border-radius: 15px;
 }
 
-.o-visible {
-  overflow: visible;
+.logo-size {
+  width: 250px;
+  height: 250px;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+.banner {
+  height: 80vh;
 }

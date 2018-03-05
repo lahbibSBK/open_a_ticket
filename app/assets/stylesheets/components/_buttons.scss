@@ -1,16 +1,38 @@
-.btn-open {
+.btn-open-s {
   padding: 7px;
-  background-color: #555;
+  background-color: #D23333;
   border-radius: 5px;
   text-decoration: none;
   font-size: 15px;
   font-weight: lighter;
-  opacity: 0.6;
   border: 0;
   &:hover {
     text-decoration: none;
-    background-color: #333;
+    background-color: #f7474a;
+    margin-bottom: 2px;
   }
+}
+
+.btn-open {
+  padding: 7px;
+  background-color: #D23333;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: lighter;
+  border: 0;
+  &:hover {
+    text-decoration: none;
+    background-color: #f7474a;
+  }
+}
+
+.btn-large {
+  font-size: 30px;
+  padding: 5px 10px;
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
 }
 
 .btn-banner {
