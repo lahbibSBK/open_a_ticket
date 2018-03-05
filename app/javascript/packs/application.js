@@ -7,14 +7,12 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-
+import "bootstrap";
 import Choices from 'choices.js';
 
-new Choices('#ticket_ticket_skills');
+new Choices('#ticket_tag_names');
 
-// import 'choices.js/assets/styles/css/base.css';
 import 'choices.js/assets/styles/css/choices.css';
-console.log('Hello World from Webpacker')
 
 import { loadDynamicBannerText } from '../components/_banner';
 loadDynamicBannerText();
@@ -25,5 +23,5 @@ resetMargin();
 import { removePrivacyFromPolicy } from '../components/_remove_policy_from_privacy';
 removePrivacyFromPolicy();
 
-import { changeWhenScrolled } from '../components/_change_when_scrolled' ;
-changeWhenScrolled();
+// import { changeWhenScrolled } from '../components/_change_when_scrolled' ;
+// changeWhenScrolled();

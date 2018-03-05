@@ -7,17 +7,15 @@ puts 'Cleaning database...'
 
 Review.destroy_all
 Ticket.destroy_all
-Tag.destroy_all
-Skill.destroy_all
 MentorProfil.destroy_all
 User.destroy_all
 Gutentag::Tag.destroy_all
 
+SKILLS = ["HTML", "CSS", "RUBY ON RAILS", "RUBY", "PHP", "IOS", "ANGULAR JS", "PYTHON", "ANDROID", "MYSQL", "WORDPRESS", "XCODE", "JAVA", "C", "NODE JS", "ASP.NET", "BOOTSTRAP", "SHOPIFY", "GITHUB", "GO", "HEROKU", "REACT", "MONGO DB", "MAGENTO", "POSTGRESQL", "SEO", "UX/UI" ]
 
-['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI'].each do |tag_name|
+SKILLS.each do |tag_name|
   Gutentag::Tag.create(name: tag_name)
 end
-
 
 COOKIES = "_kitt2017_=Z04yK20wWDFFdXFyN2VwUFVHK0RNMTh1cG5MMVUrQnN6TDZuZTJHY3pHQjVEWnhpdVFmb1JlVDVycjBHSk9wdWJHaWt1VnE3cllmdUZKZzFubWpYV0haRzIxemNYanVDMXovZjVkZDdsL1oxTlRScUJoM3puQ2FLVDZBWmtkVitEeFR0MUZ2cEtOVVFjVWs1cDJWWk9FNzBQcFZhR3RPdDhJY1pVdlNFalU0Z09kY1ZrYkoyL3V0OEFuWVBib1lTYnNuR3d3RmcvVFFGd3pYMHk3WWlFbnN5cTRNOU9vTWNsaEcrc29Ia1FwcTZmZ0ZLNTE0NFhKQ2QrbnBVQ0Q5ZHFQb1ppZEpTb052Sjgrak1qMDZEdVFFTnRDenh2ZU1zVUpGRWRFNzhuVUhDZGlJSFI5QWNkSVNKS2JnUG5rTitTeExCWXlvZXdaMG0zVDh2Y0ttSEdRUUZWZGFTSk1hRzRmSWlVd2xVSXdsQS9BQmE0Y3ptZ0ErOVhaRlBqQSs4LS0xbkpMMUpoVW5KeElVc0cyWUtDWDJnPT0%3D--321cb1189533c5490dc086095b595fd2e253338f"
 url = "https://kitt.lewagon.com/camps/121/classmates"
@@ -47,8 +45,6 @@ students.each do |element|
   )
 end
 
-
-
 jos = User.create!(
   email: "jos@gmail.com",
   password: "azerty",
@@ -63,10 +59,9 @@ jos = User.create!(
 josephmentor = MentorProfil.create!(
   experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
   minimum_price: "50",
-  user_id: jos.id
+  user_id: jos.id,
+  tag_names: SKILLS.sample(4)
 )
-josephmentor.tag_names = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
-josephmentor.save
 
 kev = User.create!(
   email: "kev@gmail.com",
@@ -82,10 +77,9 @@ kev = User.create!(
 kevinmentor = MentorProfil.create!(
   experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
   minimum_price: "100",
+  tag_names: SKILLS.sample(4),
   user_id: kev.id
 )
-kevinmentor.tag_names = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
-kevinmentor.save
 
 davidhass = User.create!(
   email: "mickael.long@flag.org",
@@ -102,11 +96,9 @@ davidmentor = MentorProfil.create!(
   experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
   the Foundation for Law and Government (FLAG). Don't shoot at my pretty face",
   minimum_price: "25",
-  user_id: davidhass.id
+  user_id: davidhass.id,
+  tag_names: SKILLS.sample(4)
 )
-davidmentor.tag_names = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
-davidmentor.save
-
 
 #seeds pour le débug à supprimer à la fin
 puts 'Creating Users Seeds...'
@@ -161,7 +153,7 @@ ticket1 = Ticket.create!(
   title: "Besoin d'aide pour installer ruby",
   alumni_id: moh.id,
   content: Faker::HowIMetYourMother.quote,
-  ticket_skills: "Ruby",
+  tag_names: SKILLS.sample(4),
   ticket_location: "Dakar",
   ticket_duration: "3 semaines",
   price: "300",
@@ -174,7 +166,7 @@ ticket2 = Ticket.create!(
   title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
   alumni_id: lah.id,
   content: Faker::HowIMetYourMother.quote,
-  ticket_skills: "Rails",
+  tag_names: SKILLS.sample(4),
   ticket_location: "Lyon",
   ticket_duration: "1 semaines",
   price: "15",
@@ -183,14 +175,11 @@ ticket2 = Ticket.create!(
   speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
 )
 
-ticket2.tag_names = ['PYTHON', 'ANDROID', 'BOOTSTRAP']
-ticket2.save
-
 ticket3 = Ticket.create!(
   title: "pbm avec n git push",
   alumni_id: mat.id,
   content: Faker::HowIMetYourMother.quote,
-  ticket_skills: "Git",
+  tag_names: SKILLS.sample(4),
   ticket_location: "Paris",
   ticket_duration: "3 mois",
   price: "1300€",
@@ -198,14 +187,11 @@ ticket3 = Ticket.create!(
   status: "cancelled",
 )
 
-ticket3.tag_names = ['RUBY', 'BOOTSTRAP']
-ticket3.save
-
 ticket4 = Ticket.create!(
   title: "need help with git xxxxxxxxx",
   alumni_id: moh.id,
   content: Faker::HowIMetYourMother.quote,
-  ticket_skills: "Git",
+  tag_names: SKILLS.sample(4),
   ticket_location: "Marseille",
   ticket_duration: "1 jours",
   price: "30€",
@@ -214,30 +200,27 @@ ticket4 = Ticket.create!(
   speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
 )
 
-ticket4.tag_names = ['HTML', 'CSS']
-ticket4.save
-
 puts 'Creating Reviews Seeds...'
 Review.create!(
-      ticket_id: ticket1.id,
-      description: "C'est Une Mentor de guedine!!!!!",
-      rating: 5
-  )
+  ticket_id: ticket1.id,
+  description: "C'est Une Mentor de guedine!!!!!",
+  rating: 5
+)
 Review.create!(
-      ticket_id: ticket2.id,
-      description: "C'est Un Mentor génialissime!!!!!",
-      rating: 1
-  )
+  ticket_id: ticket2.id,
+  description: "C'est Un Mentor génialissime!!!!!",
+  rating: 1
+)
 Review.create!(
-      ticket_id: ticket3.id,
-      description: "C'est Un Mentor de guedin!!!!!",
-      rating: 1
-  )
+  ticket_id: ticket3.id,
+  description: "C'est Un Mentor de guedin!!!!!",
+  rating: 1
+)
 Review.create!(
-      ticket_id: ticket4.id,
-      description: "Hooops I did it Again!!!!!",
-      rating: 4
-  )
+  ticket_id: ticket4.id,
+  description: "Hooops I did it Again!!!!!",
+  rating: 4
+)
 puts 'Creating ...'
 toto = []
 SKILL = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
@@ -247,10 +230,9 @@ User.all.each do |user|
     mentor = MentorProfil.create!(
       experience: Faker::ChuckNorris.fact,
       minimum_price: Faker::Number.number(2),
-      user_id: user.id
+      user_id: user.id,
+      tag_names: SKILLS.sample(4)
     )
-    mentor.tag_names = SKILL.sample(rand(15))
-    mentor.save
     #seed ticket closed avec Reviews
     3.times do
       toto = []
@@ -262,7 +244,7 @@ User.all.each do |user|
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
-        ticket_skills: SKILL.sample(rand(15)),
+        tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(2),
@@ -271,8 +253,6 @@ User.all.each do |user|
         speaking_language: toto,
       )
 
-      ticket.tag_names = ticket.ticket_skills.split(",")
-      ticket.save
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
@@ -289,7 +269,7 @@ User.all.each do |user|
         title: Faker::HowIMetYourMother.quote,
         alumni_id: isa.id,
         content: Faker::HowIMetYourMother.quote,
-        ticket_skills: SKILL.sample(rand(15)),
+        tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(2),
@@ -297,9 +277,6 @@ User.all.each do |user|
         status: "open",
         speaking_language: toto,
       )
-
-      ticket23.tag_names = ticket23.ticket_skills.split(",")
-      ticket23.save
     end
 #ticket en attente de Review
     3.times do
@@ -312,7 +289,7 @@ User.all.each do |user|
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
-        ticket_skills: SKILL.sample(rand(15)),
+        tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(2),
@@ -320,10 +297,6 @@ User.all.each do |user|
         status: "pending",
         speaking_language: toto,
       )
-
-      ticket34.tag_names = ticket34.ticket_skills.split(",")
-      ticket34.save
-
     end
   end
 end
@@ -369,13 +342,11 @@ mentor89github.each do |element|
   )
 
   mentor = MentorProfil.create!(
-  experience: Faker::ChuckNorris.fact,
-  minimum_price: Faker::Number.number(2),
-  user_id: userm.id
+    experience: Faker::ChuckNorris.fact,
+    minimum_price: Faker::Number.number(2),
+    user_id: userm.id
   )
   mentor89 << mentor
-  mentor.tag_names = SKILL.sample(rand(15))
-  mentor.save
 end
     #seed ticket closed avec Reviews
     50.times do
@@ -388,7 +359,7 @@ end
         alumni_id: users89.sample.id,
         mentor: mentor89.sample.user,
         content: Faker::HowIMetYourMother.quote,
-        ticket_skills: SKILL.sample(rand(15)),
+        tag_names: SKILLS.sample(3),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
         price: Faker::Number.number(2),
@@ -397,8 +368,6 @@ end
         speaking_language: toto,
       )
 
-      ticket.tag_names = ticket.ticket_skills.split(",")
-      ticket.save
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
