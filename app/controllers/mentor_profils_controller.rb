@@ -3,7 +3,7 @@ class MentorProfilsController < ApplicationController
 
   def index
     @mentor_profils = MentorProfil.all
-    authorize @mentor_profil
+    authorize @mentor_profils
   end
 
   def new
