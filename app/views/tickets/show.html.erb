@@ -12,7 +12,7 @@
             <% if policy(@ticket).edit? %>
               <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
               <% #Mettre le lien dans l'update ? %>
-              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary', 
+              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary',
                   #method: :close,
                   data: { confirm: "Are you sure?" } %>
               <% #lien cancel à brancher %>
@@ -51,4 +51,17 @@
       <% end %>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <% @ticket.mentor.reviews.each do |review| %>
+  <%= render 'shared/reviewcard', review: review %>
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+
 </div>

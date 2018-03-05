@@ -26,12 +26,16 @@
       <%= ticket.price %>
     <% else %>
       <%= ticket.mentor.mentor_profil.minimum_price %>
-      <% end %>
+    <% end %>
   </div>
 
   <div class="bigcard-skills">
-    <%= ticket.tag_names%>
-  </div>
+   <% ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each do |skill| %>
+   <div class=“skill”>
+     <p><%= skill %></p>
+   </div>
+   <% end %>
+ </div>
 
 </div>
 

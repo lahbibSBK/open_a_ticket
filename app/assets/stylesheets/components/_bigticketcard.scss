@@ -31,17 +31,12 @@
 
 .bigcard-content {
   position: absolute;
-  left: 30%;
+  left: 27%;
   max-width: 250px;
-  top: 40%;
+  top: 30%;
   background-color: #fafafa;
-}
-
-.bigcard-skills {
-  position: absolute;
-  left: 30%;
-  max-width: 300px;
-  bottom: 10px;
+  min-height: 100px;
+  min-width: 350px
 }
 
 .bigcard-flag {
@@ -58,13 +53,26 @@
   right: 10px;
 }
 
-.long-card-skills {
+.bigcard-skills {
  position: absolute;
  left: 320px;
  bottom: 2px;
  display: flex;
  align-items: center;
  max-width: 600px;
+}
+
+.skill {
+ background-color: white;
+ color:black;
+ margin-right: 5px;
+ padding: 10px 10px;
+ p{
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: black;
+ }
 }
 
 

@@ -8,10 +8,10 @@
       </ul>
     </div>
   <div class="ticket">
-    
+
       <% @tickets.each do |ticket| %>
         <% if policy(ticket).show? %>
-        <%= render 'shared/ticketcard', ticket: ticket %>
+        <%= render 'shared/ticketlist', ticket: ticket %>
       <% end %>
   <% end %>
   </div>
