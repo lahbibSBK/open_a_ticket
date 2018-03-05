@@ -90,6 +90,7 @@ class TicketsController < ApplicationController
         :alumni_id,
         :ticket_location,
         :priority,
+        :speaking_language,
         :title,
         :stats,
         tag_names: []
