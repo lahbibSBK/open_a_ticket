@@ -9,4 +9,6 @@ class Ticket < ApplicationRecord
   validates :title, :alumni_id, :tag_names, :ticket_location, :ticket_duration, :price,  presence: true
 
   Gutentag::ActiveRecord.call(self)
+
+  monetize :price_cents
 end

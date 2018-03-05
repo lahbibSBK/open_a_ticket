@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305130039) do
+ActiveRecord::Schema.define(version: 20180305165113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20180305130039) do
     t.index ["user_id"], name: "index_mentor_profils_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.jsonb "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "description"
     t.integer "rating"
@@ -56,7 +65,6 @@ ActiveRecord::Schema.define(version: 20180305130039) do
   create_table "tickets", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "price"
     t.string "ticket_duration"
     t.string "ticket_location"
     t.string "priority"
@@ -67,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180305130039) do
     t.datetime "updated_at", null: false
     t.string "speaking_language"
     t.string "mentor_recommanded_list"
+    t.integer "price_cents", default: 0, null: false
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
     t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
   end
