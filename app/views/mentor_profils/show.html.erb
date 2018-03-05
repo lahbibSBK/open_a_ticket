@@ -15,15 +15,19 @@
       <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
       <% end %>
+      
+      <br>
+      <br>
+      
       <ul>
         
       </ul>
-      <br>
-      <br>
+
+      <%= link_to "Dashboard", tickets_path %>
       <%= link_to "back", mentor_profils_path %>
       <% @reviews.each do |review| %>
-    <%= render 'shared/reviewcard', review: review %>
-    <% end %>
+        <%= render 'shared/reviewcard', review: review %>
+      <% end %>
     </div>
   </div>
 </div>

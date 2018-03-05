@@ -1,0 +1,27 @@
+.h-3 {
+  height: 30px;
+}
+
+.w-1 {
+  width: 10px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 10px;
+  height: 300px;
+  word-wrap: normal;
+  padding: 50px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  font-weight: 100;
+}
