@@ -41,7 +41,7 @@ class MentorProfilsController < ApplicationController
   end
 
   def show
-    authorize @mentor_profil
+    # authorize @mentor_profil
     @reviews = @mentor_profil.user.reviews
   end
 

@@ -1,0 +1,10 @@
+.reviewcard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewcard-content {
+  max-width: 500px;
+  max-height: 50px;
+}

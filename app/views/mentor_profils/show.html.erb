@@ -18,6 +18,11 @@
       <% end %>
     </ul>
     <%= link_to "Dashboard", tickets_path %>
+
+
+    <% @reviews.each do |review| %>
+  <%= render 'shared/reviewcard', review: review %> -->
+  <% end %>
   </div>
 </div>
 
