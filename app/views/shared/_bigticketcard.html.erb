@@ -24,11 +24,7 @@
     <% end %></div>
 
   <div class="bigcard-price">
-    <% if ticket.status == "open" %>
       <h2><%= ticket.price %> €/hour</h2>
-    <% else %>
-      <%= ticket.mentor.mentor_profil.minimum_price %>
-    <% end %>
   </div>
 
   <div class="bigcard-skills">

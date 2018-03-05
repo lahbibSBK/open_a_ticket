@@ -4,7 +4,7 @@
     <h2><%= l(ticket.created_at, format: :short) %></h2>
   </div>
   <% if ticket.mentor.blank? %>
-      <%= image_tag 'emptyavatar.png' %>
+      <%= image_tag 'emptyavatar.png', class: "long-card-user" %>
      <% else %>
       <img class="long-card-user" src=<%= ticket.mentor.pic_url %>>
     <% end %>
