@@ -24,3 +24,12 @@ $text-gray: #aeaeae;
     color: #aeaeae;
   }
 }
+.text-white {
+  color: white;
+  &:hover {
+    color: white;
+  }
+}
+.text-black {
+  color: black;
+}

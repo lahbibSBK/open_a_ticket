@@ -1,0 +1,12 @@
+.big-card {
+  height: 500px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 100px;
+  font-weight: 100;
+  .mentor-quote {
+    width: 70%;
+  }
+}

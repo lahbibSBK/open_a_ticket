@@ -1,0 +1,23 @@
+.testimonies {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.testimony {
+  display: flex;
+  justify-content: space-betweeen;
+  margin: 100px auto;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 30px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.to-separate {
+  border: 0.5px solid rgba(0,0,0,0.2);
+}
