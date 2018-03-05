@@ -242,7 +242,6 @@ User.all.each do |user|
       ticket = Ticket.create!(
         title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
-        content: "J'ai un problème par rapport à un mission que je n'arrive pas à réaliser. J'ai besoin d'un mentor qui me permette de démarrer",
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
         tag_names: SKILLS.sample(4),
