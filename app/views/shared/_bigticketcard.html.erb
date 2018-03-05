@@ -9,8 +9,8 @@
   </div>
 
   <div class="bigcard-date">
-    <h2>created at:</h2>
-    <p><%=ticket.created_at%><</p>
+    <p>created at:</p>
+    <h2><%=l(ticket.created_at, format: :short) %></h2>
   </div>
 
   <div class="bigcard-title"> <%= ticket.title %></div>
@@ -21,9 +21,8 @@
   <div class="bigcard-flag"><p>drapeau</p></div>
 
   <div class="bigcard-price">
-    <p> Price max/h :</p>
     <% if ticket.status == "open" %>
-      <%= ticket.price %>
+      <h2><%= ticket.price %> €/hour</h2>
     <% else %>
       <%= ticket.mentor.mentor_profil.minimum_price %>
     <% end %>
@@ -36,7 +35,6 @@
    </div>
    <% end %>
  </div>
-
 </div>
 
 
