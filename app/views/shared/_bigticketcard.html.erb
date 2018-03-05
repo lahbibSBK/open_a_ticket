@@ -2,15 +2,15 @@
 
   <div class="bigcard-avatar">
     <% if ticket.mentor.blank? %>
-      <img src="emptyavatar.png" alt="loulou.png">
+      <%= image_tag 'emptyavatar.png' %>
      <% else %>
       <img src=<%= ticket.mentor.pic_url %> alt="mentor-avatar">
     <% end %>
   </div>
 
   <div class="bigcard-date">
-    <p>Ticket created at:</p>
-    <%=ticket.created_at%>
+    <p>created at:</p>
+    <h2><%=l(ticket.created_at, format: :short) %></h2>
   </div>
 
   <div class="bigcard-title"> <%= ticket.title %></div>
@@ -18,21 +18,26 @@
   <div class="bigcard-content"> <%= ticket.content %></div>
 
 
-  <div class="bigcard-flag"><p>drapeau</p></div>
+  <div class="bigcard-flag"><% ticket.speaking_language.each do |langue| %>
+    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+
+    <% end %></div>
 
   <div class="bigcard-price">
-    <p> Price max/h :</p>
     <% if ticket.status == "open" %>
-      <%= ticket.price %>
+      <h2><%= ticket.price %> €/hour</h2>
     <% else %>
       <%= ticket.mentor.mentor_profil.minimum_price %>
-      <% end %>
+    <% end %>
   </div>
 
   <div class="bigcard-skills">
-    <%= ticket.tag_names%>
-  </div>
-
+   <% ticket.tag_names.take(5).each do |skill| %>
+   <div class="skill">
+     <p><%= skill %></p>
+   </div>
+   <% end %>
+ </div>
 </div>
 
 

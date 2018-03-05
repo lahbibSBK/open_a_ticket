@@ -62,7 +62,7 @@
 .square-mentor-card-reviews {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 40px;
 }
 
 .square-mentor-card-batch {
@@ -75,6 +75,12 @@
        li {
         font-weight: lighter;
     }
+}
+
+.square-mentor-card-name {
+  position: absolute;
+  right: 20px;
+  top: -15px;
 }
 
 

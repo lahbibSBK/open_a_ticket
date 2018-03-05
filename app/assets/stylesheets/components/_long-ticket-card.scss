@@ -1,11 +1,11 @@
 .long-ticket-card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-position: center;
   position: relative;
   color: black;
   background-color: #EAEAEA;
   margin-bottom: 10px;
+
 }
 .long-card-user {
   position: absolute;
@@ -34,7 +34,7 @@
 .long-card-description {
   position: absolute;
   left: 320px;
-  top: 15px;
+  top: -15px;
   max-width: 400px;
 
   p{
@@ -44,7 +44,7 @@
   color: black;
   max-height: 55px;
   overflow: hidden;
-    text-overflow: clip;
+  text-overflow: clip;
   }
   h2{
     font-size: 24px;
@@ -53,6 +53,11 @@
     text-overflow: ellipsis;
     max-height: 55px;
     margin-bottom: 5px;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+
   }
 }
 

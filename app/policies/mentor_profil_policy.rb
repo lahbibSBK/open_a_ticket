@@ -7,7 +7,7 @@ class MentorProfilPolicy < ApplicationPolicy
 
 
   def index?
-  	true
+    true
   end
 
   def new?
@@ -27,10 +27,10 @@ class MentorProfilPolicy < ApplicationPolicy
   end
 
   def show?
-    edit?
+    true
   end
 
   def edit?
-  	record[0].user == user
+  	# record[0].user == user
   end
 end

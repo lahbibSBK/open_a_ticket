@@ -3,7 +3,7 @@ class MentorProfilsController < ApplicationController
 
   def index
     @mentor_profils = MentorProfil.all
-    authorize @mentor_profil
+    authorize @mentor_profils
   end
 
   def new
@@ -14,9 +14,7 @@ class MentorProfilsController < ApplicationController
   def create
     @mentor_profil = MentorProfil.new(mentor_profil_params)
     @mentor_profil.user = current_user
-    tag = params[:mentor_profil][:mentor_skills]
-    tag.shift
-    @mentor_profil.tag_names = tag
+
     authorize @mentor_profil
     if @mentor_profil.save
       redirect_to mentor_profil_path(@mentor_profil)
@@ -41,7 +39,7 @@ class MentorProfilsController < ApplicationController
   end
 
   def show
-    authorize @mentor_profil
+    # authorize @mentor_profil
     @reviews = @mentor_profil.user.reviews
   end
 
@@ -51,11 +49,11 @@ class MentorProfilsController < ApplicationController
   private
 
   def set_mentor_profil
-    @mentor_profil = MentorProfil.where(user_id: params[:id])
+    @mentor_profil = MentorProfil.find(params[:id])
     authorize @mentor_profil
   end
 
   def mentor_profil_params
-    params.require(:mentor_profil).permit(:experience, :minimum_price, :user_id)
+    params.require(:mentor_profil).permit(:experience, :minimum_price, :user_id, :tag_names)
   end
 end
