@@ -30,7 +30,7 @@
   </div>
 
   <div class="bigcard-skills">
-   <% ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each do |skill| %>
+   <% ticket.tag_names.take(5).each do |skill| %>
    <div class="skill">
      <p><%= skill %></p>
    </div>
