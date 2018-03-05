@@ -7,7 +7,7 @@
           <%= simple_form_for ticket do |f| %>
             <%= f.input :title, placeholder:"Title of the ticket" %>
             <%= f.input :content, placeholder:"Description of the ticket" %>
-            <%= f.input :ticket_skills, collection: Ticket::SKILLS, input_html: { multiple: true } %>
+            <%= f.input :tag_names, collection: Gutentag::Tag.all, input_html: { multiple: true } %>
             <%= f.input :price, placeholder: "Hours rate" %>
             <%= f.input :ticket_duration, placeholder:"How many hours / what's the repartition?" %>
             <%= f.input :ticket_location, placeholder: "Do you need someone close to your Location?" %>

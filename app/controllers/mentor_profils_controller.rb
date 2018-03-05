@@ -14,9 +14,7 @@ class MentorProfilsController < ApplicationController
   def create
     @mentor_profil = MentorProfil.new(mentor_profil_params)
     @mentor_profil.user = current_user
-    tag = params[:mentor_profil][:mentor_skills]
-    tag.shift
-    @mentor_profil.tag_names = tag
+
     authorize @mentor_profil
     if @mentor_profil.save
       redirect_to mentor_profil_path(@mentor_profil)
@@ -56,6 +54,6 @@ class MentorProfilsController < ApplicationController
   end
 
   def mentor_profil_params
-    params.require(:mentor_profil).permit(:experience, :minimum_price, :user_id)
+    params.require(:mentor_profil).permit(:experience, :minimum_price, :user_id, :tag_names)
   end
 end
