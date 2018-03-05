@@ -10,9 +10,8 @@
 import "bootstrap";
 import Choices from 'choices.js';
 
-new Choices('#ticket_ticket_skills');
+new Choices('#ticket_tag_names');
 
-// import 'choices.js/assets/styles/css/base.css';
 import 'choices.js/assets/styles/css/choices.css';
 
 import { loadDynamicBannerText } from '../components/_banner';

@@ -27,12 +27,9 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.alumni = current_user
-    @ticket.status ="open"
-    tag = params[:ticket][:ticket_skills]
-    tag.shift
-    @ticket.tag_names = tag
-    @ticket.ticket_skills = tag
+    @ticket.status = "open"
     authorize @ticket
+
     if @ticket.save
       @ticket.mentor_recommanded_list = match_mentors
       redirect_to dashboard_path, notice: 'Yeah Baby !!! Ticket was successfully created.'
@@ -43,7 +40,6 @@ class TicketsController < ApplicationController
 
   def edit
   end
-
 
   def update
     if @ticket.update(ticket_params)
@@ -58,7 +54,6 @@ class TicketsController < ApplicationController
     @ticket.destroy
     redirect_to tickets_path, notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
   end
-
 
   def mentor
     @ticket.mentor = MentorProfil.find(params[:mid]).user
@@ -97,12 +92,15 @@ class TicketsController < ApplicationController
         :priority,
         :title,
         :stats,
-        ticket_skills: []
+        tag_names: []
       )
   end
 
   def match_mentors
-    @match_mentors_list = MentorProfil.tagged_with(:names => [@ticket.tag_names[0], @ticket.tag_names[1]], :match => :any)
+    @match_mentors_list = MentorProfil.tagged_with(
+      names: @ticket.tag_names,
+      match: :any
+    )
   end
 end
 
