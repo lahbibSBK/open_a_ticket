@@ -5,21 +5,31 @@
     <h2> <%= mentor.first_name %> <%= mentor.last_name %></h2>
   </div>
   <div class="square-mentor-card-price">
-    <h2> <%= @ticket.price %> €/hour </h2>
+    <h2> <%= mentor.mentor_profil.minimum_price %> €/hour </h2>
   </div>
   <div class="square-mentor-card-skills">
-    <% @ticket.tag_names.take(5).each do |skill| %>
+    <% mentor.mentor_profil.tag_names.take(5).each do |skill| %>
       <div class="skill">
         <p><%= skill %></p>
       </div>
     <% end %>
   </div>
   <div class="square-mentor-card-reviews">
-    <p><%= mentor.reviews.count %> reviews </p>
-    <div class="square-mentor-card-reviews-stars">
-      5.0
-      <i class="fa fa-star "></i>
-    </div>
+    <% if  mentor.reviews.blank? %>
+      <div>
+        <p>No yet reviews </p>
+      </div>
+    <% else %>
+      <p><%= mentor.reviews.count %> reviews </p>
+      <div class="square-mentor-card-reviews-stars">
+          <% mentor.reviews.average(:rating).round().times do |i| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - mentor.reviews.average(:rating).round()).times do |i| %>
+            <i class="far fa-star"></i>
+            <% end %>
+      </div>
+    <% end %>
   </div>
   <div class="square-mentor-card-batch">
     <p>BATCH 121</p>
