@@ -3,13 +3,13 @@
   <img class="square-mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
   <a class="card-link" href="#" ></a>
   <div class="square-mentor-card-name">
-    <h2> <%= mentor.first_name %> €/hour </h2>
+    <h2> <%= mentor.first_name %> <%= mentor.last_name %></h2>
   </div>
   <div class="square-mentor-card-price">
     <h2> <%= @ticket.price %> €/hour </h2>
   </div>
   <div class="square-mentor-card-skills">
-    <% @ticket.tag_names.take(4).each do |skill| %>
+    <% @ticket.tag_names.take(5).each do |skill| %>
       <div class="skill">
         <p><%= skill %></p>
       </div>
