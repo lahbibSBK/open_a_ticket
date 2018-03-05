@@ -99,7 +99,7 @@ davidhass = User.create!(
   speaking_language: ["France","English", "Le Voiture", "Le Mec bourré"].to_s
 )
 davidmentor = MentorProfil.create!(
-  experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at 
+  experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
   the Foundation for Law and Government (FLAG). Don't shoot at my pretty face",
   minimum_price: "25",
   user_id: davidhass.id
@@ -169,6 +169,7 @@ ticket1 = Ticket.create!(
   status: "closed",
   speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
 )
+
 ticket2 = Ticket.create!(
   title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
   alumni_id: lah.id,
@@ -259,6 +260,7 @@ User.all.each do |user|
       ticket = Ticket.create!(
         title: Faker::WorldOfWarcraft.hero,
         alumni_id: isa.id,
+        content: "J'ai un problème par rapport à un mission que je n'arrive pas à réaliser. J'ai besoin d'un mentor qui me permette de démarrer",
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
         ticket_skills: SKILL.sample(rand(15)),

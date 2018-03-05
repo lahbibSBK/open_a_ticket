@@ -1,0 +1,38 @@
+
+<div class="square-mentor-card">
+  <img class="square-mentor-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+  <div class="square-mentor-card-price">
+    <h2> <%= @ticket.price %> €/hour </h2>
+  </div>
+  <div class="square-mentor-card-skills">
+    <% @ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each_with_index do |skill,index| %>
+    <%if index <= 4 %>
+    <div class="skill">
+      <p><%= skill %></p>
+    </div>
+    <%end  %>
+    <% end %>
+  </div>
+  <div class="square-mentor-card-reviews">
+    <p><%= mentor.reviews.count %> reviews </p>
+    <div class="square-mentor-card-reviews-stars">
+      5.0
+      <i class="fa fa-star "></i>
+    </div>
+  </div>
+  <div class="square-mentor-card-batch">
+    <p>BATCH 121</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

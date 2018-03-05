@@ -12,7 +12,7 @@
             <% if policy(@ticket).edit? %>
               <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
               <% #Mettre le lien dans l'update ? %>
-              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary', 
+              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary',
                   #method: :close,
                   data: { confirm: "Are you sure?" } %>
               <% #lien cancel à brancher %>
@@ -35,7 +35,7 @@
         <% @match_mentors_list.each do |mentor_profil| %>
           <div>
             <div class="col-xs-12 col-sm-4 col-md-6">
-              <%= render 'shared/mentorcard', mentor: mentor_profil.user %>
+              <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
             <%= link_to "choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", tickets_mentor_path(@ticket, mentor_profil) %>
             </div>
           </div>
@@ -43,7 +43,7 @@
       <% else %>
         <h2>Selected mentor</h2>
         <div class="col-xs-12 col-sm-4 col-md-6">
-          <%= render 'shared/mentorcard', mentor: @ticket.mentor %>
+          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
           <% if @ticket.review.blank? %>
             <%= link_to"Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket) %>
           <% end %>

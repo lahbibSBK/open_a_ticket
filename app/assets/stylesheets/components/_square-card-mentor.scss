@@ -1,0 +1,81 @@
+.square-mentor-card {
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-position: center;
+  color: black;
+  position: relative;
+  background-color: #EAEAEA;
+  p{
+
+  opacity: 0.7;
+  font-weight: lighter;
+
+  }
+  h2{
+    font-size: 24px;
+      font-weight: lighter;
+
+  }
+}
+.square-mentor-card-user {
+  position: absolute;
+  left:  80px;
+  top: 60px;
+  width: 110px;
+  border-radius: 50%;
+}
+
+.square-mentor-card-price {
+  position: absolute;
+  bottom: 115px;
+    right: 110px;
+  h2{
+    font-size: 24px;
+  }
+}
+
+.square-mentor-card-skills {
+  position: absolute;
+  right: 115px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.skill {
+  background-color: white;
+  color:black;
+  margin-right: 5px;
+  padding: 10px 10px;
+  height: 40px;
+  border-radius: 5px;
+  p {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    color: black;
+    white-space: nowrap;
+
+  }
+}
+
+.square-mentor-card-reviews {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.square-mentor-card-batch {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.square-mentor-card-reviews-stars {
+       li {
+        font-weight: lighter;
+    }
+}
+
+
+
