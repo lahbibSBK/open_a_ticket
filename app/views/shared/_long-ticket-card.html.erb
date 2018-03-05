@@ -1,7 +1,7 @@
 <div class="long-ticket-card">
   <div class="long-card-created">
-    <h2>Ticket created the </h2>
-    <p><%= ticket.created_at %></p>
+    <p>created the </p>
+    <h2><%= l(ticket.created_at, format: :short) %></h2>
   </div>
   <img class="long-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
   <div class="long-card-description">
@@ -21,7 +21,7 @@
   <% end %>
   </div>
   <div class="long-card-flag">
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" class="" width="20" height="20"alt="">
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/fr.png" class="" width="20" height="20"alt="">
+    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" width="20" >
+    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/fr.png" width="20" >
   </div>
 </div>
