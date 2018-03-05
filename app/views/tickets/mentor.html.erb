@@ -18,12 +18,14 @@
     <% else %>
       <ul>
         <% @ticket.mentor.reviews.each do |review| %>
-          <li><%= review.description %></li>
+          <li><% review.rating.to_i.times do |i| %>
+          <i class="fas fa-star"></i>
+        <% end %><% (5 - review.rating.to_i).times do |i| %>
+          <i class="far fa-star grey"></i>
+        <% end %><%= review.description %> <img src=<%= review.ticket.alumni.pic_url%>  class="avatar-xsmall"></li>
         <% end %>
       </ul>
     <% end %>
     <%= link_to"Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket) %>
   </div>
 </div>
-
-

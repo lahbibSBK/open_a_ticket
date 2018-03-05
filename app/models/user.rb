@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   has_many :reviews, through: :mentor_tickets
 
-  validates :last_name, :first_name, :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true
+  validates_uniqueness_of :first_name, scope: :last_name, presence: true
 
   def self.find_for_github_oauth(auth)
     login = auth.extra.raw_info.login

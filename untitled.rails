@@ -2,8 +2,8 @@
   <div class="informations">
     <img src=<%= mentor.pic_url %> class="avatar-large" alt="avatar">
     <p><%= mentor.first_name %> <%= mentor.last_name %></p>
-    <%= link_to "choose #{mentor.first_name} #{mentor.last_name}", tickets_mentor_path(@ticket, mentor) %>
   </div>
+  
   <div class="card-description">
     <% if mentor.reviews.blank? %>
       <p>No review yet</p>
@@ -11,11 +11,12 @@
       <ul>
         <% mentor.reviews.each do |review| %>
           <li><% review.rating.to_i.times do |i| %>
-          <i class="fa fa-star"></i>
+          <i class="fas fa-star"></i>
+        <% end %><% (5 - review.rating.to_i).times do |i| %>
+          <i class="far fa-star grey"></i>
         <% end %><%= review.description %> <img src=<%= review.ticket.alumni.pic_url%>  class="avatar-xsmall"></li>
         <% end %>
       </ul>
     <% end %>
   </div>
 </div>
-
