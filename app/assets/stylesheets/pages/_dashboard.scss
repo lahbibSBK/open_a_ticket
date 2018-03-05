@@ -1,14 +1,27 @@
 .left-panel {
-  background-color: #343a40;
-  width: 190px;
-  height: calc(100vh - 50px);
-  text-align: left;
+  background-color: #333333;
+  color: white;
+  height: 100vh;
   position: fixed;
-  color: white;
+  min-width: 240px;
+}
+
+.status-item {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
 
 }
 
-.sidebar-item {
-  color: white;
-  height: 50px;
+.status-item-text {
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+  }
 }
+
+
+

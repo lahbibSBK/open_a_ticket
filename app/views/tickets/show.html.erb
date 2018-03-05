@@ -34,12 +34,12 @@
         <h2>Recommended mentors</h2>
         <% @match_mentors_list.each do |mentor_profil| %>
           <div class="col-xs-12 col-sm-4 col-md-6">
-            <%= render 'shared/mentorcard', mentor: mentor_profil.user %>
+            <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
           </div>
         <% end %>
       <% else %>
         <div class="col-xs-12 col-sm-4 col-md-6">
-          <%= render 'shared/mentorcard', mentor: @ticket.mentor %>
+          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
         </div>
       <% end %>
     </div>

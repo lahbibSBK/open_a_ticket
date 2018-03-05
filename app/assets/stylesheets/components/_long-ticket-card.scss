@@ -1,0 +1,99 @@
+.long-ticket-card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-position: center;
+  position: relative;
+  color: black;
+  background-color: #EAEAEA;
+  margin-bottom: 10px;
+}
+.long-card-user {
+  position: absolute;
+  left: 10px;
+  top: 51px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.long-card-created {
+  position: absolute;
+  left: 77px;
+  top: 64px;
+  p{
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: black;
+  }
+  h2{
+    font-size: 24px;
+    color: black;
+  }
+}
+
+.long-card-description {
+  position: absolute;
+  left: 320px;
+  top: 15px;
+  max-width: 400px;
+
+  p{
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: black;
+  max-height: 55px;
+  overflow: hidden;
+    text-overflow: clip;
+  }
+  h2{
+    font-size: 24px;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 55px;
+    margin-bottom: 5px;
+  }
+}
+
+.long-card-skills {
+  position: absolute;
+  left: 320px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.skill {
+  background-color: white;
+  color:black;
+  margin-right: 5px;
+  padding: 10px 10px;
+  height: 40px;
+  border-radius: 5px;
+  p {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    color: black;
+    white-space: nowrap;
+
+  }
+}
+
+.long-card-price {
+  position: absolute;
+  right: 5px;
+  top: 90px;
+  p {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    color: black;
+  }
+}
+.long-card-flag {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}

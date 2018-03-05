@@ -145,7 +145,7 @@ puts 'Creating Tickets Seeds...'
 ticket1 = Ticket.create!(
       title: "Besoin d'aide pour installer ruby",
       alumni_id: moh.id,
-
+      content: "J'ai un problème par rapport à un mission que je n'arrive pas à réaliser. J'ai besoin d'un mentor qui me permette de démarrer",
       ticket_skills: "Ruby",
       ticket_location: "Dakar",
       ticket_duration: "3 semaines",
@@ -237,6 +237,7 @@ User.all.each do |user|
       ticket = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,
         alumni_id: isa.id,
+        content: "J'ai un problème par rapport à un mission que je n'arrive pas à réaliser. J'ai besoin d'un mentor qui me permette de démarrer",
         mentor: mentor.user,
         ticket_skills: SKILL.sample(rand(15)),
         ticket_location: Faker::Address.city,
