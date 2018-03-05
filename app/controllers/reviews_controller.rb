@@ -6,16 +6,15 @@ class ReviewsController < ApplicationController
     @review.ticket = @ticket
     @review.ticket.status = "closed"
     authorize @review
-    #le redirect pose problème avec pundit
-    #redirect_to mentor_profil_path(@review.ticket.mentor.mentor_profil)
   end
 
   def create
      @review = Review.new(review_params)
      @review.ticket = @ticket
+     @review.ticket.status = "closed"
      authorize @review
     if @review.save
-      redirect_to mentor_profil_path(@review.ticket.mentor)
+      redirect_to ticket_path(@review.ticket)
     else
       render :new
     end

@@ -1,0 +1,70 @@
+.bigcard {
+  background-color: #EAEAEA;
+  height: 200px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.bigcard-avatar img {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.bigcard-date {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.bigcard-title {
+  position: absolute;
+  left: 40%;
+  top: 20px;
+  max-width: 200px;
+}
+
+.bigcard-content {
+  position: absolute;
+  left: 30%;
+  max-width: 250px;
+  top: 40%;
+  background-color: #fafafa;
+}
+
+.bigcard-skills {
+  position: absolute;
+  left: 30%;
+  max-width: 300px;
+  bottom: 10px;
+}
+
+.bigcard-flag {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.bigcard-price {
+  position: absolute;
+  display: block;
+  align-items: center;
+  top: 40%;
+  right: 10px;
+}
+
+.long-card-skills {
+ position: absolute;
+ left: 320px;
+ bottom: 2px;
+ display: flex;
+ align-items: center;
+ max-width: 600px;
+}
+
+

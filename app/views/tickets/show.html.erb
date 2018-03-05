@@ -1,25 +1,25 @@
 <div class="container">
+  <div>
+    <%= render 'shared/bigticketcard', ticket: @ticket %>
+  </div>
   <div class="mission">
-    <div class="mission-name">
-      <h3><p><strong>Title : </strong><%= @ticket.title %></p></h3>
-      <p></strong>Date Of Creation : </strong><%= @ticket.created_at %></p>
-    </div>
+    <% #à garder pour trouver comment afficher le drapeau en fonction de la langue %>
     <div class="mission-body">
-      <p><strong>Skills : </strong><%= @ticket.ticket_skills %></p>
-      <p><strong>Location : </strong><%= @ticket.ticket_location %></p>
-      <p><strong>Duration : </strong><%= @ticket.ticket_duration %></p>
+      <p><strong>Language : </strong><%= @ticket.speaking_language %></p>
     </div>
     <div class="mission-status">
-       <p class="status pending">Status : <%= @ticket.status %></p>
-       <p class="price">Proposed Price : <%= @ticket.price %></p>
         <div>
             <% if policy(@ticket).edit? %>
               <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
-              <%= link_to 'Close', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
-              <% #lien delete à brancher %>
+              <% #Mettre le lien dans l'update ? %>
+              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary',
+                  #method: :close,
+                  data: { confirm: "Are you sure?" } %>
+              <% #lien cancel à brancher %>
               <%= link_to 'Cancel', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
-              <%= link_to "Destroy", edit_ticket_path(@ticket), class: 'btn btn-danger' %>
-
+              <%= link_to "Delete", ticket_path(@ticket), class: 'btn btn-danger',
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
             <% end %>
           <%= link_to 'Back', dashboard_path, class: 'btn btn-info' %>
         </div>
@@ -33,16 +33,22 @@
       <% if @ticket.mentor.blank? %>
         <h2>Recommended mentors</h2>
         <% @match_mentors_list.each do |mentor_profil| %>
-          <div class="col-xs-12 col-sm-4 col-md-6">
-            <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
+          <div>
+            <div class="col-xs-12 col-sm-4 col-md-6">
+              <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
+            <%= link_to "choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", tickets_mentor_path(@ticket, mentor_profil) %>
+            </div>
           </div>
         <% end %>
       <% else %>
+        <h2>Selected mentor</h2>
         <div class="col-xs-12 col-sm-4 col-md-6">
           <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
+          <% if @ticket.review.blank? %>
+            <%= link_to"Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket) %>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
