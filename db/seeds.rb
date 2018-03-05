@@ -41,10 +41,9 @@ students.each do |element|
     phone_number: student["phone"],
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
-    speaking_language: ["fr", "gb"]
+    speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
-  ap "ligne 46"
-  ap users.last
 end
 
 jos = User.create!(
@@ -56,7 +55,8 @@ jos = User.create!(
   address: "12 rue de saint fons 69007 LYON",
   batch_wagon: "XXX",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
-  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"]
+  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
+
 )
 josephmentor = MentorProfil.create!(
   experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
@@ -151,7 +151,7 @@ ticket2 = Ticket.create!(
   alumni_id: lah.id,
   content: Faker::HowIMetYourMother.quote,
   tag_names: SKILLS.sample(4),
-  ticket_location: "Lyon",
+  ticket_location: Faker::Address.city,
   ticket_duration: "1 semaines",
   price: "15",
   priority: "low",
@@ -236,8 +236,6 @@ User.all.each do |user|
         status: "closed",
         speaking_language: toto,
       )
-      ap "ligne 238"
-      ap ticket
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
@@ -323,6 +321,7 @@ students89.each do |element|
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
 end
 
@@ -345,6 +344,7 @@ mentor89github.each do |element|
     batch_wagon: mentor["camp_name"],
     pic_url: mentor["avatar"],
     speaking_language: toto,
+    address: Faker::Address.city,
   )
 
   mentor = MentorProfil.create!(
