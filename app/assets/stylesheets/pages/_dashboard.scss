@@ -1,17 +1,25 @@
+.main-container {
+  display: flex;
+}
+
 .left-panel {
   background-color: #333333;
   color: white;
-  height: 100vh;
-  position: fixed;
-  min-width: 240px;
+  flex-basis: 200px;
+  position: sticky;
+  top: 10px,
 }
+
+.right-panel {
+  flex-grow: 1;
+}
+
 
 .status-item {
   height: 90px;
   display: flex;
   align-items: center;
   border: 1px solid black;
-
 }
 
 .status-item-text {
@@ -22,6 +30,8 @@
     padding-left: 20px;
   }
 }
+
+
 
 
 

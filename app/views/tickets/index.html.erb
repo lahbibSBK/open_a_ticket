@@ -1,12 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-3">
+  <div class="main-container">
     <div class="left-panel">
-        <ul>
-          <div class="status-item">
+      <ul>
+        <div class="status-item">
           <li class="status-item-text"><%= link_to "OPEN", tickets_path(status: "open") %></li>
-          </div>
-          <div class="status-item">
+        </div>
+        <div class="status-item">
           <li class="status-item-text"><%= link_to "PENDING", tickets_path(status: "pending") %></li>
         </div>
         <div class="status-item">
@@ -15,17 +14,16 @@
         <div class="status-item">
           <li class="status-item-text"><%= link_to "CANCELLED", tickets_path(status: "cancelled") %></li>
         </div>
-        </ul>
+      </ul>
     </div>
-    </div>
-    <div class="col-xs-9">
+
     <div class="right-panel">
       <div class="ticket">
-        <% @tickets.each do |ticket| %>
-          <% if policy(ticket).show? %>
+      <% @tickets.each do |ticket| %>
+        <% if policy(ticket).show? %>
             <%= render 'shared/long-ticket-card', ticket: ticket %>
-          <% end %>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
