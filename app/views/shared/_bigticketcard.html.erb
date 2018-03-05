@@ -2,15 +2,15 @@
 
   <div class="bigcard-avatar">
     <% if ticket.mentor.blank? %>
-      <img src="emptyavatar.png" alt="loulou.png">
+      <%= image_tag 'emptyavatar.png' %>
      <% else %>
       <img src=<%= ticket.mentor.pic_url %> alt="mentor-avatar">
     <% end %>
   </div>
 
   <div class="bigcard-date">
-    <p>Ticket created at:</p>
-    <%=ticket.created_at%>
+    <h2>created at:</h2>
+    <p><%=ticket.created_at%><</p>
   </div>
 
   <div class="bigcard-title"> <%= ticket.title %></div>
@@ -31,7 +31,7 @@
 
   <div class="bigcard-skills">
    <% ticket.ticket_skills.gsub('"',"").gsub('[',"").gsub(']',"").split(",").each do |skill| %>
-   <div class=“skill”>
+   <div class="skill">
      <p><%= skill %></p>
    </div>
    <% end %>

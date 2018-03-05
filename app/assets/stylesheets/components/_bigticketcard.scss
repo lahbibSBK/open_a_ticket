@@ -1,6 +1,6 @@
 .bigcard {
   background-color: #EAEAEA;
-  height: 200px;
+  height: 300px;
   position: relative;
   margin-top: 10px;
 }
@@ -20,13 +20,29 @@
   left: 10px;
   font-size: 10px;
   text-transform: uppercase;
+  p{
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: black;
+  }
+  h2{
+    font-size: 24px;
+    color: black;
+    }
 }
 
 .bigcard-title {
   position: absolute;
   left: 40%;
   top: 20px;
-  max-width: 200px;
+  max-width: 400px;
+  font-size: 24px;
+  color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 55px;
+  margin-bottom: 5px;
 }
 
 .bigcard-content {
@@ -36,7 +52,14 @@
   top: 30%;
   background-color: #fafafa;
   min-height: 100px;
-  min-width: 350px
+  min-width: 500px;
+  font-size: 20px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: black;
+  max-height: 55px;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .bigcard-flag {
@@ -51,28 +74,32 @@
   align-items: center;
   top: 40%;
   right: 10px;
+  font-size: 14px;
 }
 
 .bigcard-skills {
  position: absolute;
  left: 320px;
- bottom: 2px;
+ bottom: 15px;
  display: flex;
  align-items: center;
  max-width: 600px;
 }
 
 .skill {
- background-color: white;
- color:black;
- margin-right: 5px;
- padding: 10px 10px;
- p{
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-  color: black;
- }
+  background-color: white;
+  color:black;
+  margin-right: 5px;
+  padding: 10px 10px;
+  height: 40px;
+  border-radius: 5px;
+  p {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: lighter;
+    color: black;
+    white-space: nowrap;
+  }
 }
 
 
