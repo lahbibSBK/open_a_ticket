@@ -16,7 +16,7 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
             <% end %>
-          <%= link_to 'Back', dashboard_path, class: 'btn btn-info' %>
+          <%= link_to 'Back', dashboard_path(status: "open"), class: 'btn btn-info' %>
         </div>
     </div>
   </div>
@@ -29,11 +29,12 @@
           <h2>Recommended mentors</h2>
           <% @match_mentors_list.each do |mentor_profil| %>
             <div class="col-xs-12 col-sm-4 col-md-6">
-              <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
+              <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
               <%= form_tag orders_path do %>
             <%= hidden_field_tag 'ticket_id', @ticket.id %>
             <%= submit_tag "Choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", class: "btn-open-s font-20 text-white ml-2" %>
             <% end %>
+
           </div>
         <% end %>
       <% else %>

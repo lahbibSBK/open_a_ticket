@@ -1,18 +1,10 @@
-
-<div class="container">
-  <div class="row">
-
-
-    <div class="Mentor">
-      <img class="avatar-large" src=<%= @mentor_profil.user.pic_url%>>
-      <p><%= @mentor_profil.user.first_name %>  <%= @mentor_profil.user.last_name %></p>
-
-      <p>Price / Hours : <%= @mentor_profil.minimum_price %></p>
+  <div class="Mentor">
+      
       <p>Expérience : <%= @mentor_profil.experience %></p>
       <br>
       <br>
       <% @mentor_profil.user.speaking_language.each do |langue| %>
-      <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+        <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
       <% end %>
       <div class="col-xs-12 col-sm-4 col-md-6">
@@ -20,15 +12,13 @@
       </div>
       <br>
       <br>
-
-      <ul>
-
-      </ul>
-
-      <%= link_to "Dashboard", tickets_path %>
-      <%= link_to "back", mentor_profils_path %>
-      <% @reviews.each do |review| %>
-      <% end %>
+      <%= render 'shared/reviewscard', reviews: @reviews %>
+      
+      <br>
+      <br>
+      
+      <%= link_to "Dashboard", tickets_path(status: "open"), class: "btn btn-primary" %>
+      <%= link_to "back", mentor_profils_path, class: "btn btn-success" %>
     </div>
   </div>
 

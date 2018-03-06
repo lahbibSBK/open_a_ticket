@@ -24,7 +24,7 @@
     <% end %></div>
 
   <div class="bigcard-price">
-      <h2><%= ticket.price %> €/hour</h2>
+      <h2><%= humanized_money_with_symbol(ticket.price_cents) %> /hour</h2>
   </div>
 
   <div class="bigcard-skills">

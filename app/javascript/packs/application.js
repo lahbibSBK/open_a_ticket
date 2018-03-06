@@ -10,7 +10,7 @@
 import "bootstrap";
 import Choices from 'choices.js';
 
-// new Choices('#ticket_tag_names');
+new Choices('#ticket_tag_names');
 
 import 'choices.js/assets/styles/css/choices.css';
 
@@ -22,6 +22,4 @@ resetMargin();
 
 import { removePrivacyFromPolicy } from '../components/_remove_policy_from_privacy';
 removePrivacyFromPolicy();
-
-// import { changeWhenScrolled } from '../components/_change_when_scrolled' ;
-// changeWhenScrolled();
+import '../components/_dropdown';

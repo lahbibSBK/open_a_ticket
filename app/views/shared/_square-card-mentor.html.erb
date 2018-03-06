@@ -5,7 +5,7 @@
   </div>
 
   <div class="square-mentor-card-reviews">
-    <% if  mentor.reviews.blank? %>
+    <% if  mentor.user.reviews.blank? %>
       <div>
         <p>No yet reviews </p>
       </div>
@@ -14,7 +14,7 @@
           <% mentor.reviews.average(:rating).round().times do |i| %>
             <i class="fas fa-star"></i>
           <% end %>
-          <% (5 - mentor.reviews.average(:rating).round()).times do |i| %>
+          <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
             <i class="far fa-star"></i>
             <% end %>
       </div>
@@ -41,16 +41,16 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <img class="mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
-        <h4 class="modal-title" id="myModalLabel"><%= mentor.first_name %> <%= mentor.last_name %></h4>
-        <p><%= mentor.batch_wagon %></p>
+        <img class="mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
+        <h4 class="modal-title" id="myModalLabel"><%= mentor.user.first_name %> <%= mentor.user.last_name %></h4>
+        <p><%= mentor.user.batch_wagon %></p>
       </div>
       <div class="modal-body">
-        <div class="skill"><p><%= mentor.mentor_profil.tag_names %></p></div>
+        <div class="skill"><p><%= mentor.tag_names %></p></div>
         <h4> Experiences </h4>
-        <p><%= mentor.mentor_profil.experience %></p>
+        <p><%= mentor.experience %></p>
         <h4> Reviews </h4>
-        <p><%= render 'shared/reviewscard', reviews: mentor.reviews %>
+        <p><%= render 'shared/reviewscard', reviews: mentor.user.reviews %>
       </div>
       <div class="modal-footer">
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
