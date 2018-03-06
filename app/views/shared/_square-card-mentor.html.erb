@@ -1,17 +1,17 @@
 <div class="square-mentor-card" data-toggle="modal" data-target="#myModal<%= mentor.id%>">
   <div class="square-mentor-card-title">
-    <p><%= mentor.batch_wagon %></p>
-    <h2><%= mentor.first_name %> <%= mentor.last_name %></h2>
+    <p><%= mentor.user.batch_wagon %></p>
+    <h2><%= mentor.user.first_name %> <%= mentor.user.last_name %></h2>
   </div>
 
   <div class="square-mentor-card-reviews">
-    <% if  mentor.user.reviews.blank? %>
+    <% if mentor.user.reviews.blank? %>
       <div>
         <p>No yet reviews </p>
       </div>
     <% else %>
       <div class="square-mentor-card-reviews-stars">
-          <% mentor.reviews.average(:rating).round().times do |i| %>
+          <% mentor.user.reviews.average(:rating).round().times do |i| %>
             <i class="fas fa-star"></i>
           <% end %>
           <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
@@ -19,17 +19,17 @@
             <% end %>
       </div>
     <% end %>
-    <p><%= mentor.reviews.count %> reviews </p>
+    <p><%= mentor.user.reviews.count %> reviews </p>
   </div>
 
    <div class="square-mentor-card-body">
-      <img class="square-mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
+      <img class="square-mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
       <a class="card-link" href="#" ></a>
-      <h2> <%= mentor.mentor_profil.minimum_price %> €/hour </h2>
+      <h2> <%= mentor.minimum_price %> €/hour </h2>
   </div>
 
   <div class="square-mentor-card-skills">
-    <% mentor.mentor_profil.tag_names.take(5).each do |skill| %>
+    <% mentor.tag_names.take(5).each do |skill| %>
       <div class="skill">
         <p><%= skill %></p>
       </div>
