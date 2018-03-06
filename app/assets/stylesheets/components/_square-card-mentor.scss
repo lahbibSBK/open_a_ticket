@@ -1,87 +1,121 @@
 .square-mentor-card {
-  height: 250px;
+  height: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-position: center;
   color: black;
-  position: relative;
-  background-color: #EAEAEA;
-  p{
+  background-color: #fcfcfc;
+  border: 1px solid #EAEAEA;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(50,50,93,.1);
+  p {
 
   opacity: 0.7;
   font-weight: lighter;
 
   }
-  h2{
+  h2 {
     font-size: 24px;
       font-weight: lighter;
 
   }
 }
+
+.square-mentor-card:hover {
+  background-color: white;
+  opacity: 0.9;
+  box-shadow: 0 0 35px rgba(50,50,93,.2);
+}
+
+.square-mentor-card-title {
+  position: relative;
+  padding: 7px;
+  border-bottom: 1px solid #f4f4f4;
+  margin-right: 20px;
+  margin-left: 20px;
+    p {
+    position: absolute;
+    left: 20px;
+    top: 33px;
+  }
+    h2 {
+    text-align: center;
+   }
+}
+
+.square-mentor-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #f4f4f4;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  p {
+    margin: 0;
+  }
+}
+
 .square-mentor-card-user {
-  position: absolute;
-  left:  80px;
-  top: 60px;
   width: 110px;
   border-radius: 50%;
 }
 
-.square-mentor-card-price {
-  position: absolute;
-  bottom: 115px;
-    right: 110px;
-  h2{
-    font-size: 24px;
-  }
-}
-
 .square-mentor-card-skills {
-  position: absolute;
-  right: 115px;
-  bottom: 15px;
   display: flex;
   align-items: center;
-}
-
-.skill {
-  background-color: white;
-  color:black;
-  margin-right: 5px;
-  padding: 10px 10px;
-  height: 40px;
-  border-radius: 5px;
-  p {
-    font-size: 14px;
-    opacity: 0.7;
-    font-weight: lighter;
-    color: black;
-    white-space: nowrap;
-
+  justify-content: center;
+   .skill {
+    display:flex;
+    align-items: center;
+    margin-right: 5px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0.8px solid #f4f4f4;
+    p {
+      font-size: 14px;
+      opacity: 0.7;
+      font-weight: lighter;
+      color: black;
+      white-space: nowrap;
+      margin: 0;
+    }
   }
 }
 
 .square-mentor-card-reviews {
-  position: absolute;
-  right: 20px;
-  top: 40px;
-}
-
-.square-mentor-card-batch {
-  position: absolute;
-  left: 20px;
-  top: 10px;
+  display: flex;
+  justify-content: flex-end;
+    p {
+    padding-right: 20px;
+    padding-left: 10px;
+  }
 }
 
 .square-mentor-card-reviews-stars {
-       li {
-        font-weight: lighter;
-    }
+   li {
+    font-weight: lighter;
+  }
 }
 
-.square-mentor-card-name {
-  position: absolute;
-  right: 20px;
-  top: -15px;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
+.modal-header .mentor-card-user {
+  border-radius: 50%;
+  height: 60px;
+}
 
+.modal-title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+
+.red-onglet{
+  color: red;
+}

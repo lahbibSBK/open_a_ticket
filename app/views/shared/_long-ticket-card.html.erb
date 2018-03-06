@@ -3,13 +3,17 @@
     <p>created the </p>
     <h2><%= l(ticket.created_at, format: :short) %></h2>
   </div>
-  <img class="long-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <% if ticket.mentor.blank? %>
+      <%= image_tag 'emptyavatar.png', class: "long-card-user" %>
+     <% else %>
+      <img class="long-card-user" src=<%= ticket.mentor.pic_url %>>
+    <% end %>
   <div class="long-card-description">
     <h2> <%= link_to ticket.title, ticket_path(ticket)  %> </h2>
     <p><%= ticket.content %></p>
   </div>
   <div class="long-card-price">
-    <p> <%= ticket.price %> €/hour </p>
+    <p> <%= ticket.price_cents %> €/hour </p>
   </div>
   <div class="long-card-skills">
     <% ticket.tag_names.take(4).each do |skill| %>

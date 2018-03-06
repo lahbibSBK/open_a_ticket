@@ -3,11 +3,14 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = policy_scope(Ticket)
+    #l'instance @selectedstatus sert pour la sélection de l'onglet actif à mettre en rouge
     if params[:status]
-      @tickets = Ticket.where(status:params[:status])
-    elsif
-      @tickets = Ticket.where(status:params[status: "open"])
+      @tickets = Ticket.where(status:params[:status]).order(updated_at: :desc)
+      @selectedstatus = params[:status]
     else
+      @tickets = Ticket.where(status:params[status: "open"])
+      @selectedstatus = "open"
+      redirect_to dashboard_path(status: "open")
     end
 
   end
@@ -29,10 +32,9 @@ class TicketsController < ApplicationController
     @ticket.alumni = current_user
     @ticket.status = "open"
     authorize @ticket
-
     if @ticket.save
       @ticket.mentor_recommanded_list = match_mentors
-      redirect_to dashboard_path, notice: 'Yeah Baby !!! Ticket was successfully created.'
+      redirect_to dashboard_path(status: "open"), notice: 'Your ticket has been successfully created.'
     else
       render :new
     end
@@ -44,7 +46,7 @@ class TicketsController < ApplicationController
   def update
     if @ticket.update(ticket_params)
       authorize @ticket
-      redirect_to ticket_path(@ticket), notice: 'Yeah Baby !!! Ticket was successfully created.'
+      redirect_to ticket_path(@ticket), notice: 'Your ticket has been successfully created.'
     else
       render :edit
     end
@@ -52,7 +54,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
+    redirect_to tickets_path(status: "open"), notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
   end
 
   def mentor
@@ -63,9 +65,12 @@ class TicketsController < ApplicationController
   end
 
   def close
-    @ticket.status = "close"
+    @ticket.status = "closed"
     authorize @ticket
-    @ticket.save
+    if @ticket.save
+      redirect_to ticket_path(@ticket), notice: 'Your Ticket has been successfully closed.'
+    else
+    end
   end
 
   def cancel
@@ -85,22 +90,31 @@ class TicketsController < ApplicationController
       .require(:ticket)
       .permit(
         :content,
-        :price,
+        :price_cents,
         :ticket_duration,
         :alumni_id,
         :ticket_location,
         :priority,
+        :speaking_language,
         :title,
         :stats,
+        :status,
         tag_names: []
       )
   end
 
   def match_mentors
-    @match_mentors_list = MentorProfil.tagged_with(
+    match_mentors = []
+    @match_mentors_list = []
+    match_mentors = MentorProfil.tagged_with(
       names: @ticket.tag_names,
       match: :any
     )
+
+    match_mentors.each do |mentor|
+      if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
+        @match_mentors_list << mentor
+      end
+    end
   end
 end
-

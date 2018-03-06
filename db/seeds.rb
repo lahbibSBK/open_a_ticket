@@ -6,6 +6,7 @@ require 'faker'
 puts 'Cleaning database...'
 
 Review.destroy_all
+Order.destroy_all
 Ticket.destroy_all
 MentorProfil.destroy_all
 User.destroy_all
@@ -41,10 +42,9 @@ students.each do |element|
     phone_number: student["phone"],
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
-    speaking_language: ["fr", "gb"]
+    speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
-  ap "ligne 46"
-  ap users.last
 end
 
 jos = User.create!(
@@ -56,7 +56,8 @@ jos = User.create!(
   address: "12 rue de saint fons 69007 LYON",
   batch_wagon: "XXX",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
-  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"]
+  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
+
 )
 josephmentor = MentorProfil.create!(
   experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
@@ -140,7 +141,7 @@ ticket1 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Dakar",
   ticket_duration: "3 semaines",
-  price: "300",
+  price_cents: "300",
   priority: "low",
   status: "closed",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
@@ -151,11 +152,11 @@ ticket2 = Ticket.create!(
   alumni_id: lah.id,
   content: Faker::HowIMetYourMother.quote,
   tag_names: SKILLS.sample(4),
-  ticket_location: "Lyon",
+  ticket_location: Faker::Address.city,
   ticket_duration: "1 semaines",
-  price: "15",
+  price_cents: 15,
   priority: "low",
-  status: "pending",
+  status: "open",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
@@ -166,7 +167,7 @@ ticket3 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Paris",
   ticket_duration: "3 mois",
-  price: "1300€",
+  price_cents: 1300,
   priority: "High",
   status: "cancelled",
 )
@@ -178,9 +179,9 @@ ticket4 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Marseille",
   ticket_duration: "1 jours",
-  price: "30€",
+  price_cents: 30,
   priority: "high",
-  status: "Pending",
+  status: "open",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
@@ -226,18 +227,16 @@ User.all.each do |user|
       ticket = Ticket.create!(
         title: Faker::DrWho.quote,
         alumni_id: isa.id,
-        mentor: mentor.user,
+        
         content: Faker::HowIMetYourMother.quote,
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
-        status: "closed",
+        status: "open",
         speaking_language: toto,
       )
-      ap "ligne 238"
-      ap ticket
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
@@ -253,13 +252,14 @@ User.all.each do |user|
       ticket23 = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,
         alumni_id: isa.id,
+        mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
-        status: "open",
+        status: "pending",
         speaking_language: toto,
       )
     end
@@ -277,9 +277,9 @@ User.all.each do |user|
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
-        status: "pending",
+        status: "closed",
         speaking_language: toto,
       )
     end
@@ -323,6 +323,7 @@ students89.each do |element|
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
 end
 
@@ -345,6 +346,7 @@ mentor89github.each do |element|
     batch_wagon: mentor["camp_name"],
     pic_url: mentor["avatar"],
     speaking_language: toto,
+    address: Faker::Address.city,
   )
 
   mentor = MentorProfil.create!(
@@ -368,7 +370,7 @@ end
         tag_names: SKILLS.sample(3),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "closed",
         speaking_language: toto,
@@ -381,6 +383,25 @@ end
       )
 end
 
+const = []
+Ticket.all.each do |ticket|
+  if ticket.ticket_location
+    const << ticket.ticket_location
+  end
+end
 
+const = []
+User.all.each do |user|
+  if user.address && user.mentor_profil != nil
+    const << user.address
+  end
+end
+
+const = []
+MentorProfil.all.each do |mentor_profil|
+  if mentor_profil.user.address
+    const << mentor_profil.user.address
+  end
+end
 
 puts 'Finished!'

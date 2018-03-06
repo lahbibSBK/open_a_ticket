@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :mentor_profils
+  get 'payments/new'
+
+  get 'orders/show'
+
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -12,16 +15,16 @@ Rails.application.routes.draw do
 
 
   resources :mentor_profils do
-    resources :tags, only: [:index, :new, :create]
-    resources :tags do
-      resources :skills, only: [:index, :new, :create]
-    end
     resources :reviews, only: [:show, :edit, :index]
-    resources :skills, only: [:show, :edit, :update, :destroy]
   end
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
 
   get '/dashboard', to: 'tickets#index', as: 'dashboard'
   get '/tickets/:id/mentor/:mid', to: 'tickets#mentor', as: 'tickets_mentor'
-  get '/tickets/:id/', to: 'tickets#close'
+  post '/tickets/:id/', to: 'tickets#close'
 end
 
