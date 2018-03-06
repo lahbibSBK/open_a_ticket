@@ -20,7 +20,7 @@ function loadDynamicBannerText() {
   //   backSpeed: 25,
   //   fadeOut: true,
   // });
-  setInterval( quote.innerText = array[Math.floor(Math.random() * 4)] , 3000);
+  quote.innerText = array[Math.floor(Math.random() * 4)];
 }
 
 export { loadDynamicBannerText };
