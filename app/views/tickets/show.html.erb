@@ -36,11 +36,10 @@
           <div>
             <div class="col-xs-12 col-sm-4 col-md-6">
               <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
-              <div class="button">
-              <div class="btn-choose">
-              <%= link_to "choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", tickets_mentor_path(@ticket, mentor_profil) %>
-              </div>
-              </div>
+              <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'ticket_id', @ticket.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
             </div>
           </div>
         <% end %>

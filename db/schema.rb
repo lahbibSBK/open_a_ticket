@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305165113) do
+ActiveRecord::Schema.define(version: 20180306091336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20180305165113) do
     t.jsonb "payment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ticket_id"
+    t.index ["ticket_id"], name: "index_orders_on_ticket_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -73,9 +75,9 @@ ActiveRecord::Schema.define(version: 20180305165113) do
     t.integer "mentor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "speaking_language"
     t.string "mentor_recommanded_list"
     t.integer "price_cents", default: 0, null: false
+    t.string "speaking_language", array: true
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
     t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
   end
@@ -104,11 +106,12 @@ ActiveRecord::Schema.define(version: 20180305165113) do
     t.string "github_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.string "speaking_language"
+    t.string "speaking_language", array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "mentor_profils", "users"
+  add_foreign_key "orders", "tickets"
   add_foreign_key "reviews", "tickets"
 end
