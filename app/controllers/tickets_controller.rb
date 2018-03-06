@@ -85,7 +85,7 @@ class TicketsController < ApplicationController
       .require(:ticket)
       .permit(
         :content,
-        :price,
+        :price_cents,
         :ticket_duration,
         :alumni_id,
         :ticket_location,
@@ -106,7 +106,7 @@ class TicketsController < ApplicationController
     )
 
     match_mentors.each do |mentor|
-      if mentor.minimum_price.to_i <= @ticket.price.to_i
+      if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
         @match_mentors_list << mentor
       end
     end
