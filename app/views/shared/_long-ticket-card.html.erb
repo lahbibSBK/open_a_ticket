@@ -13,7 +13,7 @@
     <p><%= ticket.content %></p>
   </div>
   <div class="long-card-price">
-    <p> <%= ticket.price %> €/hour </p>
+    <p> <%= ticket.price_cents %> €/hour </p>
   </div>
   <div class="long-card-skills">
     <% ticket.tag_names.take(4).each do |skill| %>

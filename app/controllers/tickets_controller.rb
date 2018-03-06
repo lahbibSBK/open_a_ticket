@@ -7,10 +7,10 @@ class TicketsController < ApplicationController
     if params[:status]
       @tickets = Ticket.where(status:params[:status]).order(updated_at: :desc)
       @selectedstatus = params[:status]
-    elsif
+    else
       @tickets = Ticket.where(status:params[status: "open"])
       @selectedstatus = "open"
-    else
+      redirect_to dashboard_path(status: "open")
     end
 
   end
