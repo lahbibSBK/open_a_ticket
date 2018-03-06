@@ -1,24 +1,26 @@
-<body class="dark-bg">
-  <div class="flexbox">
-    <div class="form">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="auth">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email, required: false, autofocus: true %>
             <%= f.input :password, required: false %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
           <div class="form-actions">
-             <%= f.button :submit, "SIGN IN" %>
+            <%= button_tag class: 'btn btn-primary' do %>
+              <i class='far fa-paper-plane'></i>Sign in with email
+            <% end %>
           </div>
-          <div class="social-login-content">
-            <div class="social-button">
-              <a type="button" class="btn social linkedin btn-flat btn-addon mb-3">
-                SIGN IN WITH LINKEDIN
-              </a>
-              <%= link_to "Sign in with Github", omniauth_authorize_path(resource_name, "github"), class: "btn social github btn-flat btn-addon mt-2" %>
-            </div>
-          </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
+
+          <%= link_to omniauth_authorize_path(resource_name, "github"), class: "btn btn-default github" do %>
+            <i class="fab fa-github"></i>Sign in with GitHub
+          <% end %>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
+</div>

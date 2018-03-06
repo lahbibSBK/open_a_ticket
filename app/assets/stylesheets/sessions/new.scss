@@ -1,7 +1,3 @@
-.dark-bg {
-  background-color: #343a40
-}
-
 .flexbox {
   display: flex;
   align-items: center;
@@ -23,11 +19,6 @@
   text-transform: uppercase;
 }
 
-.btn {
-      font-size: 14px;
-}
-
-
 .social-login-content {
   margin: 0px -30px;
   border-top: 1px solid #e7e7e7;
@@ -45,45 +36,8 @@
   border: 0px;
 }
 
-.social-button {
-display: flex;
-  flex-direction: column;
-  padding: 0 30px;
-
-.linkedin{
-    background: #0078B0;
-    color: white;
-    height: 50px;
-    margin-bottom: 20px;
-    &:hover {
-      background: #006193;
-    }
-}
-
-.github{
-            background: #464646;
-            color: white;
-            height: 50px;
-            &:hover {
-              background: #343A3F;
-            }
-          }
-
-
-}
 .social-button i {
   padding: 19px;
-}
-
-.btn-default {
-    background-color: #00a752;
-    width: 100%;
-    height: 50px;
-    color: white;
-    &:hover{
-        background-color: #008843;
-        color: white;
-  }
 }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
