@@ -3,10 +3,6 @@
     <%= render 'shared/bigticketcard', ticket: @ticket %>
   </div>
   <div class="mission">
-    <% #à garder pour trouver comment afficher le drapeau en fonction de la langue %>
-    <div class="mission-body">
-      <p><strong>Language : </strong><%= @ticket.speaking_language %></p>
-    </div>
     <div class="mission-status">
         <div>
             <% if policy(@ticket).edit? %>

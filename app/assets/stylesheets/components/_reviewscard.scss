@@ -1,0 +1,30 @@
+.reviewscard {
+
+  border: 1px solid red;
+}
+
+.reviewcard {
+
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewcard-content {
+  max-width: 500px;
+  max-height: 50px;
+}
+
+.reviewcard-content {
+  max-width: 500px;
+  max-height: 50px;
+}
+
+.reviewcard .avatar {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.fa-star{
+  color: yellow;
+}

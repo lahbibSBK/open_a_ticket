@@ -90,6 +90,7 @@ class TicketsController < ApplicationController
         :alumni_id,
         :ticket_location,
         :priority,
+        :speaking_language,
         :title,
         :stats,
         tag_names: []
@@ -97,10 +98,17 @@ class TicketsController < ApplicationController
   end
 
   def match_mentors
-    @match_mentors_list = MentorProfil.tagged_with(
+    match_mentors = []
+    @match_mentors_list = []
+    match_mentors = MentorProfil.tagged_with(
       names: @ticket.tag_names,
       match: :any
     )
+
+    match_mentors.each do |mentor|
+      if mentor.minimum_price.to_i <= @ticket.price.to_i
+        @match_mentors_list << mentor
+      end
+    end
   end
 end
-

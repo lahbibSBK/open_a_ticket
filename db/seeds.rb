@@ -41,7 +41,8 @@ students.each do |element|
     phone_number: student["phone"],
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
-    speaking_language: "France"
+    speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
 end
 
@@ -54,7 +55,8 @@ jos = User.create!(
   address: "12 rue de saint fons 69007 LYON",
   batch_wagon: "XXX",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s
+  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
+
 )
 josephmentor = MentorProfil.create!(
   experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
@@ -72,7 +74,7 @@ kev = User.create!(
   address: "12 rue de saint fons 42001  saint-étienne",
   batch_wagon: "XYX",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
-  speaking_language: ["France","English", "Esperanto", "Le Stephanois", "Le Lyonnais mais sous la torture"].to_s
+  speaking_language: ["fr", "gb", "Esperanto", "Le Stephanois", "Le Lyonnais mais sous la torture"]
 )
 kevinmentor = MentorProfil.create!(
   experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
@@ -81,24 +83,6 @@ kevinmentor = MentorProfil.create!(
   user_id: kev.id
 )
 
-davidhass = User.create!(
-  email: "mickael.long@flag.org",
-  password: "azerty",
-  first_name: "Mickael",
-  last_name: "LONG",
-  phone_number: "0612345600",
-  address: "the Foundation for Law and Government (FLAG) XXXXX In the Truck",
-  batch_wagon: "001",
-  pic_url: "http://idata.over-blog.com/1/71/60/02//228011-david_hasselhoff_RED.jpg",
-  speaking_language: ["France","English", "Le Voiture", "Le Mec bourré"].to_s
-)
-davidmentor = MentorProfil.create!(
-  experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
-  the Foundation for Law and Government (FLAG). Don't shoot at my pretty face",
-  minimum_price: "25",
-  user_id: davidhass.id,
-  tag_names: SKILLS.sample(4)
-)
 
 #seeds pour le débug à supprimer à la fin
 puts 'Creating Users Seeds...'
@@ -111,7 +95,7 @@ isa = User.create!(
   address: "12 rue de Marseille 69007 LYON",
   batch_wagon: "121",
   pic_url: "https://avatars2.githubusercontent.com/u/34674849?v=4",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"]
 )
 lah = User.create!(
   email: "lah@gmail.com",
@@ -122,7 +106,7 @@ lah = User.create!(
   address: "12 rue de la planète Mars 69007 LYON",
   batch_wagon: "111",
   pic_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/evqefyvpwl5csouogibi.jpg",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 moh = User.create!(
   email: "moh@gmail.com",
@@ -133,7 +117,7 @@ moh = User.create!(
   address: "123 avenue Jean Jaures 69007 LYON",
   batch_wagon: "404",
   pic_url: "https://avatars2.githubusercontent.com/u/30232344?v=4",
-  speaking_language: ["France","English", "Esperanto", "wolof"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "wolof"],
 )
 
 mat = User.create!(
@@ -145,7 +129,7 @@ mat = User.create!(
   address: "23 rue de Montrochet 69002 LYON",
   batch_wagon: "89",
   pic_url: "https://avatars3.githubusercontent.com/u/31872246?v=4",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
 puts 'Creating Tickets Seeds...'
@@ -159,7 +143,7 @@ ticket1 = Ticket.create!(
   price: "300",
   priority: "low",
   status: "closed",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
 ticket2 = Ticket.create!(
@@ -167,12 +151,12 @@ ticket2 = Ticket.create!(
   alumni_id: lah.id,
   content: Faker::HowIMetYourMother.quote,
   tag_names: SKILLS.sample(4),
-  ticket_location: "Lyon",
+  ticket_location: Faker::Address.city,
   ticket_duration: "1 semaines",
   price: 15,
   priority: "low",
   status: "pending",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
 ticket3 = Ticket.create!(
@@ -197,7 +181,7 @@ ticket4 = Ticket.create!(
   price: 30,
   priority: "high",
   status: "Pending",
-  speaking_language: ["France","English", "Esperanto", "Le Mec bourré"].to_s,
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
 puts 'Creating Reviews Seeds...'
@@ -222,7 +206,7 @@ Review.create!(
   rating: 4
 )
 puts 'Creating ...'
-toto = []
+toto = ["fr", "gb"]
 SKILL = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
 puts 'Creating X-Seeds (Users as Mentor/ Ticket Open/pending/closed / Review...'
 User.all.each do |user|
@@ -235,12 +219,12 @@ User.all.each do |user|
     )
     #seed ticket closed avec Reviews
     3.times do
-      toto = []
+      toto = ["fr", "gb"]
       rand(4).times do
-          toto << Faker::Address.country
+          toto << Faker::Address.country_code
       end
       ticket = Ticket.create!(
-        title: Faker::WorldOfWarcraft.hero,
+        title: Faker::DrWho.quote,
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
@@ -252,7 +236,6 @@ User.all.each do |user|
         status: "closed",
         speaking_language: toto,
       )
-
       Review.create!(
         ticket_id: ticket.id,
         description: Faker::BackToTheFuture.quote,
@@ -261,9 +244,9 @@ User.all.each do |user|
     end
 #ticket sans mentor donc sans review
     3.times do
-      toto = []
+      toto = ["fr", "gb"]
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket23 = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,
@@ -280,12 +263,12 @@ User.all.each do |user|
     end
 #ticket en attente de Review
     3.times do
-      toto = []
+      toto = ["fr", "gb"]
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket34 = Ticket.create!(
-        title: Faker::WorldOfWarcraft.hero,
+        title: Faker::DrWho.quote,
         alumni_id: isa.id,
         mentor: mentor.user,
         content: Faker::HowIMetYourMother.quote,
@@ -301,7 +284,24 @@ User.all.each do |user|
   end
 end
 
-
+davidhass = User.create!(
+  email: "mickael.long@flag.org",
+  password: "azerty",
+  first_name: "Mickael",
+  last_name: "LONG",
+  phone_number: "0612345600",
+  address: "the Foundation for Law and Government (FLAG) XXXXX In the Truck",
+  batch_wagon: "001",
+  pic_url: "http://idata.over-blog.com/1/71/60/02//228011-david_hasselhoff_RED.jpg",
+  speaking_language: ["fr", "gb", "ma", "Le Voiture", "Le Mec bourré"]
+)
+davidmentor = MentorProfil.create!(
+  experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
+  the Foundation for Law and Government (FLAG). Don't shoot at my pretty face",
+  minimum_price: "25",
+  user_id: davidhass.id,
+  tag_names: SKILLS.sample(4)
+)
 
 puts 'Creating X-Seeds with TA & previous Batch...'
 puts 'Creating Users for 89 batch students'
@@ -320,7 +320,8 @@ students89.each do |element|
     phone_number: student["phone"],
     batch_wagon: student["camp_name"],
     pic_url: student["avatar"],
-    speaking_language: "France"
+    speaking_language: ["fr", "gb"],
+    address: Faker::Address.city,
   )
 end
 
@@ -330,6 +331,10 @@ mentor89github.each do |element|
   url = "https://kitt.lewagon.com/api/v1/users/#{element}"
   mentor_url = open(url, "Cookie" => COOKIES).read
   mentor = JSON.parse(mentor_url)
+  toto = ["fr", "gb"]
+  rand(4).times do
+    toto << Faker::Address.country_code
+  end
   userm = User.create!(
     email: mentor["email"],
     password: "azerty",
@@ -338,7 +343,8 @@ mentor89github.each do |element|
     phone_number: mentor["phone"],
     batch_wagon: mentor["camp_name"],
     pic_url: mentor["avatar"],
-    speaking_language: Faker::Address.country,
+    speaking_language: toto,
+    address: Faker::Address.city,
   )
 
   mentor = MentorProfil.create!(
@@ -350,9 +356,9 @@ mentor89github.each do |element|
 end
     #seed ticket closed avec Reviews
     50.times do
-      toto = []
+      toto = ["fr", "gb"]
       rand(4).times do
-        toto << Faker::Address.country
+        toto << Faker::Address.country_code
       end
       ticket = Ticket.create!(
         title: Faker::HowIMetYourMother.quote,

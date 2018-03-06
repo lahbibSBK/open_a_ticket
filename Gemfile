@@ -10,6 +10,7 @@ gem 'rails', '5.1.5'
 gem 'redis'
 gem 'pundit'
 
+gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
@@ -21,9 +22,10 @@ gem 'awesome_print'
 gem 'omniauth-github'
 gem 'gutentag', '~> 2.1.0'
 gem 'faker'
+
 gem 'money-rails'
 gem 'stripe'
-
+gem 'flag-icons-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

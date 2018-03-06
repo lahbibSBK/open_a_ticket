@@ -3,7 +3,11 @@
     <p>created the </p>
     <h2><%= l(ticket.created_at, format: :short) %></h2>
   </div>
-  <img class="long-card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <% if ticket.mentor.blank? %>
+      <%= image_tag 'emptyavatar.png', class: "long-card-user" %>
+     <% else %>
+      <img class="long-card-user" src=<%= ticket.mentor.pic_url %>>
+    <% end %>
   <div class="long-card-description">
     <h2> <%= link_to ticket.title, ticket_path(ticket)  %> </h2>
     <p><%= ticket.content %></p>
@@ -19,7 +23,8 @@
     <% end %>
   </div>
   <div class="long-card-flag">
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/bg.png" width="20" >
-    <img src="https://raw.githubusercontent.com/tkrotoff/famfamfam_flags/master/fr.png" width="20" >
+    <% ticket.speaking_language.each do |langue| %>
+    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+    <% end %>
   </div>
 </div>

@@ -1,28 +1,34 @@
-<h1>MentorProfils#show</h1>
+
 <div class="container">
-  <div class="Mentor">
-    <img class="avatar-large" src=<%= @mentor_profil.user.pic_url%>>
-    <p><%= @mentor_profil.user_id %></p>
+  <div class="row">
+    <%= render 'shared/square-card-mentor', mentor: @mentor_profil.user %>
+    
+    <div class="Mentor">
+      <img class="avatar-large" src=<%= @mentor_profil.user.pic_url%>>
+      <p><%= @mentor_profil.user.first_name %>  <%= @mentor_profil.user.last_name %></p>
 
-    <p><%= @mentor_profil.minimum_price %></p>
-    <p><%= @mentor_profil.experience %></p>
+      <p>Price / Hours : <%= @mentor_profil.minimum_price %></p>
+      <p>Expérience : <%= @mentor_profil.experience %></p>
+      <br>
+      <br>
+      <% @mentor_profil.user.speaking_language.each do |langue| %>
+      <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
-    <br>
-    <br>
-    <ul>
-      <% @reviews.each do |review| %>
-        <%= review.description %>
-        <li><% review.rating.to_i.times do |i| %>
-          <i class="fa fa-star"></i>
-        <% end %></li>
       <% end %>
-    </ul>
-    <%= link_to "Dashboard", tickets_path %>
+      
+      <br>
+      <br>
+      
+      <ul>
+        
+      </ul>
 
-
-    <% @reviews.each do |review| %>
-  <%= render 'shared/reviewcard', review: review %> -->
-  <% end %>
+      <%= link_to "Dashboard", tickets_path %>
+      <%= link_to "back", mentor_profils_path %>
+      <% @reviews.each do |review| %>
+        <%= render 'shared/reviewcard', review: review %>
+      <% end %>
+    </div>
   </div>
 </div>
 
