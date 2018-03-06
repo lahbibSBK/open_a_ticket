@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180306091336) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,9 +76,8 @@ ActiveRecord::Schema.define(version: 20180306091336) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "mentor_recommanded_list"
-    t.integer "price_cents", default: 0, null: false
-
     t.string "speaking_language", array: true
+    t.integer "price_cents", default: 0, null: false
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
     t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
   end

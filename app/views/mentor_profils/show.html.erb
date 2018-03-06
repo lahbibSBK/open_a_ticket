@@ -1,8 +1,8 @@
 
 <div class="container">
   <div class="row">
-    <%= render 'shared/square-card-mentor', mentor: @mentor_profil.user %>
-    
+
+
     <div class="Mentor">
       <img class="avatar-large" src=<%= @mentor_profil.user.pic_url%>>
       <p><%= @mentor_profil.user.first_name %>  <%= @mentor_profil.user.last_name %></p>
@@ -15,20 +15,23 @@
       <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
       <% end %>
-      
+      <div class="col-xs-12 col-sm-4 col-md-6">
+      <%=render 'shared/square-card-mentor', mentor:@mentor_profil.user %>
+      </div>
       <br>
       <br>
-      
+
       <ul>
-        
+
       </ul>
 
       <%= link_to "Dashboard", tickets_path %>
       <%= link_to "back", mentor_profils_path %>
       <% @reviews.each do |review| %>
-        <%= render 'shared/reviewcard', review: review %>
       <% end %>
     </div>
   </div>
+
 </div>
+
 
