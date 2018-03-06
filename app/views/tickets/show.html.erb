@@ -41,7 +41,7 @@
       <% else %>
         <h2>Selected mentor</h2>
         <div class="selected mentor">
-          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
+          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
           <% if @ticket.status == "closed" %>
             <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
           <% else %>
