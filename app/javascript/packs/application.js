@@ -22,6 +22,4 @@ resetMargin();
 
 import { removePrivacyFromPolicy } from '../components/_remove_policy_from_privacy';
 removePrivacyFromPolicy();
-
-// import { changeWhenScrolled } from '../components/_change_when_scrolled' ;
-// changeWhenScrolled();
+import '../components/_dropdown';
