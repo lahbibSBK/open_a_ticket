@@ -19,8 +19,7 @@
 
     <div class="right-panel">
       <div class="ticket">
-        <% # afficher les tickets par order descroissant date %>
-      <% @tickets.each do |ticket| %>
+        <% @tickets.each do |ticket| %>
         <% if policy(ticket).show? %>
             <%= render 'shared/long-ticket-card', ticket: ticket %>
         <% end %>

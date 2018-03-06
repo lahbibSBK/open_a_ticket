@@ -4,7 +4,7 @@ class TicketsController < ApplicationController
   def index
     @tickets = policy_scope(Ticket)
     if params[:status]
-      @tickets = Ticket.where(status:params[:status])
+      @tickets = Ticket.where(status:params[:status]).order(updated_at: :desc)
     elsif
       @tickets = Ticket.where(status:params[status: "open"])
     else
