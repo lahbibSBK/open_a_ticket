@@ -30,7 +30,7 @@
           <% @match_mentors_list.each do |mentor_profil| %>
           <div>
             <div class="col-xs-12 col-sm-4 col-md-6">
-              <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
+              <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
               <%= form_tag orders_path do %>
                 <%= hidden_field_tag 'ticket_id', @ticket.id %>
                 <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
