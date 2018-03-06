@@ -6,6 +6,7 @@ require 'faker'
 puts 'Cleaning database...'
 
 Review.destroy_all
+Order.destroy_all
 Ticket.destroy_all
 MentorProfil.destroy_all
 User.destroy_all
@@ -140,7 +141,7 @@ ticket1 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Dakar",
   ticket_duration: "3 semaines",
-  price: "300",
+  price_cents: "300",
   priority: "low",
   status: "closed",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
@@ -153,7 +154,7 @@ ticket2 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: Faker::Address.city,
   ticket_duration: "1 semaines",
-  price: "15",
+  price_cents: 15,
   priority: "low",
   status: "pending",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
@@ -166,7 +167,7 @@ ticket3 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Paris",
   ticket_duration: "3 mois",
-  price: "1300€",
+  price_cents: 1300,
   priority: "High",
   status: "cancelled",
 )
@@ -178,7 +179,7 @@ ticket4 = Ticket.create!(
   tag_names: SKILLS.sample(4),
   ticket_location: "Marseille",
   ticket_duration: "1 jours",
-  price: "30€",
+  price_cents: 30,
   priority: "high",
   status: "Pending",
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
@@ -231,7 +232,7 @@ User.all.each do |user|
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "closed",
         speaking_language: toto,
@@ -255,7 +256,7 @@ User.all.each do |user|
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "open",
         speaking_language: toto,
@@ -275,7 +276,7 @@ User.all.each do |user|
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "pending",
         speaking_language: toto,
@@ -368,7 +369,7 @@ end
         tag_names: SKILLS.sample(3),
         ticket_location: Faker::Address.city,
         ticket_duration: "#{rand(52)} semaines",
-        price: Faker::Number.number(2),
+        price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "closed",
         speaking_language: toto,

@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top bg-white mb-0 flex_box space-around">
+<nav class="navbar sticky-top bg-white mb-0 flex_box space-around bottom-shadow">
     <div class="flex_box width-90 space-between marginx-auto">
 
       <div class="logo_part">
@@ -10,6 +10,7 @@
       <div class="flex_box space-between">
 
         <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2 hidden-xs <%= "hidden" if current_user %> <%= "visible" if !current_user %>" id="open_btn">Sign in</a>
+<<<<<<< HEAD
 
        <!--  <div class="dropdown" id="drop">
           <button class="btn-open dropdown-toggle text-white" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -21,12 +22,23 @@
           </div>
         </div> -->
 
+=======
+>>>>>>> master
           <% if current_user %>
             <div class="flex_box space-between">
 
+                <a href="/tickets/new" class="btn-open-s font-20 text-white ml-2 <%= 'hidden' if current_page?(root_path) && current_user %>" id="open_btn">Open a ticket</a>
+
                 <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2" id="open_btn">Become a Mentor</a>
 
-                <img src=<%= current_user.pic_url %> class="avatar ml-2">
+                  <div class="dropdown">
+                    <img src=<%= current_user.pic_url %> class="avatar ml-2" id="navbar-wagon-menu" data-toggle="dropdown">
+                    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                      <li><%= link_to "Dashboard", dashboard_path, class: "dropdown-link" %></li>
+                      <li><%= link_to "Settings", edit_user_registration_path, class: "dropdown-link" %></li>
+                      <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-link", method: "delete", data: { confirm: "Are you sure you want to log out ?" } %></li>
+                    </ul>
+                  </div>
 
             </div>
           <% end %>

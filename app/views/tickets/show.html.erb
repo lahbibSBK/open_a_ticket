@@ -8,9 +8,8 @@
             <% if policy(@ticket).edit? %>
               <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
               <% #Mettre le lien dans l'update ? %>
-              <%= link_to 'Close', ticket_path(@ticket), class: 'btn btn-primary',
-                  #method: :close,
-                  data: { confirm: "Are you sure?" } %>
+              <%= link_to 'Close', @ticket, class: 'btn btn-primary',
+              method: :close, data: { confirm: "Are you sure?" } %>
               <% #lien cancel à brancher %>
               <%= link_to 'Cancel', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
               <%= link_to "Delete", ticket_path(@ticket), class: 'btn btn-danger',
@@ -25,27 +24,27 @@
 <br>
 <br>
   <div class="container">
-     <div class="row">
+    <div class="row">
       <% if @ticket.mentor.blank? %>
-        <h2>Recommended mentors</h2>
-        <% @match_mentors_list.each do |mentor_profil| %>
+          <h2>Recommended mentors</h2>
+          <% @match_mentors_list.each do |mentor_profil| %>
           <div>
             <div class="col-xs-12 col-sm-4 col-md-6">
-              <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-              <div class="button">
-                <div class="btn-choose">
-                <%= link_to "choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", tickets_mentor_path(@ticket, mentor_profil) %>
-                </div>
-              </div>
+              <%= render 'shared/square-card-mentor', mentor: mentor_profil.user %>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'ticket_id', @ticket.id %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <% end %>
             </div>
           </div>
         <% end %>
       <% else %>
         <h2>Selected mentor</h2>
-        <div class="col-xs-12 col-sm-4 col-md-6">
+        <div class="selected mentor">
           <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
-          <% if true %>
-            <%= link_to"Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket) %>
+          <% if @ticket.status == "closed" %>
+            <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+          <% else %>
           <% end %>
         </div>
       <% end %>

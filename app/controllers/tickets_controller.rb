@@ -33,8 +33,8 @@ class TicketsController < ApplicationController
     @ticket.status = "open"
     authorize @ticket
     if @ticket.save
-      # @ticket.mentor_recommanded_list = match_mentors
-      redirect_to dashboard_path(status: "open"), notice: 'Yeah Baby !!! Ticket was successfully created.'
+      @ticket.mentor_recommanded_list = match_mentors
+      redirect_to dashboard_path(status: "open"), notice: 'Your ticket has been successfully created.'
     else
       render :new
     end
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
   def update
     if @ticket.update(ticket_params)
       authorize @ticket
-      redirect_to ticket_path(@ticket), notice: 'Yeah Baby !!! Ticket was successfully created.'
+      redirect_to ticket_path(@ticket), notice: 'Your ticket has been successfully created.'
     else
       render :edit
     end
@@ -65,9 +65,12 @@ class TicketsController < ApplicationController
   end
 
   def close
-    @ticket.status = "close"
+    @ticket.status = "closed"
     authorize @ticket
-    @ticket.save
+    if @ticket.save
+      redirect_to ticket_path(@ticket), notice: 'Your Ticket has been successfully closed.'
+    else
+    end
   end
 
   def cancel
@@ -87,7 +90,7 @@ class TicketsController < ApplicationController
       .require(:ticket)
       .permit(
         :content,
-        :price,
+        :price_cents,
         :ticket_duration,
         :alumni_id,
         :ticket_location,
@@ -95,6 +98,7 @@ class TicketsController < ApplicationController
         :speaking_language,
         :title,
         :stats,
+        :status,
         tag_names: []
       )
   end
@@ -108,7 +112,7 @@ class TicketsController < ApplicationController
     )
 
     match_mentors.each do |mentor|
-      if mentor.minimum_price.to_i <= @ticket.price.to_i
+      if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
         @match_mentors_list << mentor
       end
     end
