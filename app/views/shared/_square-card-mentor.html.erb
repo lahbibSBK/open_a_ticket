@@ -1,29 +1,17 @@
 <div class="square-mentor-card" data-toggle="modal" data-target="#myModal<%= mentor.id%>">
-  <img class="square-mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
-  <a class="card-link" href="#" ></a>
-  <div class="square-mentor-card-name">
-    <h2> <%= mentor.user.first_name %> <%= mentor.user.last_name %></h2>
+  <div class="square-mentor-card-title">
+    <p><%= mentor.batch_wagon %></p>
+    <h2><%= mentor.first_name %> <%= mentor.last_name %></h2>
   </div>
-  <div class="square-mentor-card-price">
-    <h2> <%= mentor.minimum_price %> €/hour </h2>
-  </div>
-  <div class="square-mentor-card-skills">
-    <% mentor.tag_names.take(5).each do |skill| %>
-      <div class="skill">
-        <p><%= skill %></p>
-      </div>
-    <% end %>
-  </div>
+
   <div class="square-mentor-card-reviews">
     <% if  mentor.user.reviews.blank? %>
       <div>
         <p>No yet reviews </p>
       </div>
     <% else %>
-      <p><%= mentor.user.reviews.count %> reviews </p>
       <div class="square-mentor-card-reviews-stars">
-          <%= mentor.user.reviews.average(:rating).round() %>
-          <% mentor.user.reviews.average(:rating).round().times do |i| %>
+          <% mentor.reviews.average(:rating).round().times do |i| %>
             <i class="fas fa-star"></i>
           <% end %>
           <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
@@ -31,9 +19,21 @@
             <% end %>
       </div>
     <% end %>
+    <p><%= mentor.reviews.count %> reviews </p>
   </div>
-  <div class="square-mentor-card-batch">
-    <p>BATCH 121</p>
+
+   <div class="square-mentor-card-body">
+      <img class="square-mentor-card-user" src=<%= mentor.pic_url %> alt="mentor-avatar">
+      <a class="card-link" href="#" ></a>
+      <h2> <%= mentor.mentor_profil.minimum_price %> €/hour </h2>
+  </div>
+
+  <div class="square-mentor-card-skills">
+    <% mentor.mentor_profil.tag_names.take(5).each do |skill| %>
+      <div class="skill">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -60,3 +60,4 @@
     </div>
   </div>
 </div>
+
