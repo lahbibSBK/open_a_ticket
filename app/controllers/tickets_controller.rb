@@ -3,10 +3,13 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = policy_scope(Ticket)
+    #l'instance @selectedstatus sert pour la sélection de l'onglet actif à mettre en rouge
     if params[:status]
       @tickets = Ticket.where(status:params[:status]).order(updated_at: :desc)
+      @selectedstatus = params[:status]
     elsif
       @tickets = Ticket.where(status:params[status: "open"])
+      @selectedstatus = "open"
     else
     end
 
