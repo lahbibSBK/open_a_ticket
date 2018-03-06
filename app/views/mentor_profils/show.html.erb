@@ -26,7 +26,7 @@
       <%= link_to "Dashboard", tickets_path %>
       <%= link_to "back", mentor_profils_path %>
       <% @reviews.each do |review| %>
-        <%= render 'shared/reviewcard', review: review %>
+        <%= render 'shared/reviewscard', review: review %>
       <% end %>
     </div>
   </div>

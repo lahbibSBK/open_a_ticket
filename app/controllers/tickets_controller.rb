@@ -29,10 +29,9 @@ class TicketsController < ApplicationController
     @ticket.alumni = current_user
     @ticket.status = "open"
     authorize @ticket
-
     if @ticket.save
-      @ticket.mentor_recommanded_list = match_mentors
-      redirect_to dashboard_path, notice: 'Yeah Baby !!! Ticket was successfully created.'
+      # @ticket.mentor_recommanded_list = match_mentors
+      redirect_to dashboard_path(status: "open"), notice: 'Yeah Baby !!! Ticket was successfully created.'
     else
       render :new
     end
@@ -52,7 +51,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
+    redirect_to tickets_path(status: "open"), notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
   end
 
   def mentor
