@@ -22,4 +22,6 @@ resetMargin();
 
 import { removePrivacyFromPolicy } from '../components/_remove_policy_from_privacy';
 removePrivacyFromPolicy();
-import '../components/_dropdown';
+
+import { hoverCards } from '../components/_cards';
+hoverCards();
