@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'orders/show'
 
-  resources :mentor_profils
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -16,12 +15,7 @@ Rails.application.routes.draw do
 
 
   resources :mentor_profils do
-    resources :tags, only: [:index, :new, :create]
-    resources :tags do
-      resources :skills, only: [:index, :new, :create]
-    end
     resources :reviews, only: [:show, :edit, :index]
-    resources :skills, only: [:show, :edit, :update, :destroy]
   end
 
   resources :orders, only: [:show, :create] do

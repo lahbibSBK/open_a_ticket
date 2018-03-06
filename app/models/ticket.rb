@@ -7,7 +7,7 @@ class Ticket < ApplicationRecord
   has_one :mentor_profil, through: :mentor
   has_one :order
 
-  validates :title, :alumni_id, :tag_names, :ticket_location, :ticket_duration, :price,  presence: true
+  validates :title, :alumni_id, :tag_names, :ticket_location, :ticket_duration, :price_cents,  presence: true
 
   Gutentag::ActiveRecord.call(self)
 

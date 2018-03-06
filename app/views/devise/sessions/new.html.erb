@@ -1,21 +1,32 @@
-<body class="dark-bg">
-  <div class="flexbox">
-    <div class="form">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :email, required: false, autofocus: true %>
-            <%= f.input :password, required: false %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
-          <div class="form-actions">
-             <%= f.button :submit, "SIGN IN" %>
-          </div>
-          <div class="social-login-content">
-            <div class="social-button">
-              <%= link_to "Sign in with Github", omniauth_authorize_path(resource_name, "github"), class: "btn social github btn-flat btn-addon mt-2" %>
+
+<div class="dark-bg eighty-viewport pb-3">
+  <div class="container">
+    <div class="flexbox column border-rounded">
+      <h2 class="text-white m-0">Sign in</h2>
+      <div class="form mt-0">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             </div>
-          </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
+            <div class="form-actions">
+               <%= f.button :submit, "SIGN IN", class: "border-0" %>
+            </div>
+            <div class="social-login-content">
+              <div class="social-button">
+                <!-- <a type="button" class="btn social linkedin btn-flat btn-addon mb-3">
+                  SIGN IN WITH LINKEDIN
+                </a> -->
+                <%= link_to "SIGN IN WITH GITHUB", omniauth_authorize_path(resource_name, "github"), class: "btn social github btn-flat btn-addon mt-2 flex_box center" %>
+              </div>
+            </div>
+        <% end %>
+        <div class="flex_box space-between mt-2">
+          <a href="password/new">Forgot your password ?</a>
+          <a href="sign_up">Sign up</a>
+        </div>
+      </div>
     </div>
   </div>
+</div>

@@ -3,11 +3,14 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = policy_scope(Ticket)
+    #l'instance @selectedstatus sert pour la sélection de l'onglet actif à mettre en rouge
     if params[:status]
-      @tickets = Ticket.where(status:params[:status])
-    elsif
-      @tickets = Ticket.where(status:params[status: "open"])
+      @tickets = Ticket.where(status:params[:status]).order(updated_at: :desc)
+      @selectedstatus = params[:status]
     else
+      @tickets = Ticket.where(status:params[status: "open"])
+      @selectedstatus = "open"
+      redirect_to dashboard_path(status: "open")
     end
 
   end
@@ -29,10 +32,9 @@ class TicketsController < ApplicationController
     @ticket.alumni = current_user
     @ticket.status = "open"
     authorize @ticket
-
     if @ticket.save
       @ticket.mentor_recommanded_list = match_mentors
-      redirect_to dashboard_path, notice: 'Your ticket has been successfully created.'
+      redirect_to dashboard_path(status: "open"), notice: 'Your ticket has been successfully created.'
     else
       render :new
     end
@@ -52,7 +54,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
+    redirect_to tickets_path(status: "open"), notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
   end
 
   def mentor

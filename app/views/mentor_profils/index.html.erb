@@ -1,34 +1,11 @@
 
 <div class="container">
-	<% if policy(@mentor_profils).index? %>
-		<table>
-		  <thead>
-		    <tr>
-		      <th></th>
-		      <th>First name</th>
-		      <th>Last name</th>
-		      <th>Expérience</th>
-		      <th>Hour rate</th>
-		      <th></th>
-		      <th></th>
-		      <th colspan="3"></th>
-		    </tr>
-		  </thead>
-			<tbody>
-				<% @mentor_profils.each do |mentor_profil| %>
-					<tr>
-					  	<td><img class="avatar-large" src=<%= mentor_profil.user.pic_url%>></td>
-						  <td><h2><%= mentor_profil.user.first_name %></h2></td>
-						  <td><h2><%= mentor_profil.user.last_name %></h2></td>
-						  <td><h2><%= mentor_profil.experience %></h2></td>
-						  <td><p><%= mentor_profil.minimum_price %></p></td>
-						  <td><p></p></td>
-					      <td><%= link_to 'Show', mentor_profil %></td>
-					      
-					      
-		      		</tr>
-				<% end %>
-			</tbody>
-		</table>
-	<% end %>
+	<div class="row">
+		<% if policy(@mentor_profils).index? %>
+			<% @mentor_profils.each do |mentor_profil| %>
+				<%= render 'shared/square-card-mentor', mentor: mentor_profil %>
+				<%= link_to 'Show', mentor_profil %>
+			<% end %>
+		<% end %>
+	</div>
 </div>
