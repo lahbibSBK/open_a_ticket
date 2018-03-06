@@ -77,11 +77,23 @@
     }
 }
 
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .square-mentor-card-name {
   position: absolute;
   right: 20px;
   top: -15px;
 }
 
+.modal-header .mentor-card-user {
+  border-radius: 50%;
+  height: 60px;
+}
 
-
+.modal-title {
+  flex-grow: 1;
+  text-align: center;
+}

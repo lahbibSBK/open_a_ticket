@@ -18,6 +18,7 @@
     <%= javascript_pack_tag 'application' %>
 
     <!-- scripts -->
+    
     <script>
       function initMap() {
         var uluru = {lat: -34.397, lng: 150.644};
@@ -32,9 +33,11 @@
         });
       }
     </script>
+    
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["G_MAPS_KEY"] %>&callback=initMap">
     </script>
+    
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

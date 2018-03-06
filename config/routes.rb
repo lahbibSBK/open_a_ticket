@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
+  get 'orders/show'
+
   resources :mentor_profils
 
   devise_for :users,
@@ -20,8 +24,13 @@ Rails.application.routes.draw do
     resources :skills, only: [:show, :edit, :update, :destroy]
   end
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
+
   get '/dashboard', to: 'tickets#index', as: 'dashboard'
   get '/tickets/:id/mentor/:mid', to: 'tickets#mentor', as: 'tickets_mentor'
-  get '/tickets/:id/', to: 'tickets#close'
+  post '/tickets/:id/', to: 'tickets#close'
 end
 

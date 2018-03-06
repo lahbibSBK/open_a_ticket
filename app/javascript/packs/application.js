@@ -14,8 +14,8 @@ new Choices('#ticket_tag_names');
 
 import 'choices.js/assets/styles/css/choices.css';
 
-import { loadDynamicBannerText } from '../components/_banner';
-loadDynamicBannerText();
+// import { loadDynamicBannerText } from '../components/_banner';
+// loadDynamicBannerText();
 
 import { resetMargin } from '../components/_reset-margin';
 resetMargin();

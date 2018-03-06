@@ -1,0 +1,24 @@
+<div class="reviewscard">
+  <% if reviews.blank? %>
+      <p>No review yet</p>
+  <% else %>
+    <% reviews.each do |review| %>
+      <div class="reviewcard">
+        <div class="reviewcard-rating">
+          <% review.rating.to_i.times do |i| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating.to_i).times do |i| %>
+            <i class="far fa-star"></i>
+            <% end %>
+        </div>
+        <div class="reviewcard-content">
+         <%= review.description %>>
+        </div>
+        <div>
+          <img src=<%= review.ticket.alumni.pic_url%>  class="avatar"></li></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
