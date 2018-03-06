@@ -36,6 +36,10 @@ class TicketPolicy < ApplicationPolicy
     record.alumni == user
   end
 
+  def close?
+    true
+  end
+
   def mentor?
     update?
   end
