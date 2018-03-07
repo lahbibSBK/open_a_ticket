@@ -9,29 +9,30 @@
 
       <div class="flex_box space-between">
 
-        <a href="/dashboard" class="btn btn-primary text-white ml-2 hidden-xs <%= "hidden" if current_user %> <%= "visible" if !current_user %>">Sign in</a>
+        <a href="/dashboard" class="btn-open btn-primary text-white ml-2 hidden-xs <%= "hidden" if current_user %> <%= "visible" if !current_user %>">Sign in</a>
           <% if current_user %>
             <div class="flex_box space-between">
 
-                <a href="/tickets/new" class="btn btn-primary text-white ml-2 <%= 'hidden' if current_page?(root_path) && current_user %>" id="open_btn">Open a ticket</a>
+                <a href="/tickets/new" class="btn-open btn-primary text-white ml-2 <%= 'hidden' if current_page?(root_path) && current_user %>" id="open_btn">Open a ticket</a>
 
 
-                <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2 hidden-xs" id="open_btn">Become a Mentor</a>
+                <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2 hidden-xs <%= 'hidden' if current_page?(root_path) %>" id="open_btn">Become a Mentor</a>
 
-                  <div class="dropdown">
-                    <img src=<%= current_user.pic_url %> class="avatar ml-2" id="navbar-wagon-menu" data-toggle="dropdown">
-                    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                      <li><%= link_to "Dashboard", dashboard_path, class: "dropdown-link" %></li>
-                      <li><%= link_to "Settings", edit_user_registration_path, class: "dropdown-link" %></li>
-                      <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-link", method: "delete", data: { confirm: "Are you sure you want to log out ?" } %></li>
-                    </ul>
-                  </div>
+
+                    <img src=<%= current_user.pic_url %> class="avatar ml-2" id="user-control">
+
+                    <div class="open-dropdown hidden">
+                      <%= link_to "Dashboard", dashboard_path %>
+                      <%= link_to "Settings", edit_user_registration_path %>
+                      <%= link_to "Log out", destroy_user_session_path, method: "delete", data: { confirm: "Are you sure you want to log out ?" } %>
+                    </div>
 
             </div>
           <% end %>
-
-          <a href="/dashboard" class="btn-open-s font-20 text-white ml-2 <%= "hidden" if current_user || current_page?("users/sign_in") %>">Sign in</a>
-
+          <% if !current_user %>
+            <span id="user-control"></span>
+            <span class="open-dropdown"></span>
+          <% end %>
         </div>
 
       </div>

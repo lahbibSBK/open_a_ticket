@@ -1,0 +1,25 @@
+<div class="card-invoice">
+  <div class="card-invoice-title">
+    <h2>Resume of your invoice </h2>
+  </div>
+  <div class="card-invoice-body">
+    <%= form_tag order_payments_path(@order) do %>
+    <article>
+      <p>Number of hours : <%= @ticket.ticket_duration %></p>
+      <br>
+      <p>Price/hour of the mentor : <%= @ticket.mentor_profil.minimum_price %> euros</p>
+      <br>
+      <label class="amount">
+        <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount_cents) %></span>
+      </label>
+    </article>
+  </div>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="My Ticket"
+      data-email="<%= current_user.email %>"
+      data-description="Ticket <%= @order.ticket_id %>"
+      data-amount="<%= @order.amount_cents %>"
+      data-currency="<%= @order.amount.currency %>"></script>
+  <% end %>
+</div>
