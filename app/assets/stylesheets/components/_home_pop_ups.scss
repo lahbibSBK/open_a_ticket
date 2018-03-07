@@ -1,0 +1,17 @@
+.pop-up {
+  max-width: 25rem;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  z-index: 1000;
+  position: absolute;
+  top: 420px;
+}
+
+.instructions {
+  font-size: 1.3rem;
+  margin: 0px;
+  width: 100%;
+  padding: 1rem 2rem;
+  color: #555;
+}

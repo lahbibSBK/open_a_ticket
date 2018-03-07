@@ -1,11 +1,10 @@
-// const Tether = require("tether");
+// const big_open = document.querySelector(".open-pop-up");
+// const pop_up = document.querySelector(".pop-up");
 
-// const logo = document.querySelector("#logo-wagon")
-// const banner = document.querySelector(".banner")
+// big_open.addEventListener("mouseover", (e) => {
+//   pop_up.classList.remove("hidden")
+// })
 
-// new Tether({
-//   element: logo,
-//   target: banner,
-//   attachment: 'top',
-//   targetModifier: 'visible'
-// });
+// big_open.addEventListener("mouseleave", (e) => {
+//   pop_up.classList.add("hidden")
+// })

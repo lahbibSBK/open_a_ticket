@@ -46,6 +46,9 @@
   background-color: white;
   border-radius: 5px;
   z-index: 1000;
+  position: absolute;
+  bottom: -128px;
+  right: 40px;
   a {
     color: #555;
     padding: 1rem;

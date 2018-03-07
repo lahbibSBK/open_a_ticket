@@ -27,5 +27,4 @@ import { hoverCards } from '../components/_cards';
 hoverCards();
 
 import "../components/_center_thumbnail";
-import "../components/_tether_home";
 import "../components/_dropdown";
