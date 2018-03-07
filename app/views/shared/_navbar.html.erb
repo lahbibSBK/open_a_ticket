@@ -15,7 +15,8 @@
 
                 <a href="/tickets/new" class="btn btn-primary text-white ml-2 <%= 'hidden' if current_page?(root_path) && current_user %>" id="open_btn">Open a ticket</a>
 
-                <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2" id="open_btn">Become a Mentor</a>
+
+                <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2 hidden-xs" id="open_btn">Become a Mentor</a>
 
                   <div class="dropdown">
                     <img src=<%= current_user.pic_url %> class="avatar ml-2" id="navbar-wagon-menu" data-toggle="dropdown">
@@ -28,6 +29,8 @@
 
             </div>
           <% end %>
+
+          <a href="/mentor_profils/new" class="btn-open-s font-20 text-white ml-2 <%= "hidden" if current_user || current_page?("users/sign_in") %>">Sign in</a>
 
         </div>
 
