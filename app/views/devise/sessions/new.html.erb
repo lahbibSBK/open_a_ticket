@@ -18,9 +18,9 @@
             <i class="fab fa-github"></i>Sign in with GitHub
           <% end %>
         <% end %>
-        <div class="links">
-        <%= render "devise/shared/links" %>
-
+        <div class="flex_box space-between">
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Forgot your password ?", new_user_password_path %>
         </div>
       </div>
     </div>
