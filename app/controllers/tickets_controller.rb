@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close, :assign_mentor ]
 
   def index
     @tickets = policy_scope(Ticket)
@@ -78,6 +78,14 @@ class TicketsController < ApplicationController
     authorize @ticket
     @ticket.save
   end
+
+  def assign_mentor
+    @mentor = User.find(params[:ticket][:mentor_id])
+    @ticket.update(mentor: @mentor)
+    order  = Order.create!(ticket_id: @ticket.id, amount: (@ticket.mentor_profil.minimum_price * @ticket.ticket_duration.to_i), state: 'pending')
+    redirect_to new_order_payment_path(order)
+  end
+
   private
 
   def set_ticket

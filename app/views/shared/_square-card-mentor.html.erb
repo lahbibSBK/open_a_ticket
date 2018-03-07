@@ -35,6 +35,13 @@
       </div>
     <% end %>
   </div>
+  <% if @ticket.mentor.blank? %>
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'ticket_id', @ticket.id %>
+      <%= submit_tag "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn btn-primary text-white ml-2" %>
+    <% end %>
+  <% else %>
+  <% end %>
 </div>
 
 <div class="modal fade" id="myModal<%= mentor.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

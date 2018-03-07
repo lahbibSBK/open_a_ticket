@@ -3,6 +3,7 @@ class Ticket < ApplicationRecord
 
   belongs_to :mentor, class_name: 'User', foreign_key: :mentor_id, optional: true
   belongs_to :alumni, class_name: 'User', foreign_key: :alumni_id
+
   has_one :review
   has_one :mentor_profil, through: :mentor
   has_one :order
