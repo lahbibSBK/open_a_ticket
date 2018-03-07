@@ -17,11 +17,12 @@
 
   <div class="bigcard-content"> <%= ticket.content %></div>
 
-
+<% if ticket.speaking_language != nil %>
   <div class="bigcard-flag"><% ticket.speaking_language.each do |langue| %>
     <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
 
     <% end %></div>
+<% end %>
 
   <div class="bigcard-price">
       <h2><%= humanized_money_with_symbol(ticket.price_cents) %> /hour</h2>

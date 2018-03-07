@@ -29,24 +29,26 @@
   <% if @ticket.mentor.blank? %>
     <h2>Recommended mentors</h2>
     <div class="row">
-      <% @match_mentors_list.each do |mentor_profil| %>
-        <div class="col-xs-12 col-sm-4 col-md-6">
-          <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-        </div>
+      <% if @match_mentors_list.present? %>
+        <% @match_mentors_list.each do |mentor_profil| %>
+          <div class="col-xs-12 col-sm-4 col-md-6">
+            <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No Mentor Found With those skills - Update your Ticket skills or Price</p>
       <% end %>
-    </div>
   <% else %>
     <h2>Selected mentor</h2>
     <div class="row">
       <div class="col-md-6">
         <div class="selected mentor">
           <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
-
           <% if @ticket.status == "closed" && @review.blank? %>
             <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
           <% end %>
         </div>
-      </div>
+      /div>
     </div>
     <div class="row">
       <div class="col-md-12">

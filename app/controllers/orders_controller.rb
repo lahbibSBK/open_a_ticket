@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   end
   def create
     @ticket = Ticket.find(params[:ticket_id])
+    @ticket.mentor = params[:mentor_id]
     order  = Order.create!(ticket_id: @ticket.id, amount: @ticket.price, state: 'pending')
     redirect_to new_order_payment_path(order)
   end

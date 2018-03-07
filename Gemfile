@@ -9,7 +9,7 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem 'pundit'
-
+gem 'language_list'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
