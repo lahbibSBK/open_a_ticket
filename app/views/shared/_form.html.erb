@@ -1,3 +1,5 @@
+
+<!-- Langue::COUNTRIES.values -->
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-sm-offset-3">
@@ -8,9 +10,9 @@
             <%= f.input :price_cents, placeholder: "Hours rate" %>
             <%= f.input :ticket_duration, placeholder:"How many hours / what's the repartition?" %>
             <%= f.input :ticket_location, placeholder: "Do you need someone close to your Location?" %>
-            <%= f.input :speaking_language, placeholder: "Your native language or Do you accept someone speaking english?" %>
+            <%= f.input :speaking_language, collection: Langue::COUNTRIES.to_a.map(&:reverse), input_html: { multiple: true } %>
             <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of the mission" %>
-            <%= f.submit "Your ticket", class: "btn btn-primary", class: "" %>
+            <%= f.submit "Your ticket", class: "btn btn-primary" %>
           <% end %>
     </div>
   </div>
