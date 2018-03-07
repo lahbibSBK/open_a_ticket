@@ -1,49 +1,32 @@
 <div class="container">
-  <div>
-    <%= render 'shared/bigticketcard', ticket: @ticket %>
-  </div>
-  <div class="mission">
-    <div class="mission-status">
-        <div>
-            <% if policy(@ticket).edit? %>
-              <%= link_to "Update", edit_ticket_path(@ticket), class: 'btn btn-success' %>
-              <% #Mettre le lien dans l'update ? %>
-              <%= link_to 'Close', @ticket, class: 'btn btn-primary',
-              method: :close, data: { confirm: "Are you sure?" } %>
-              <% #lien cancel à brancher %>
-              <%= link_to 'Cancel', edit_ticket_path(@ticket), class: 'btn btn-primary' %>
-              <%= link_to "Delete", ticket_path(@ticket), class: 'btn btn-danger',
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-            <% end %>
-          <%= link_to 'Back', dashboard_path(status: "open"), class: 'btn btn-info' %>
-        </div>
-    </div>
-  </div>
-<br>
-<br>
-<br>
-  <div class="container">
+  <%= render 'shared/bigticketcard', ticket: @ticket %>
+
+  <% if @ticket.mentor.blank? %>
+    <h2>Recommended mentors</h2>
     <div class="row">
-      <% if @ticket.mentor.blank? %>
-          <h2>Recommended mentors</h2>
-          <% @match_mentors_list.each do |mentor_profil| %>
-            <div class="col-xs-12 col-sm-4 col-md-6">
-              <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-          </div>
-        <% end %>
-      <% else %>
-        <h2>Selected mentor</h2>
-        <div class="selected mentor">
-          <div class="col-md-6">
-            <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
-            <% if @ticket.status == "closed" %>
-              <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-            <% else %>
-            <% end %>
-          </div>
+      <% @match_mentors_list.each do |mentor_profil| %>
+        <div class="col-xs-12 col-sm-4 col-md-6">
+          <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
         </div>
       <% end %>
     </div>
-  </div>
+  <% else %>
+    <h2>Selected mentor</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="selected mentor">
+          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
+
+          <% if @ticket.status == "closed" && @review.blank? %>
+            <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'shared/contactcard', mentor: @ticket.mentor.mentor_profil%>
+      </div>
+    </div>
+  <% end %>
 </div>

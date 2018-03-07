@@ -1,39 +1,41 @@
-<div class="square-mentor-card" data-toggle="modal" data-target="#myModal<%= mentor.id%>">
-  <div class="square-mentor-card-title">
-    <p><%= mentor.user.batch_wagon %></p>
-    <h2><%= mentor.user.first_name %> <%= mentor.user.last_name %></h2>
-  </div>
+<div class="square-mentor-card">
+  <div data-toggle="modal" data-target="#myModal<%= mentor.id%>">
+    <div class="square-mentor-card-title">
+      <p><%= mentor.user.batch_wagon %></p>
+      <h2><%= mentor.user.first_name %> <%= mentor.user.last_name %></h2>
+    </div>
 
-  <div class="square-mentor-card-reviews">
-    <% if mentor.user.reviews.blank? %>
-      <div>
-        <p>No yet reviews </p>
-      </div>
-    <% else %>
-      <div class="square-mentor-card-reviews-stars">
-          <% mentor.user.reviews.average(:rating).round().times do |i| %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
-            <i class="far fa-star"></i>
+    <div class="square-mentor-card-reviews">
+      <% if mentor.user.reviews.blank? %>
+        <div>
+          <p>No yet reviews </p>
+        </div>
+      <% else %>
+        <div class="square-mentor-card-reviews-stars">
+            <% mentor.user.reviews.average(:rating).round().times do |i| %>
+              <i class="fas fa-star"></i>
             <% end %>
-      </div>
-    <% end %>
-    <p><%= mentor.user.reviews.count %> reviews </p>
-  </div>
+            <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
+              <i class="far fa-star"></i>
+              <% end %>
+        </div>
+      <% end %>
+      <p><%= mentor.user.reviews.count %> reviews </p>
+    </div>
 
-   <div class="square-mentor-card-body">
-      <img class="square-mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
-      <a class="card-link" href="#" ></a>
-      <h2> <%= mentor.minimum_price %> €/hour </h2>
-  </div>
+     <div class="square-mentor-card-body">
+        <img class="square-mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
+        <a class="card-link" href="#" ></a>
+        <h2> <%= mentor.minimum_price %> €/hour </h2>
+    </div>
 
-  <div class="square-mentor-card-skills">
-    <% mentor.tag_names.take(5).each do |skill| %>
-      <div class="skill">
-        <p><%= skill %></p>
-      </div>
-    <% end %>
+    <div class="square-mentor-card-skills">
+      <% mentor.tag_names.take(5).each do |skill| %>
+        <div class="skill">
+          <p><%= skill %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
   <% if @ticket.mentor.blank? %>
     <%= form_tag orders_path do %>
@@ -60,9 +62,7 @@
         <p><%= render 'shared/reviewscard', reviews: mentor.user.reviews %>
       </div>
       <div class="modal-footer">
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
