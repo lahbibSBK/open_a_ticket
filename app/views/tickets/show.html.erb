@@ -30,19 +30,13 @@
           <% @match_mentors_list.each do |mentor_profil| %>
             <div class="col-xs-12 col-sm-4 col-md-6">
               <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-              <%= form_tag orders_path do %>
-                <%= hidden_field_tag 'ticket_id', @ticket.id %>
-                <%= hidden_field_tag 'mentor_id', mentor_profil.user_id %>
-                <%= submit_tag "Choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", class: "btn-open-s font-20 text-white ml-2" %>
-              <% end %>
-
           </div>
         <% end %>
       <% else %>
         <h2>Selected mentor</h2>
         <div class="selected mentor">
           <div class="col-md-6">
-            <%= render 'shared/square-card-mentor', mentor: @ticket.mentor %>
+            <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
             <% if @ticket.status == "closed" %>
               <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
             <% else %>
