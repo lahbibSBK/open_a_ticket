@@ -5,6 +5,10 @@ class TicketPolicy < ApplicationPolicy
     end
   end
 
+  def assign_mentor?
+    record.alumni == user
+  end
+
   def index?
   	#n'afficher que si tout les @tickets.alumni = user
     true
