@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 const quote = document.querySelector(".mentor-quote")
 
-const a = "If you have an idea for your business or product then having a mentor to bounce these ideas off of can help you plan and organise how to put them into action and make them a reality. Your mentor may be able to see potential pitfalls and opportunities that had not occurred to you, which could be the difference between success or failure.";
+const a = "If you have an idea for your business or product then having a mentor to bounce these ideas off can help you plan and organise how to put them into action and make them a reality. Your mentor may be able to see potential pitfalls and opportunities that had not occurred to you, which could be the difference between success or failure.";
 const b = "Motivation can be a hard thing to manufacture but telling your mentor you’re going to achieve something and setting yourself a goal means you have someone to hold you accountable to these goals. This means you’re more likely to take action and will therefore see results quicker.";
 const c = "If you are having a problem at work a mentor can give you helpful advice to navigate the problem in a professional way. Their experience and insight can stop you making mistakes and can give you the answers rather than you having to waste valuable time and money working out the right way to handle the situation.";
 const d = "A mentor is not only handy when you are having a problem at work. Sharing your successes with them can be hugely rewarding for them as well as for you, and can help you find out ways to build on this success in the future.";
