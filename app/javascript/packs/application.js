@@ -11,6 +11,7 @@ import "bootstrap";
 import Choices from 'choices.js';
 
 new Choices('#ticket_tag_names');
+new Choices('#ticket_speaking_language');
 
 import 'choices.js/assets/styles/css/choices.css';
 
