@@ -1,0 +1,13 @@
+<div class="contactcard">
+  <div class="contactcard-title">
+    <p>Get in touch with <%= mentor.user.first_name %> <%= mentor.user.last_name %> and start working</p>
+  </div>
+  <div class="contactcart-contact">
+    <p><%= mentor.user.email %></p>
+    <p><%= mentor.user.phone_number %></p>
+  </div>
+  <div class="contactcard-tools"></div>
+    <a href="https://atom.io/"><%=image_tag 'atom.png'%></a>
+    <a href="https://www.skype.com/fr/"><i class="fab fa-skype"></i></a>
+  </div>
+</div>
