@@ -30,6 +30,10 @@
             </div>
           <% end %>
 
+      <% if !current_user %>
+        <span id="user-control"></span>
+        <span class="open-dropdown"></span>
+      <% end %>
         </div>
 
       </div>
