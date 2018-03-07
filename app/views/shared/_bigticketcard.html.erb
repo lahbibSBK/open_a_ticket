@@ -1,39 +1,44 @@
 <div class="bigcard">
-
-  <div class="bigcard-avatar">
-    <% if ticket.mentor.blank? %>
-      <%= image_tag 'emptyavatar.png' %>
-     <% else %>
-      <img src=<%= ticket.mentor.pic_url %> alt="mentor-avatar">
-    <% end %>
+  <div class="row">
+    <div class="col-xs-10">
+      <h1><%= @ticket.title %></h1>
+    </div>
+    <div class="col-xs-2">
+      <p class="price"><%= humanized_money_with_symbol(ticket.price_cents) %> / hour</p>
+    </div>
   </div>
 
-  <div class="bigcard-date">
-    <p>created at:</p>
-    <h2><%=l(ticket.created_at, format: :short) %></h2>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="ticket-content"><%= simple_format(@ticket.content) %></div>
+    </div>
   </div>
 
-  <div class="bigcard-title"> <%= ticket.title %></div>
-
-  <div class="bigcard-content"> <%= ticket.content %></div>
-
-
-  <div class="bigcard-flag"><% ticket.speaking_language.each do |langue| %>
-    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
-
-    <% end %></div>
-
-  <div class="bigcard-price">
-      <h2><%= humanized_money_with_symbol(ticket.price_cents) %> /hour</h2>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="skills">
+        <p class="secondary-title">Needed skills</p>
+        <% ticket.tag_names.each do |skill| %>
+          <p class="skill"><%= skill %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="bigcard-skills">
-   <% ticket.tag_names.take(5).each do |skill| %>
-   <div class="skill">
-     <p><%= skill %></p>
-   </div>
-   <% end %>
- </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="informations">
+        <div class="bigcard-flag">
+          <p class="secondary-title">Languages spoken</p>
+          <% ticket.speaking_language.each do |langue| %>
+            <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+          <% end %>
+        </div>
+
+        <p class="created-at">Created <%= time_ago_in_words(ticket.created_at) %> ago</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
