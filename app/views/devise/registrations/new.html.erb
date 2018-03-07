@@ -1,10 +1,9 @@
-<div class="wrapper bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <h2 class="mb-3 text-white mt-0 text-center pb-3">Sign up</h2>
-        <div class="form-container bg-white border-rounded p-3">
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="auth">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
             <%= f.error_notification %>
               <%= f.input :last_name, required: false %>
               <%= f.input :first_name, required: false %>
@@ -12,12 +11,16 @@
               <%= f.input :phone_number, required: false %>
               <%= f.input :address, required: false %>
               <%= f.input :email, required: true, autofocus: true %>
+
+
               <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
               <%= f.input :password_confirmation, required: true %>
 
               <%= f.button :submit, "Sign up", class: "border-0" %>
           <% end %>
-        </div>
+          <div class="links">
+          <%= render "devise/shared/links" %>
+          </div>
       </div>
     </div>
   </div>
