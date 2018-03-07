@@ -4,7 +4,7 @@
       <div class="auth">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
-            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :email, required: false, autofocus: true  %>
             <%= f.input :password, required: false %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
@@ -18,8 +18,9 @@
             <i class="fab fa-github"></i>Sign in with GitHub
           <% end %>
         <% end %>
-
+        <div class="links">
         <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>

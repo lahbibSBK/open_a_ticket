@@ -10,13 +10,16 @@
               <%= f.input :phone_number, required: false %>
               <%= f.input :address, required: false %>
               <%= f.input :email, required: true, autofocus: true %>
+
+
               <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
               <%= f.input :password_confirmation, required: true %>
 
               <%= f.button :submit, "Sign up" %>
           <% end %>
-
+          <div class="links">
           <%= render "devise/shared/links" %>
+          </div>
       </div>
     </div>
   </div>
