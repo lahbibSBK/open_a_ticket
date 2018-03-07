@@ -1,4 +1,4 @@
-<div class="bg-gradient">
+<div class="bg-clear">
   <div class="no-repeat">
     <div class="container-fluid">
 
@@ -7,7 +7,10 @@
 
         <div class="row w-50 flex_box column center">
           <h1 id ="typed2" class="col-12 col-md display-7 text-black text-light mb-3">FIND A MENTOR!</h1>
-          <a href="/tickets/new" class="btn-open btn-large text-white mb-3">Open a ticket</a>
+          <a href="/tickets/new" class="btn-open btn-large text-white mb-3 open-pop-up">Open a ticket</a>
+            <div class="pop-up hidden">
+              <h3 class="instructions">Explain us what are your needs and get matched with a mentor.</h3>
+            </div>
           <a href="/mentor_profils/new" style="text-decoration: underline">or become a mentor</a>
         </div>
       </div>
@@ -34,43 +37,12 @@
       <!-- </div> -->
 
           <div class="row">
-            <div class="big-card cover" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(<%= @image %>)">
+            <div class="big-card cover margin-bottom" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(<%= @image %>)">
               <i class="fas fa-quote-left"></i>
               <h3 class="mentor-quote text-light"></h3>
               <i class="fas fa-quote-right"></i>
             </div>
           </div>
-
-      <div class="testimonies marginx-auto">
-
-        <hr class="to-separate">
-
-        <div class="testimony">
-          <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHUOT512ZkPVTb79g_otKrVQZ9DfMB3twLTE6OFwPho6e2jYqj" alt="">
-          <i class="fas fa-quote-left"></i>
-          <p>MY MENTOR, KEVIN HELPED ME FINISH MY WORK, IT WAS SO GOOD MY BOSS GAVE ME A PROMOTION</p>
-          <i class="fas fa-quote-right"></i>
-        </div>
-
-        <hr class="to-separate">
-
-        <div class="testimony">
-          <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHUOT512ZkPVTb79g_otKrVQZ9DfMB3twLTE6OFwPho6e2jYqj" alt="">
-          <i class="fas fa-quote-left"></i>
-          <p>MY MENTOR, KEVIN HELPED ME FINISH MY WORK, IT WAS SO GOOD MY BOSS GAVE ME A PROMOTION</p>
-          <i class="fas fa-quote-right"></i>
-        </div>
-
-        <hr class="to-separate">
-
-        <div class="testimony">
-          <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHUOT512ZkPVTb79g_otKrVQZ9DfMB3twLTE6OFwPho6e2jYqj" alt="">
-          <i class="fas fa-quote-left"></i>
-          <p>MY MENTOR, KEVIN HELPED ME FINISH MY WORK, IT WAS SO GOOD MY BOSS GAVE ME A PROMOTION</p>
-          <i class="fas fa-quote-right"></i>
-        </div>
-
-      </div>
 
       <div id="map" class="map-style marginx-auto" style="margin-bottom: 5rem;"></div>
 
