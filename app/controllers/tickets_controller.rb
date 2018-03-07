@@ -33,7 +33,6 @@ class TicketsController < ApplicationController
     @ticket.status = "open"
     authorize @ticket
     if @ticket.save
-    raise
       @ticket.mentor_recommanded_list = match_mentors
       redirect_to dashboard_path(status: "open"), notice: 'Your ticket has been successfully created.'
     else
