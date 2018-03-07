@@ -10,7 +10,7 @@
       <p>Price/hour of the mentor : <%= @ticket.mentor_profil.minimum_price %> euros</p>
       <br>
       <label class="amount">
-        <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount_cents) %></span>
+        <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
       </label>
     </article>
   </div>
