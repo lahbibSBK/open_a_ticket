@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
      @review.ticket.status = "closed"
      authorize @review
     if @review.save
-      redirect_to ticket_path(@review.ticket), notice: "Your review has successfully been added"
+      redirect_to ticket_path(@ticket), notice: "Your review has successfully been added"
     else
       render :new
     end

@@ -1,3 +1,24 @@
+footer {
+  height: 70px;
+  color: #aeaeae;
+  font-size: 15px;
+
+  .container {
+    height: 100%;
+  }
+
+  .flexbox {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-item: center;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
+
 .font-15 {
   font-size: 15px;
 }
