@@ -31,9 +31,10 @@
             <div class="col-xs-12 col-sm-4 col-md-6">
               <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
               <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'ticket_id', @ticket.id %>
-            <%= submit_tag "Choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", class: "btn-open-s font-20 text-white ml-2" %>
-            <% end %>
+                <%= hidden_field_tag 'ticket_id', @ticket.id %>
+                <%= hidden_field_tag 'mentor_id', mentor_profil.user_id %>
+                <%= submit_tag "Choose #{mentor_profil.user.first_name} #{mentor_profil.user.last_name}", class: "btn-open-s font-20 text-white ml-2" %>
+              <% end %>
 
           </div>
         <% end %>
