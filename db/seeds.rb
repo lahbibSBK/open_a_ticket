@@ -227,7 +227,7 @@ User.all.each do |user|
       ticket = Ticket.create!(
         title: Faker::DrWho.quote,
         alumni_id: isa.id,
-        
+
         content: Faker::HowIMetYourMother.quote,
         tag_names: SKILLS.sample(4),
         ticket_location: Faker::Address.city,
@@ -285,6 +285,8 @@ User.all.each do |user|
     end
   end
 end
+
+
 
 davidhass = User.create!(
   email: "mickael.long@flag.org",
