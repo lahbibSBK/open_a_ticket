@@ -47,13 +47,6 @@
     border-radius: 5px;
   }
 
-  .skill.match {
-    p {
-      color: $brand-primary;
-      font-weight: 500;
-    }
-  }
-
   .metrics {
     display: flex;
     list-style: none;
@@ -119,5 +112,12 @@
     .btn-secondary {
       color: black;
     }
+  }
+}
+
+.skill.match {
+  p {
+    color: $brand-primary;
+    font-weight: 500;
   }
 }
