@@ -1,0 +1,52 @@
+<div class="recommanded-mentor general-card">
+  <div class="main-mentor-informations">
+    <%= image_tag(mentor.pic_url, class: 'avatar-xlarge') %>
+    <div class="middle-informations">
+      <h3 class="no-margin mentor-full-name"><%= mentor.full_name %></h3>
+      <div class="reviews">
+        <p class="no-margin secondary-title"><%= mentor.reviews.count %> reviews</p>
+        <% if true #mentor.reviews.present? %>
+          <% 5.times do |i| %>
+            <i class="fas fa-star <%= 'active' if i < 3 %>"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <p class="no-margin"><%= mentor.minimum_price %> € / hour<p>
+  </div>
+
+  <p class="experience"><%= mentor.experience %></p>
+
+  <div class="skills">
+    <% mentor.tag_names.each do |skill| %>
+      <div class="skill <%= 'match' if [true, false].sample %>">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class="metrics">
+    <li>
+      <p class="value">4</p>
+      <p class="label">tickets mentored</p>
+    </li>
+    <li>
+      <p class="value">83</p>
+      <p class="label">commits this year</p>
+    </li>
+    <li>
+      <p class="value">#121</p>
+      <p class="label">Wagon batch number</p>
+    </li>
+  </ul>
+
+  <ul class="list-inline mentor-actions">
+    <li><a class="btn btn-secondary">View more</a></li>
+    <li>
+      <%= simple_form_for @ticket, url: assign_mentor_ticket_path(@ticket), method: :patch do |f| %>
+        <%= f.input :mentor_id, as: :hidden, input_html: { value: mentor.user.id } %>
+        <%= f.submit "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn choose-mentor" %>
+      <% end %>
+    </li>
+  </ul>
+</div>

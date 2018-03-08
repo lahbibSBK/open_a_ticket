@@ -1,13 +1,6 @@
 .bigcard {
   margin-top: 2em;
-  background-color: #fcfcfc;
   position: relative;
-  padding: 2em 2em 2em 2em;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
-    -webkit-transition: box-shadow .3s ease-in-out;
-    transition: box-shadow .3s ease-in-out;
   border-left: 3px solid lighten($brand-primary, 10%);
   margin-bottom: 20px;
 
@@ -59,24 +52,6 @@
   .price {
     font-size: 1.2em;
     text-align: right;
-  }
-
-  .skill {
-    background-color: #efefef;
-    display: inline-block;
-    color: black;
-    margin-right: 5px;
-    padding: 10px 10px;
-    height: 40px;
-    border-radius: 5px;
-
-    p {
-      font-size: 14px;
-      opacity: 0.7;
-      font-weight: lighter;
-      color: black;
-      white-space: nowrap;
-    }
   }
 }
 

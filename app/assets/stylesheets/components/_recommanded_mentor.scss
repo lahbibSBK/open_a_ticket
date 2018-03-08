@@ -1,0 +1,109 @@
+.recommanded-mentor {
+  .main-mentor-informations {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+  }
+
+  .middle-informations {
+    flex-grow: 1;
+    padding: 0 0.5em;
+  }
+
+  .mentor-full-name {
+    font-size: 1.5em;
+  }
+
+  .secondary-title {
+    font-size: 1em;
+    color: #777;
+  }
+
+  .fa-star {
+    color: #ccc;
+  }
+
+  .fa-star.active {
+    color: $stars-color;
+  }
+
+  .experience {
+    height: 65px;
+    overflow: hidden;
+  }
+
+  .skill {
+    margin-right: 3px;
+    padding: 5px 5px;
+    height: auto;
+  }
+
+  .skill.match {
+    p {
+      color: $brand-primary;
+      font-weight: 500;
+    }
+  }
+
+  .metrics {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 0;
+
+    .value {
+      font-size: 1.2em;
+      color: $brand-primary;
+      margin: 0;
+    }
+
+    .label {
+      color: #777;
+      font-size: 0.9em;
+      font-weight: 400;
+    }
+  }
+
+  .mentor-actions {
+    margin: 1em -2em -2em;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+
+    li {
+      flex-basis: 50%;
+      padding: 0.5em 0;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+
+    li:first-child {
+      border-right: 1px solid #ccc;
+    }
+
+    .btn {
+      display: block;
+    }
+
+    .choose-mentor {
+      color: $brand-primary;
+      width: 100%;
+      font-weight: 500;
+    }
+
+    .choose-mentor:focus {
+      outline: none;
+    }
+
+    .choose-mentor:active {
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      color: black;
+    }
+  }
+}
