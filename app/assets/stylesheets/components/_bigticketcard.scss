@@ -1,10 +1,6 @@
 .bigcard {
   margin-top: 2em;
-  background-color: #ffffff;
   position: relative;
-  padding: 2em 2em 2em 2em;
-  border-radius: 3px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-left: 3px solid lighten($brand-primary, 10%);
 
   h1 {
@@ -49,24 +45,6 @@
   .price {
     font-size: 1.2em;
     text-align: right;
-  }
-
-  .skill {
-    background-color: #efefef;
-    display: inline-block;
-    color: black;
-    margin-right: 5px;
-    padding: 10px 10px;
-    height: 40px;
-    border-radius: 5px;
-
-    p {
-      font-size: 14px;
-      opacity: 0.7;
-      font-weight: lighter;
-      color: black;
-      white-space: nowrap;
-    }
   }
 }
 

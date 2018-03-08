@@ -1,0 +1,15 @@
+<% if mentors.present? %>
+  <div class="row">
+    <% mentors.each do |mentor| %>
+      <div class="col-xs-12 col-sm-4 col-md-6">
+        <%= render 'recommanded_mentor', mentor: mentor %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>No Mentor Found With those skills - Update your Ticket skills or Price</p>
+    </div>
+  </div>
+<% end %>
