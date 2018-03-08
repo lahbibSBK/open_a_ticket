@@ -10,7 +10,8 @@
       <%= render 'recommanded_mentors', mentors: @match_mentors_list %>
     </div>
   <% else %>
-    <div class="selected-mentors-container">
-      <%= render 'selected-mentor', mentor: @ticket.mentor %>
+    <div class="selected-mentor-container">
+      <h2>Your have selected this mentor</h2>
+      <%= render 'selected-mentor', mentor: @ticket.mentor, order: @order %>
     </div>
   <% end %>

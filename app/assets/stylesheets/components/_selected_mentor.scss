@@ -1,0 +1,21 @@
+.selected-mentor {
+
+  .main-mentor-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+      .mentor-full-name {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+
+  .main-mentor-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+}
+
