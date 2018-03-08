@@ -1,3 +1,5 @@
+
+<!-- Langue::COUNTRIES.values -->
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-sm-offset-3">
@@ -16,10 +18,10 @@ Any attempts?", label: "Description of the ticket" %>
             <%= f.input :price_cents, placeholder: "Hours rate",  label: "Price/hour maximum" %>
             <%= f.input :ticket_duration, placeholder:"How many hours of help do you need ?" , label: "Number of hours"%>
             <%= f.input :ticket_location, placeholder: "What is your location ?" ,label: "Your location"%>
-            <%= f.input :speaking_language, placeholder: "Your native language or Do you accept someone speaking english?",  label: "Languages accepted" %>
+            <%= f.input :speaking_language, collection: LanguageList::ALL_LANGUAGES.select { |language| language.iso_639_1.present? }, label_method: :name, value_method: :iso_639_1, input_html: { multiple: true }, placeholder: "Your native language or Do you accept someone speaking english?",  label: "Languages accepted" %>
             <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of your mission" ,label: "Priority of the mission" %>
             <div class="button">
-            <%= f.submit "Create your ticket", class: "btn btn-primary" %>
+            <%= f.submit "Your ticket", class: "btn btn-primary" %>
             </div>
         <% end %>
       </div>

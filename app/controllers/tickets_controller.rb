@@ -94,7 +94,7 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params
+    ret = params
       .require(:ticket)
       .permit(
         :content,
@@ -103,12 +103,15 @@ class TicketsController < ApplicationController
         :alumni_id,
         :ticket_location,
         :priority,
-        :speaking_language,
         :title,
         :stats,
         :status,
+        speaking_language: [],
         tag_names: []
       )
+      ret[:speaking_language] = ret[:speaking_language].to_a.reject(&:blank?)
+      ret[:tag_names] =         ret[:tag_names].to_a.reject(&:blank?)
+      ret
   end
 
   def match_mentors
@@ -118,7 +121,6 @@ class TicketsController < ApplicationController
       names: @ticket.tag_names,
       match: :any
     )
-
     match_mentors.each do |mentor|
       if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
         @match_mentors_list << mentor
