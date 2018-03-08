@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180308151005) do
     t.string "mentor_recommanded_list"
     t.string "speaking_language", array: true
     t.integer "price_cents", default: 0, null: false
+
     t.float "latitude"
     t.float "longitude"
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
