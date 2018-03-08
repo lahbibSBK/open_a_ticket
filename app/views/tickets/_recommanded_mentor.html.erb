@@ -13,7 +13,7 @@
         </p>
         <% if mentor.reviews.present? %>
           <% 5.times do |i| %>
-            <i class="fas fa-star <%= 'active' if mentor.note > i + 1 %>"></i>
+            <i class="fas fa-star <%= 'active' if mentor.reviews.average(:rating) > i + 1 %>"></i>
           <% end %>
         <% end %>
       </div>
@@ -42,7 +42,7 @@
 
   <ul class="metrics">
     <li>
-      <p class="value">4</p>
+      <p class="value"><%= mentor.reviews.count %></p>
       <p class="label">tickets mentored</p>
     </li>
     <li>
@@ -50,7 +50,7 @@
       <p class="label">commits this year</p>
     </li>
     <li>
-      <p class="value">#121</p>
+      <p class="value"><%= mentor.user.batch_wagon %></p>
       <p class="label">Wagon batch number</p>
     </li>
   </ul>
