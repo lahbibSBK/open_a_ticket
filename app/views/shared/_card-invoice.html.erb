@@ -13,6 +13,7 @@
           <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
         </label>
       </article>
+    </div>
       <div class="button">
       <button class="btn btn-primary stripe-checkout">
         Checkout
@@ -28,6 +29,5 @@
       </button>
       </div>
     <% end %>
-  </div>
 </div>
 
