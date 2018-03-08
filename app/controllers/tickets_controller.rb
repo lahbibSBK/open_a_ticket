@@ -69,8 +69,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       redirect_to ticket_path(@ticket), notice: 'Your Ticket has been successfully closed.'
-    else
-    end
+     end
   end
 
   def cancel

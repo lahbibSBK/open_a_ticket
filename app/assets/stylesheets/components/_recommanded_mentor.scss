@@ -1,4 +1,6 @@
 .recommanded-mentor {
+  margin-bottom: 30px;
+
   .main-mentor-informations {
     display: flex;
     align-items: center;
@@ -17,6 +19,14 @@
   .secondary-title {
     font-size: 1em;
     color: #777;
+  }
+
+  .right-informations {
+   text-align: center;
+
+    .slack_img {
+    width: 30px;
+    }
   }
 
   .fa-star {
@@ -84,8 +94,13 @@
       border-right: 1px solid #ccc;
     }
 
+    li:hover {
+      background: #dadada59;
+    }
+
     .btn {
       display: block;
+      background: transparent;
     }
 
     .choose-mentor {
@@ -94,11 +109,11 @@
       font-weight: 500;
     }
 
-    .choose-mentor:focus {
+    .btn:focus {
       outline: none;
     }
 
-    .choose-mentor:active {
+    .btn:active {
       box-shadow: none;
     }
 

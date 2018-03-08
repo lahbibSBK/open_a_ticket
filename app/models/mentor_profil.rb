@@ -10,4 +10,8 @@ class MentorProfil < ApplicationRecord
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"
   end
+
+  def note
+    reviews.sum(:rating) / reviews.count
+  end
 end
