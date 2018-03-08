@@ -49,15 +49,15 @@ students.each do |element|
 end
 
 jos = User.create!(
-  email: "jos@gmail.com",
+  email: "jooo.blanchard@gmail.com",
   password: "azerty",
   first_name: "joseph",
   last_name: "Blanchard",
   phone_number: "0612345677",
-  address: "12 rue de saint fons 69007 LYON",
+  address: "23 Rue Paul Montrochet, 69002 Lyon",
   batch_wagon: "Karr",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
-  speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
+  speaking_language: ["fr","gb", "es", "br"],
   slack_id: "U4004D27N",
 
 )
@@ -73,12 +73,12 @@ Si demain j'ai une idée (et qu'elle est bonne ^^) elle peut être mise en place
 )
 
 kev = User.create!(
-  email: "kev@gmail.com",
+  email: "kevin.chavanne@gmail.com",
   password: "azerty",
-  first_name: "kévin",
+  first_name: "Kévin",
   last_name: "Chavanne",
   phone_number: "0612345676",
-  address: "12 rue du twerk 42001  saint-étienne",
+  address: "21 Rue Brossard, Saint-Étienne, France",
   batch_wagon: "Kitt",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
   speaking_language: ["fr", "gb", "es", "ma", "br"],
@@ -243,9 +243,9 @@ davidmentor = MentorProfil.create!(
   the Foundation for Law and Government (FLAG). Don't shoot at my pretty face
   I have experience on designing, developing and deploying web-based applications, I have over 2 in building web applications using Ruby on Rails framework.
 Projects from scratch fired me up !!",
-  minimum_price: "25",
+  minimum_price: 25,
   user_id: davidhass.id,
-  tag_names: SKILLS.sample(4)
+  tag_names: SKILLS.sample(5)
 )
 
 puts 'Creating X-Seeds with TA & previous Batch...'
@@ -297,7 +297,8 @@ mentor89github.each do |element|
   mentor = MentorProfil.create!(
     experience: Faker::ChuckNorris.fact,
     minimum_price: Faker::Number.number(2),
-    user_id: userm.id
+    user_id: userm.id,
+    tag_names: SKILLS.sample(4)
   )
   mentor89 << mentor
 end
