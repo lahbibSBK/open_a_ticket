@@ -44,6 +44,7 @@ students.each do |element|
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
     address: Faker::Address.city,
+    #slack_id: student["slack_alumni_uid"],
   )
 end
 
@@ -51,12 +52,13 @@ jos = User.create!(
   email: "jos@gmail.com",
   password: "azerty",
   first_name: "joseph",
-  last_name: "Blachard",
+  last_name: "Blanchard",
   phone_number: "0612345677",
   address: "12 rue de saint fons 69007 LYON",
   batch_wagon: "XXX",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
   speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
+  #slack_id: student["slack_alumni_uid"],
 
 )
 josephmentor = MentorProfil.create!(
@@ -80,6 +82,7 @@ kev = User.create!(
   batch_wagon: "XYX",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
   speaking_language: ["fr", "gb", "Esperanto", "Le Stephanois", "Le Lyonnais mais sous la torture"]
+  #slack_id: student["slack_alumni_uid"],
 )
 kevinmentor = MentorProfil.create!(
   experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk
@@ -104,7 +107,8 @@ isa = User.create!(
   address: "12 rue de Marseille 69007 LYON",
   batch_wagon: "121",
   pic_url: "https://avatars2.githubusercontent.com/u/34674849?v=4",
-  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"]
+  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
+  #slack_id: student["slack_alumni_uid"],
 )
 lah = User.create!(
   email: "lah@gmail.com",
@@ -366,6 +370,40 @@ mentor89github.each do |element|
   )
   mentor89 << mentor
 end
+
+
+m1 = MentorProfil.where(user: User.where(first_name: "Clément")).first
+m1.experience = "Hello Clément"
+m1.save
+
+m1 = MentorProfil.where(user: User.where(first_name:"GACHET")).first
+m1.experience = "Hello Christophe"
+m1.save
+m1 = MentorProfil.where(user: User.where(first_name: "Lorenzo")).first
+m1.experience = "Le Wagon
+Nom du diplôme FullStack Developer
+Domaine d’études Web Development
+Années de fréquentation ou date prévue d’obtention du diplôme 2017 – 2017
+Activités et associations :
+Attended Le Wagon Lyon #109
+9-week intensive coding bootcamp learning HTML, CSS, Bootstrap, JavaScript ES2015, SQL, git, GitHub, Heroku and Ruby on Rails. Designed, Implemented and Shipped to production a clone of AirBnB and a Rails prototype of Lovify
+"
+m1.save
+m1 = MentorProfil.where(user: User.where(first_name: "Laurène")).first
+m1.experience = "Hello Laurène"
+m1.save
+
+m1 = MentorProfil.where(user: User.where(last_name:"Coulaud")).first
+m1.experience = "Hello Antoine"
+m1.save
+
+m1 = MentorProfil.where(user: User.where(last_name:"Loviton")).first
+m1.experience = "Hello Ayliane"
+m1.save
+
+m1 = MentorProfil.where(user: User.where(last_name:"Perrin")).first
+m1.experience = "Hello Ayliane"
+m1.save
     #seed ticket closed avec Reviews
     50.times do
       toto = ["fr", "gb"]
@@ -373,7 +411,7 @@ end
         toto << Faker::Address.country_code
       end
       ticket = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
+        title: Faker::ChuckNorris.fact,
         alumni_id: users89.sample.id,
         mentor: mentor89.sample.user,
         content: Faker::HowIMetYourMother.quote,
@@ -388,7 +426,7 @@ end
 
       Review.create!(
         ticket_id: ticket.id,
-        description: Faker::BackToTheFuture.quote,
+        description: Faker::ChuckNorris.fact,
         rating: rand(1..5).to_i
       )
 end

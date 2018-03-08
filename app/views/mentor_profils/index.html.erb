@@ -2,10 +2,76 @@
 <div class="container">
 	<div class="row">
 		<% if policy(@mentor_profils).index? %>
-			<% @mentor_profils.each do |mentor_profil| %>
-				<%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-				<%= link_to 'Show', mentor_profil %>
+			<% @mentor_profils.each do |mentor| %>
+				<div class="square-mentor-card">
+  <div data-toggle="modal" data-target="#myModal<%= mentor.id%>">
+    <div class="square-mentor-card-title">
+      <p><%= mentor.user.batch_wagon %></p>
+      <h2><%= mentor.user.first_name %> <%= mentor.user.last_name %></h2>
+    </div>
+
+    <div class="square-mentor-card-reviews">
+      <% if mentor.user.reviews.blank? %>
+        <div>
+          <p>No yet reviews </p>
+        </div>
+      <% else %>
+        <div class="square-mentor-card-reviews-stars">
+            <% mentor.user.reviews.average(:rating).round().times do |i| %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - mentor.user.reviews.average(:rating).round()).times do |i| %>
+              <i class="far fa-star"></i>
+              <% end %>
+        </div>
+      <% end %>
+      <p><%= mentor.user.reviews.count %> reviews </p>
+    </div>
+
+     <div class="square-mentor-card-body">
+        <img class="square-mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
+        <a class="card-link" href="#" ></a>
+        <h2> <%= mentor.minimum_price %> €/hour </h2>
+    </div>
+
+    <div class="square-mentor-card-skills">
+      <% mentor.tag_names.take(5).each do |skill| %>
+        <div class="skill">
+          <p><%= skill %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="myModal<%= mentor.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img class="mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
+        <h4 class="modal-title" id="myModalLabel"><%= mentor.user.first_name %> <%= mentor.user.last_name %></h4>
+        <p><%= mentor.user.batch_wagon %></p>
+      </div>
+      <div class="modal-body">
+        <div class="skill"><p><%= mentor.tag_names %></p></div>
+        <h4> Experiences </h4>
+        <p><%= mentor.experience %></p>
+        <h4> Reviews </h4>
+        <p><%= render 'shared/reviewscard', reviews: mentor.user.reviews %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+				<%= link_to 'Show', mentor_profil_path() %>
 			<% end %>
 		<% end %>
 	</div>
 </div>
+
+
