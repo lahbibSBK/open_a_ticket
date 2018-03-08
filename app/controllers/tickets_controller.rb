@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close, :assign_mentor ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close, :assign_mentor, :choose_mentor]
 
   def index
     @tickets = policy_scope(Ticket)
@@ -34,7 +34,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       @ticket.mentor_recommanded_list = match_mentors
-      redirect_to dashboard_path(status: "open"), notice: 'Your ticket has been successfully created.'
+      redirect_to dashboard_path(status: "open")
     else
       render :new
     end
@@ -46,9 +46,20 @@ class TicketsController < ApplicationController
   def update
     if @ticket.update(ticket_params)
       authorize @ticket
-      redirect_to ticket_path(@ticket), notice: 'Your ticket has been successfully created.'
+      redirect_to ticket_path(@ticket)
     else
       render :edit
+    end
+  end
+
+  def choose_mentor
+    @ticket.mentor = User.find(params[:ticket][:mentor_id])
+    @ticket.status = "pending"
+
+    if @ticket.save
+      redirect_to ticket_path(@ticket), notice: "You've choosen #{@ticket.mentor.mentor_profil.full_name}, the next step is to book hours"
+    else
+      render :show, alert: "It didn't work"
     end
   end
 
@@ -89,7 +100,6 @@ class TicketsController < ApplicationController
 
   def set_ticket
     @ticket = Ticket.find(params[:id])
-    authorize @ticket
   end
 
   def ticket_params
@@ -109,7 +119,7 @@ class TicketsController < ApplicationController
         tag_names: []
       )
       ret[:speaking_language] = ret[:speaking_language].to_a.reject(&:blank?)
-      ret[:tag_names] =         ret[:tag_names].to_a.reject(&:blank?)
+      ret[:tag_names] = ret[:tag_names].to_a.reject(&:blank?)
       ret
   end
 
@@ -119,7 +129,7 @@ class TicketsController < ApplicationController
     match_mentors = MentorProfil.tagged_with(
       names: @ticket.tag_names,
       match: :any
-    )
+    ).order(minimum_price: :asc)
     match_mentors.each do |mentor|
       if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
         @match_mentors_list << mentor

@@ -22,21 +22,22 @@
     <%= image_tag'slack-1.svg', :class=>"slack_img" %>
   </div>
 
-<div class="main-mentor-finish">
-  <h3>Finish your mission?</h3>
-   <div class="ticket_button">
-    <% if @ticket.status == "pending" %>
-        <% if policy(@ticket).edit? %>
-          <%= link_to 'Complete this mission', close_ticket_path(@ticket),
-          method: :post, data: { confirm: "Are you sure?" } %>
-        <% end %>
-    <% elsif @ticket.status == "closed" && @review.blank? %>
-      <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-    <% end %>
-    <% if @review.present? %>
-      <%= @review.rating %>
-      <%= @review.description %>
-      <%= link_to "back your ticket", dashboard_path %>
-    <%end %>
+  <div class="main-mentor-finish">
+    <h3>Finish your mission?</h3>
+     <div class="ticket_button">
+      <% if @ticket.status == "pending" %>
+          <% if policy(@ticket).edit? %>
+            <%= link_to 'Complete this mission', close_ticket_path(@ticket),
+            method: :post, data: { confirm: "Are you sure?" } %>
+          <% end %>
+      <% elsif @ticket.status == "closed" && @review.blank? %>
+        <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+      <% end %>
+      <% if @review.present? %>
+        <%= @review.rating %>
+        <%= @review.description %>
+        <%= link_to "back your ticket", dashboard_path %>
+      <%end %>
+    </div>
   </div>
 </div>
