@@ -20,6 +20,9 @@
 
 .cover {
   background-size: cover;
+  background-position:  center;
+
+
 }
 
 .display-8 {
@@ -32,6 +35,12 @@
   @media screen and (max-width: "800px") {
     font-size: 3.5rem;
   }
+}
+
+.button {
+  display: flexbox;
+  justify-content: center;
+  padding: 20px 0;
 }
 
 .bg-clear {
@@ -85,5 +94,5 @@
 }
 
 .banner {
-  height: 80vh;
+  height: calc(100vh - 70px);
 }

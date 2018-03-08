@@ -1,0 +1,95 @@
+<div class="recommanded-mentor general-card">
+  <div class="main-mentor-informations">
+    <%= image_tag(mentor.pic_url, class: 'avatar-xlarge') %>
+    <div class="middle-informations">
+      <h3 class="no-margin mentor-full-name"><%= mentor.full_name %></h3>
+      <div class="reviews">
+        <p class="no-margin secondary-title">
+          <% if mentor.reviews.present? %>
+            <%= mentor.reviews.count %> <%= "review".pluralize(mentor.reviews.count) %>
+          <% else %>
+            No review yet
+          <% end %>
+        </p>
+        <% if mentor.reviews.present? %>
+          <% 5.times do |i| %>
+            <i class="fas fa-star <%= 'active' if mentor.note > i + 1 %>"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-informations">
+      <p class="no-margin"><%= mentor.minimum_price %> € / hour<p>
+      <% if mentor.user.slack_id %>
+        <p>
+          <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.user.slack_id}/", target: "_blank" do %>
+            <%= image_tag'slack-1.svg', :class => "slack_img" %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <p class="experience"><%= mentor.experience %></p>
+
+  <div class="skills">
+    <% mentor.tag_names.each do |skill| %>
+      <div class="skill <%= 'match' if [true, false].sample %>">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class="metrics">
+    <li>
+      <p class="value">4</p>
+      <p class="label">tickets mentored</p>
+    </li>
+    <li>
+      <p class="value">83</p>
+      <p class="label">commits this year</p>
+    </li>
+    <li>
+      <p class="value">#121</p>
+      <p class="label">Wagon batch number</p>
+    </li>
+  </ul>
+
+  <ul class="list-inline mentor-actions">
+    <li><a class="btn btn-secondary" data-toggle="modal" data-target="#myModal<%= mentor.id%>">View more</a></li>
+    <li>
+      <%= simple_form_for @ticket, url: assign_mentor_ticket_path(@ticket), method: :patch do |f| %>
+        <%= f.input :mentor_id, as: :hidden, input_html: { value: mentor.user.id } %>
+        <%= f.submit "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn choose-mentor" %>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="modal fade" id="myModal<%= mentor.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img class="mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
+        <h4 class="modal-title" id="myModalLabel"><%= mentor.user.first_name %> <%= mentor.user.last_name %></h4>
+        <p>Batch #<%= mentor.user.batch_wagon %></p>
+      </div>
+      <div class="modal-body">
+        <div class="recommanded-mentor-skills">
+    <% @ticket.tag_names.take(4).each do |skill| %>
+      <div class="skill">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
+  </div>
+        <h4> Experiences </h4>
+        <p><%= mentor.experience %></p>
+        <h4> Reviews </h4>
+        <p><%= render 'shared/reviewscard', reviews: mentor.user.reviews %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

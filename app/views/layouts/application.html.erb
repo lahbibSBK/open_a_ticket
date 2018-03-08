@@ -11,6 +11,7 @@
   </head>
   <body class="<%= params[:controller] %> <%= params[:action] %>">
     <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
 
     <div class="content">
       <%= yield %>

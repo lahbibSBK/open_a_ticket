@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307095317) do
+ActiveRecord::Schema.define(version: 20180308151005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,6 @@ ActiveRecord::Schema.define(version: 20180307095317) do
     t.integer "taggings_count", default: 0, null: false
     t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
-  end
-
-  create_table "langues", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "mentor_profils", force: :cascade do |t|
@@ -81,8 +76,8 @@ ActiveRecord::Schema.define(version: 20180307095317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "mentor_recommanded_list"
-    t.string "speaking_language", array: true
     t.integer "price_cents", default: 0, null: false
+    t.string "speaking_language", array: true
     t.index ["alumni_id"], name: "index_tickets_on_alumni_id"
     t.index ["mentor_id"], name: "index_tickets_on_mentor_id"
   end
@@ -112,6 +107,7 @@ ActiveRecord::Schema.define(version: 20180307095317) do
     t.string "token"
     t.datetime "token_expiry"
     t.string "speaking_language", array: true
+    t.string "slack_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

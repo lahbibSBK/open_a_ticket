@@ -1,0 +1,24 @@
+.general-card {
+  background-color: #ffffff;
+  padding: 2em 2em 2em 2em;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
+  .skill {
+    background-color: #efefef;
+    display: inline-block;
+    color: black;
+    margin-right: 5px;
+    padding: 10px 10px;
+    border-radius: 5px;
+
+    p {
+      font-size: 14px;
+      opacity: 0.7;
+      font-weight: lighter;
+      color: black;
+      white-space: nowrap;
+      margin: 0;
+    }
+  }
+}

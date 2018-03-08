@@ -1,12 +1,26 @@
 .long-ticket-card {
-  height: 175px;
+  height: 220px;
   background-position: center;
   position: relative;
   color: black;
-  background-color: #EAEAEA;
-  margin-bottom: 10px;
+  background-color: #fcfcfc;
+  margin-bottom: 20px;
+  padding: 2em 2em 2em 2em;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    -webkit-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
+  margin-left: 20px;
 
 }
+
+;.long-card:hover {
+  background-color: white;
+  opacity: 0.9;
+  box-shadow: 0 0 35px rgba(50,50,93,.2);
+}
+
 .long-card-user {
   position: absolute;
   left: 10px;
@@ -17,13 +31,14 @@
 
 .long-card-created {
   position: absolute;
-  left: 77px;
-  top: 64px;
+  left: 84px;
+  top: 67px;
   p{
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
   color: black;
+  margin:-3px;
   }
   h2{
     font-size: 24px;
@@ -67,15 +82,17 @@
   bottom: 5px;
   display: flex;
   align-items: center;
+
 }
 
 .skill {
-  background-color: white;
-  color:black;
-  margin-right: 5px;
-  padding: 10px 10px;
-  height: 40px;
-  border-radius: 5px;
+    background-color: #efefef;
+    display: inline-block;
+    color: black;
+    margin-right: 5px;
+    padding: 10px 10px;
+    height: 40px;
+    border-radius: 5px;
   p {
     font-size: 14px;
     opacity: 0.7;

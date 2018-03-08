@@ -1,0 +1,127 @@
+.recommanded-mentor {
+  margin-bottom: 30px;
+
+  .main-mentor-informations {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+  }
+
+  .middle-informations {
+    flex-grow: 1;
+    padding: 0 0.5em;
+  }
+
+  .mentor-full-name {
+    font-size: 1.5em;
+  }
+
+  .secondary-title {
+    font-size: 1em;
+    color: #777;
+  }
+
+  .right-informations {
+   text-align: center;
+
+    .slack_img {
+    width: 30px;
+    }
+  }
+
+  .fa-star {
+    color: #ccc;
+  }
+
+  .fa-star.active {
+    color: $stars-color;
+  }
+
+  .experience {
+    height: 65px;
+    overflow: hidden;
+  }
+
+  .skill {
+    margin-right: 3px;
+    padding: 5px 5px;
+    height: auto;
+    background-color: #efefef;
+    color: black;
+    border-radius: 5px;
+  }
+
+  .skill.match {
+    p {
+      color: $brand-primary;
+      font-weight: 500;
+    }
+  }
+
+  .metrics {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 0;
+
+    .value {
+      font-size: 1.2em;
+      color: $brand-primary;
+      margin: 0;
+    }
+
+    .label {
+      color: #777;
+      font-size: 0.9em;
+      font-weight: 400;
+    }
+  }
+
+  .mentor-actions {
+    margin: 1em -2em -2em;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+
+    li {
+      flex-basis: 50%;
+      padding: 0.5em 0;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+
+    li:first-child {
+      border-right: 1px solid #ccc;
+    }
+
+    li:hover {
+      background: #dadada59;
+    }
+
+    .btn {
+      display: block;
+      background: transparent;
+    }
+
+    .choose-mentor {
+      color: $brand-primary;
+      width: 100%;
+      font-weight: 500;
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+
+    .btn:active {
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      color: black;
+    }
+  }
+}

@@ -1,33 +1,42 @@
 .main-container {
   display: flex;
+  margin-top: 20px;
 }
 
 .left-panel.status-open .status-item.tab-open {
-  background-color: #D23333;
+
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-pending .status-item.tab-pending {
-  background-color: #D23333;
+
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-closed .status-item.tab-closed{
-  background-color: #D23333;
+
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-cancelled .status-item.tab-cancelled {
-  background-color: #D23333;
+
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel {
-  background-color: #333333;
-  color: white;
+  background-color: #fcfcfc;
+  color: black;
   flex-basis: 200px;
   position: sticky;
   top: 10px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    -webkit-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
 }
 
 .right-panel {
@@ -39,13 +48,12 @@
   height: 90px;
   display: flex;
   align-items: center;
-  border: 1px solid black;
 }
 
 .status-item-text {
 
   a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding-left: 20px;
   }

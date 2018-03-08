@@ -1,4 +1,4 @@
-<div class="bigcard">
+<div class="bigcard general-card">
   <div class="row">
     <div class="col-xs-10">
       <h1><%= @ticket.title %></h1>
@@ -33,10 +33,19 @@
             <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
           <% end %>
         </div>
-
         <p class="created-at">Created <%= time_ago_in_words(ticket.created_at) %> ago</p>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="ticket_button">
+  <div class="row">
+    <div class="col-xs-col-xs-4">
+      <% #if policy(@ticket).edit? %>
+        <%= link_to 'Completed', close_ticket_path(@ticket),
+        method: :post, data: { confirm: "Are you sure?" } %>
+      <% #end %>
   </div>
 </div>
 

@@ -44,7 +44,7 @@ students.each do |element|
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
     address: Faker::Address.city,
-    #slack_id: student["slack_alumni_uid"],
+    slack_id: student["slack_alumni_uid"]
   )
 end
 
@@ -58,7 +58,7 @@ jos = User.create!(
   batch_wagon: "Karr",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
   speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
-  #slack_id: student["slack_alumni_uid"],
+  slack_id: "U4004D27N",
 
 )
 josephmentor = MentorProfil.create!(
@@ -82,7 +82,7 @@ kev = User.create!(
   batch_wagon: "Kitt",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
   speaking_language: ["fr", "gb", "es", "ma", "br"]
-  #slack_id: student["slack_alumni_uid"],
+  slack_id: "U3HFUV8DA",
 )
 kevinmentor = MentorProfil.create!(
   experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk
@@ -236,7 +236,8 @@ davidhass = User.create!(
   address: "the Foundation for Law and Government (FLAG) XXXXX In the Truck",
   batch_wagon: "001",
   pic_url: "http://idata.over-blog.com/1/71/60/02//228011-david_hasselhoff_RED.jpg",
-  speaking_language: ["fr", "gb", "ma", "Le Voiture", "Le Mec bourré"]
+  speaking_language: ["fr", "gb", "ma", "Le Voiture", "Le Mec bourré"],
+  slack_id: "U8NTWTTJL",
 )
 davidmentor = MentorProfil.create!(
   experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
@@ -267,6 +268,7 @@ students89.each do |element|
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
     address: Faker::Address.city,
+    slack_id: student["slack_alumni_uid"]
   )
 end
 
@@ -290,6 +292,7 @@ mentor89github.each do |element|
     pic_url: mentor["avatar"],
     speaking_language: toto,
     address: Faker::Address.city,
+    slack_id: student["slack_alumni_uid"],
   )
 
   mentor = MentorProfil.create!(

@@ -1,12 +1,14 @@
 .card-invoice {
-  height: 300px;
   background-position: center;
   color: black;
   background-color: #fcfcfc;
   border: 1px solid #EAEAEA;
-  margin: 10px;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(50,50,93,.1);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    -webkit-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
+    outline: none;
   p {
 
   opacity: 0.7;
@@ -57,3 +59,15 @@
   padding-top: 20px 0;
 }
 
+.stripe-checkout {
+  position: relative;
+
+  button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    bottom: 0;
+  }
+}

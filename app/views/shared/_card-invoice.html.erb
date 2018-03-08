@@ -4,22 +4,29 @@
   </div>
   <div class="card-invoice-body">
     <%= form_tag order_payments_path(@order) do %>
-    <article>
-      <p>Number of hours : <%= @ticket.ticket_duration %></p>
-      <br>
-      <p>Price/hour of the mentor : <%= @ticket.mentor_profil.minimum_price %> euros</p>
-      <br>
-      <label class="amount">
-        <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
-      </label>
-    </article>
+      <article>
+        <p>Number of hours : <%= @ticket.ticket_duration %></p>
+        <br>
+        <p>Price/hour of the mentor : <%= @ticket.mentor_profil.minimum_price %> euros</p>
+        <br>
+        <label class="amount">
+          <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
+        </label>
+      </article>
+      <div class="button">
+      <button class="btn btn-primary stripe-checkout">
+        Checkout 40€
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="My Ticket"
+          data-email="<%= current_user.email %>"
+          data-description="Ticket <%= @order.ticket_id %>"
+          data-amount="<%= @order.amount_cents %>"
+          data-currency="<%= @order.amount.currency %>">
+        </script>
+      </button>
+      </div>
+    <% end %>
   </div>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-name="My Ticket"
-      data-email="<%= current_user.email %>"
-      data-description="Ticket <%= @order.ticket_id %>"
-      data-amount="<%= @order.amount_cents %>"
-      data-currency="<%= @order.amount.currency %>"></script>
-  <% end %>
 </div>
+

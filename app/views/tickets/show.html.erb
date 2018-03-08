@@ -1,34 +1,31 @@
 <div class="container">
-  <%= render 'shared/bigticketcard', ticket: @ticket %>
+  <div class="bigticketcard-container">
+    <%= render 'shared/bigticketcard', ticket: @ticket %>
+  </div>
+
 
   <% if @ticket.mentor.blank? %>
-    <h2>Recommended mentors</h2>
-    <div class="row">
-      <% if @match_mentors_list.present? %>
-        <% @match_mentors_list.each do |mentor_profil| %>
-          <div class="col-xs-12 col-sm-4 col-md-6">
-            <%= render 'shared/square-card-mentor', mentor: mentor_profil %>
-          </div>
-        <% end %>
-      <% else %>
-        <p>No Mentor Found With those skills - Update your Ticket skills or Price</p>
-      <% end %>
+    <div class="recommanded-mentors-container">
+      <h2><%= @match_mentors_list.count %> mentors are matching your ticket</h2>
+      <%= render 'recommanded_mentors', mentors: @match_mentors_list %>
     </div>
   <% else %>
     <h2>Selected mentor</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="selected mentor">
-          <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
-          <% if @ticket.status == "closed" && @review.blank? %>
-            <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-          <% end %>
+    <div class="selected-mentor-container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="selected mentor">
+            <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
+            <% if @ticket.status == "closed" && @review.blank? %>
+              <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <%= render 'shared/contactcard', mentor: @ticket.mentor.mentor_profil%>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'shared/contactcard', mentor: @ticket.mentor.mentor_profil%>
+        </div>
       </div>
     </div>
   <% end %>
