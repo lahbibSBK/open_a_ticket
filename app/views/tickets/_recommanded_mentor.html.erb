@@ -66,10 +66,16 @@
       <div class="modal-header">
         <img class="mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
         <h4 class="modal-title" id="myModalLabel"><%= mentor.user.first_name %> <%= mentor.user.last_name %></h4>
-        <p><%= mentor.user.batch_wagon %></p>
+        <p>Batch #<%= mentor.user.batch_wagon %></p>
       </div>
       <div class="modal-body">
-        <div class="skill"><p><%= mentor.tag_names %></p></div>
+        <div class="recommanded-mentor-skills">
+    <% @ticket.tag_names.take(4).each do |skill| %>
+      <div class="skill">
+        <p><%= skill %></p>
+      </div>
+    <% end %>
+  </div>
         <h4> Experiences </h4>
         <p><%= mentor.experience %></p>
         <h4> Reviews </h4>
