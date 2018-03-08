@@ -55,7 +55,7 @@ jos = User.create!(
   last_name: "Blanchard",
   phone_number: "0612345677",
   address: "12 rue de saint fons 69007 LYON",
-  batch_wagon: "XXX",
+  batch_wagon: "Karr",
   pic_url: "https://avatars3.githubusercontent.com/u/5313828?v=4",
   speaking_language: ["fr","gb", "Esperanto", "Le Mec bourré"],
   #slack_id: student["slack_alumni_uid"],
@@ -69,7 +69,7 @@ Chez nous on utilise Slack, Asana et d'autre, des outils modernes, et du coup au
 Si demain j'ai une idée (et qu'elle est bonne ^^) elle peut être mise en place le surlendemain. (= Salarié heureux :-) )",
   minimum_price: "25",
   user_id: jos.id,
-  tag_names: SKILLS.sample(7)
+  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
 )
 
 kev = User.create!(
@@ -79,9 +79,9 @@ kev = User.create!(
   last_name: "Chavanne",
   phone_number: "0612345676",
   address: "12 rue du twerk 42001  saint-étienne",
-  batch_wagon: "XYX",
+  batch_wagon: "Kitt",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
-  speaking_language: ["fr", "gb", "Esperanto", "Le Stephanois", "Le Lyonnais mais sous la torture"]
+  speaking_language: ["fr", "gb", "es", "ma", "br"]
   #slack_id: student["slack_alumni_uid"],
 )
 kevinmentor = MentorProfil.create!(
@@ -90,8 +90,8 @@ kevinmentor = MentorProfil.create!(
   j’assure la majorité des cours au Wagon Lyon.Le Wagon propose des formations intensives de 9 semaines pour apprendre à développer, maintenir et déployer un produit web.
   Co-GérantCraftsmen 2010 - 2016
   Durant 6 ans, nous avons créé, mon ex associé et moi même une société de développement d’applications webs et mobiles.Nos clients étaient : - Des personnes souhaitant développer un produit web, et nous les accompagnions à la fois sur le côté business, pilotage du produit, mais également sur le développement du premier prototype (MVP), pour leur permettre de valider leur marché.- Des équipes techniques ayant besoin de formations de mise à niveau pour une technologie précise ou d’un accompagnement provisoire sur le développement de leur produit.Ces quelques années nous ont permis d’apprendre plusieurs technologies, en nous apportant le recul nécessaire quant aux choix d’architecture, technologiques, et business à faire.",
-  minimum_price: "100",
-  tag_names: SKILLS.sample(9),
+  minimum_price: "30",
+  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI'],
   user_id: kev.id
 )
 
