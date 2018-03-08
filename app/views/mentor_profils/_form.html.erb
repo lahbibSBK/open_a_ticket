@@ -3,7 +3,7 @@
       <div class="col-xs-6 col-sm-offset-3">
         <div class="form-create">
           <h2 class="center">Create a Mentor Profil</h2>
-          <%= simple_form_for @mentor_profil do |f| %>
+          <%= simple_form_for mentor_profil do |f| %>
             <%= f.input :experience, placeholder:"Describe your experiences" %>
             <%= f.input :minimum_price, placeholder: "Enter a price" %>
           	<%= f.input :tag_names, collection: Gutentag::Tag.all.map(&:name), input_html: { multiple: true } %>

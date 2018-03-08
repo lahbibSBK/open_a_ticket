@@ -1,7 +1,7 @@
 <div class="long-ticket-card">
   <div class="long-card-created">
     <p>created the </p>
-    <h2><%= l(ticket.created_at, format: :short) %></h2>
+    <p><%= l(ticket.created_at, format: :short) %></p>
   </div>
   <% if ticket.mentor.blank? %>
       <%= image_tag 'emptyavatar.png', class: "long-card-user" %>
