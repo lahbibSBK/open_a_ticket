@@ -1,18 +1,28 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-sm-offset-3">
-          <h2>Create a Ticket</h2>
+        <div class="form-create">
+          <h3 class="center">Create a Ticket</h3>
           <%= simple_form_for ticket do |f| %>
-            <%= f.input :title, placeholder:"Title of the ticket" %>
-            <%= f.input :content, placeholder:"Description of the ticket" %>
-            <%= f.input :tag_names, collection: Gutentag::Tag.all.map(&:name), input_html: { multiple: true } %>
-            <%= f.input :price_cents, placeholder: "Hours rate" %>
-            <%= f.input :ticket_duration, placeholder:"How many hours / what's the repartition?" %>
-            <%= f.input :ticket_location, placeholder: "Do you need someone close to your Location?" %>
-            <%= f.input :speaking_language, placeholder: "Your native language or Do you accept someone speaking english?" %>
-            <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of the mission" %>
-            <%= f.submit "Create your ticket", class: "btn btn-primary", class: "" %>
-          <% end %>
+            <%= f.input :title, placeholder:"Title of the ticket" , label: "Title" %>
+            <%= f.input :content, placeholder:"
+If you are not sure where to start,
+here are a few questions to get you started:
+
+What have you done so far, if any?
+What do you need help with?
+Any attempts?", label: "Description of the ticket" %>
+            <%= f.input :tag_names, collection: Gutentag::Tag.all.map(&:name), input_html: { multiple: true },  label: "Needed skills" %>
+            <%= f.input :price_cents, placeholder: "Hours rate",  label: "Price/hour maximum" %>
+            <%= f.input :ticket_duration, placeholder:"How many hours of help do you need ?" , label: "Number of hours"%>
+            <%= f.input :ticket_location, placeholder: "What is your location ?" ,label: "Your location"%>
+            <%= f.input :speaking_language, placeholder: "Your native language or Do you accept someone speaking english?",  label: "Languages accepted" %>
+            <%= f.input :priority, collection: Ticket::PRIORITIES, prompt: "What is the priority of your mission" ,label: "Priority of the mission" %>
+            <div class="button">
+            <%= f.submit "Create your ticket", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
