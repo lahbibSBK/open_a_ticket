@@ -71,6 +71,7 @@ GEM
       sass (~> 3.2)
     font-awesome-sass (5.0.6.2)
       sass (>= 3.2)
+    geocoder (1.4.6)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gutentag (2.1.0)
@@ -240,6 +241,7 @@ DEPENDENCIES
   figaro
   flag-icons-rails
   font-awesome-sass
+  geocoder
   gutentag (~> 2.1.0)
   jbuilder (~> 2.0)
   jquery-rails
