@@ -438,13 +438,13 @@ lahmentor = MentorProfil.create!(
   user_id: User.where(email:"belhaddadl80@gmail.com").first.id,
   tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
 )
-reviewlahbib =[["Knows his stuff, very quick and professional.",3],
-["Another great session with him. Useful and insightful I appreciate his help!",3],
+reviewlahbib =[["Knows his stuff, very quick and professional.",4],
+["Another great session with him. Useful and insightful I appreciate his help!",4],
 ["Always a good experience with him. He is as always very understanding and helpful.",4],
 ["As always, a great learning experience !",5],
 ["he is simply awesome and fixed problems where three others couldn't. Really highly recommended",3],
 ["Excellent. Amazing. He knows what he is talking about. And is truthful when he does not know something.",5],
-["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",2],
+["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",3],
 ["It is the best mentor I've worked with, surely a great person to learn from.",5],
 ["Wow. Masterful. I could not recommend more.",3],
 ["Patient and knowlagable",4]
