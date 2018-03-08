@@ -39,16 +39,5 @@
   </div>
 </div>
 
-<div class="ticket_button">
-  <div class="row">
-    <div class="col-xs-col-xs-4">
-      <% #if policy(@ticket).edit? %>
-        <%= link_to 'Completed', close_ticket_path(@ticket),
-        method: :post, data: { confirm: "Are you sure?" } %>
-      <% #end %>
-  </div>
-</div>
-
-
 
 
