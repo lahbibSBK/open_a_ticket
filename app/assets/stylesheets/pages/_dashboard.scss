@@ -1,25 +1,30 @@
 .main-container {
   display: flex;
+  margin-top: 20px;
 }
 
 .left-panel.status-open .status-item.tab-open {
 
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-pending .status-item.tab-pending {
 
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-closed .status-item.tab-closed{
 
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel.status-cancelled .status-item.tab-cancelled {
 
   font-weight: lighter;
+  border-right: 3px solid #db5d5d;
 }
 
 .left-panel {
