@@ -84,8 +84,13 @@
       border-right: 1px solid #ccc;
     }
 
+    li:hover {
+      background: #dadada59;
+    }
+
     .btn {
       display: block;
+      background: transparent;
     }
 
     .choose-mentor {
@@ -94,11 +99,11 @@
       font-weight: 500;
     }
 
-    .choose-mentor:focus {
+    .btn:focus {
       outline: none;
     }
 
-    .choose-mentor:active {
+    .btn:active {
       box-shadow: none;
     }
 
