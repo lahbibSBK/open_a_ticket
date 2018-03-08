@@ -44,13 +44,14 @@ students.each do |element|
     pic_url: student["avatar"],
     speaking_language: ["fr", "gb"],
     address: Faker::Address.city,
+    slack_id: student["slack_alumni_uid"]
   )
 end
 
 jos = User.create!(
   email: "jos@gmail.com",
   password: "azerty",
-  first_name: "joseph",
+    first_name: "joseph",
   last_name: "Blachard",
   phone_number: "0612345677",
   address: "12 rue de saint fons 69007 LYON",
