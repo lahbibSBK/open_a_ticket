@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
   def new
     @ticket = @order.ticket
-    @mentor = @ticket.mentor.mentor_profil
+    @mentor = @ticket.mentor
 
   end
 
