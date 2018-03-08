@@ -29,12 +29,12 @@ html_doc.css('.img-thumbnail').each do |element|
   students << element.parent.first[1][(8..-1)]
 end
 
-users = []
+users121 = []
 students.each do |element|
   url = "https://kitt.lewagon.com/api/v1/users/#{element}"
   student_url = open(url, "Cookie" => COOKIES).read
   student = JSON.parse(student_url)
-  users << User.create!(
+  users121 << User.create!(
     email: student["email"],
     password: "azerty",
     first_name: student["first_name"],
@@ -145,158 +145,85 @@ mat = User.create!(
   speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
 )
 
-puts 'Creating Tickets Seeds...'
-ticket1 = Ticket.create!(
-  title: "Besoin d'aide pour installer ruby",
-  alumni_id: moh.id,
-  content: Faker::HowIMetYourMother.quote,
-  tag_names: SKILLS.sample(4),
-  ticket_location: "Dakar",
-  ticket_duration: "3 semaines",
-  price_cents: "300",
-  priority: "low",
-  status: "closed",
-  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
-)
-
-ticket2 = Ticket.create!(
-  title: "Pundit apparaît Alors que je penser ne pas l'avoir installer",
-  alumni_id: lah.id,
-  content: Faker::HowIMetYourMother.quote,
-  tag_names: SKILLS.sample(4),
-  ticket_location: Faker::Address.city,
-  ticket_duration: "1 semaines",
-  price_cents: 15,
-  priority: "low",
-  status: "open",
-  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
-)
-
-ticket3 = Ticket.create!(
-  title: "pbm avec n git push",
-  alumni_id: mat.id,
-  content: Faker::HowIMetYourMother.quote,
-  tag_names: SKILLS.sample(4),
-  ticket_location: "Paris",
-  ticket_duration: "3 mois",
-  price_cents: 1300,
-  priority: "High",
-  status: "cancelled",
-)
-
-ticket4 = Ticket.create!(
-  title: "need help with git xxxxxxxxx",
-  alumni_id: moh.id,
-  content: Faker::HowIMetYourMother.quote,
-  tag_names: SKILLS.sample(4),
-  ticket_location: "Marseille",
-  ticket_duration: "1 jours",
-  price_cents: 30,
-  priority: "high",
-  status: "open",
-  speaking_language: ["fr", "gb", "Esperanto", "Le Mec bourré"],
-)
-
-puts 'Creating Reviews Seeds...'
-Review.create!(
-  ticket_id: ticket1.id,
-  description: "C'est Une Mentor de guedine!!!!!",
-  rating: 5
-)
-Review.create!(
-  ticket_id: ticket2.id,
-  description: "C'est Un Mentor génialissime!!!!!",
-  rating: 1
-)
-Review.create!(
-  ticket_id: ticket3.id,
-  description: "C'est Un Mentor de guedin!!!!!",
-  rating: 1
-)
-Review.create!(
-  ticket_id: ticket4.id,
-  description: "Hooops I did it Again!!!!!",
-  rating: 4
-)
 puts 'Creating ...'
 toto = ["fr", "gb"]
 SKILL = ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
-puts 'Creating X-Seeds (Users as Mentor/ Ticket Open/pending/closed / Review...'
-User.all.each do |user|
-  if user.last_name.downcase.exclude?("pontoizeau")
-    mentor = MentorProfil.create!(
-      experience: Faker::ChuckNorris.fact,
-      minimum_price: Faker::Number.number(2),
-      user_id: user.id,
-      tag_names: SKILLS.sample(4)
-    )
-    #seed ticket closed avec Reviews
-    3.times do
-      toto = ["fr", "gb"]
-      rand(4).times do
-          toto << Faker::Address.country_code
-      end
-      ticket = Ticket.create!(
-        title: Faker::DrWho.quote,
-        alumni_id: isa.id,
+# puts 'Creating X-Seeds (Users as Mentor/ Ticket Open/pending/closed / Review...'
+# User.all.each do |user|
+#   if user.last_name.downcase.exclude?("pontoizeau")
+#     mentor = MentorProfil.create!(
+#       experience: Faker::ChuckNorris.fact,
+#       minimum_price: Faker::Number.number(2),
+#       user_id: user.id,
+#       tag_names: SKILLS.sample(4)
+#     )
+#     #seed ticket closed avec Reviews
+#     3.times do
+#       toto = ["fr", "gb"]
+#       rand(4).times do
+#           toto << Faker::Address.country_code
+#       end
+#       ticket = Ticket.create!(
+#         title: Faker::DrWho.quote,
+#         alumni_id: isa.id,
 
-        content: Faker::HowIMetYourMother.quote,
-        tag_names: SKILLS.sample(4),
-        ticket_location: Faker::Address.city,
-        ticket_duration: "#{rand(52)} semaines",
-        price_cents: Faker::Number.number(2),
-        priority: ["low", "medium", "high"].sample,
-        status: "open",
-        speaking_language: toto,
-      )
-      Review.create!(
-        ticket_id: ticket.id,
-        description: Faker::BackToTheFuture.quote,
-        rating: rand(1..5).to_i
-      )
-    end
-#ticket sans mentor donc sans review
-    3.times do
-      toto = ["fr", "gb"]
-      rand(4).times do
-        toto << Faker::Address.country_code
-      end
-      ticket23 = Ticket.create!(
-        title: Faker::HowIMetYourMother.quote,
-        alumni_id: isa.id,
-        mentor: mentor.user,
-        content: Faker::HowIMetYourMother.quote,
-        tag_names: SKILLS.sample(4),
-        ticket_location: Faker::Address.city,
-        ticket_duration: "#{rand(52)} semaines",
-        price_cents: Faker::Number.number(2),
-        priority: ["low", "medium", "high"].sample,
-        status: "pending",
-        speaking_language: toto,
-      )
-    end
-#ticket en attente de Review
-    3.times do
-      toto = ["fr", "gb"]
-      rand(4).times do
-        toto << Faker::Address.country_code
-      end
-      ticket34 = Ticket.create!(
-        title: Faker::DrWho.quote,
-        alumni_id: isa.id,
-        mentor: mentor.user,
-        content: Faker::HowIMetYourMother.quote,
-        tag_names: SKILLS.sample(4),
-        ticket_location: Faker::Address.city,
-        ticket_duration: "#{rand(52)} semaines",
-        price_cents: Faker::Number.number(2),
-        priority: ["low", "medium", "high"].sample,
-        status: "closed",
-        speaking_language: toto,
-      )
-    end
-  end
-end
+#         content: Faker::HowIMetYourMother.quote,
+#         tag_names: SKILLS.sample(4),
+#         ticket_location: Faker::Address.city,
+#         ticket_duration: "#{rand(52)} semaines",
+#         price_cents: Faker::Number.number(2),
+#         priority: ["low", "medium", "high"].sample,
+#         status: "open",
+#         speaking_language: toto,
+#       )
+#       Review.create!(
+#         ticket_id: ticket.id,
+#         description: Faker::BackToTheFuture.quote,
+#         rating: rand(1..5).to_i
+#       )
+#     end
+# #ticket sans mentor donc sans review
+#     3.times do
+#       toto = ["fr", "gb"]
+#       rand(4).times do
+#         toto << Faker::Address.country_code
+#       end
+#       ticket23 = Ticket.create!(
+#         title: Faker::HowIMetYourMother.quote,
+#         alumni_id: isa.id,
+#         mentor: mentor.user,
+#         content: Faker::HowIMetYourMother.quote,
+#         tag_names: SKILLS.sample(4),
+#         ticket_location: Faker::Address.city,
+#         ticket_duration: "#{rand(52)} semaines",
+#         price_cents: Faker::Number.number(2),
+#         priority: ["low", "medium", "high"].sample,
+#         status: "pending",
+#         speaking_language: toto,
+#       )
+#     end
+# #ticket en attente de Review
+#     3.times do
+#       toto = ["fr", "gb"]
+#       rand(4).times do
+#         toto << Faker::Address.country_code
+#       end
+#       ticket34 = Ticket.create!(
+#         title: Faker::DrWho.quote,
+#         alumni_id: isa.id,
+#         mentor: mentor.user,
+#         content: Faker::HowIMetYourMother.quote,
+#         tag_names: SKILLS.sample(4),
+#         ticket_location: Faker::Address.city,
+#         ticket_duration: "#{rand(52)} semaines",
+#         price_cents: Faker::Number.number(2),
+#         priority: ["low", "medium", "high"].sample,
+#         status: "closed",
+#         speaking_language: toto,
+#       )
+#     end
+#   end
+# end
 
 
 
@@ -313,7 +240,9 @@ davidhass = User.create!(
 )
 davidmentor = MentorProfil.create!(
   experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
-  the Foundation for Law and Government (FLAG). Don't shoot at my pretty face",
+  the Foundation for Law and Government (FLAG). Don't shoot at my pretty face
+  I have experience on designing, developing and deploying web-based applications, I have over 2 in building web applications using Ruby on Rails framework. 
+Projects from scratch fired me up !!",
   minimum_price: "25",
   user_id: davidhass.id,
   tag_names: SKILLS.sample(4)
@@ -373,11 +302,17 @@ end
 
 
 m1 = MentorProfil.where(user: User.where(first_name: "Clément")).first
-m1.experience = "Hello Clément"
+m1.experience = "Scientific software developer (image processing, data analysis, machine learning & visualisation) and computing using C++, matlab, javascript & web apps.
+
+I've been developing working professionally for over 15 years and have touched all sorts of technologies, APIs, Algorithms, build systems in that time 3D Visualisation, GPU/CUDA, Linux/Windows, boost, node.js, .... 
+
+These days getting into js, node and web technologies. I practice BDD & TDD have led & worked on agile teams and regularly teach people over the internet."
 m1.save
 
 m1 = MentorProfil.where(user: User.where(first_name:"GACHET")).first
-m1.experience = "Hello Christophe"
+m1.experience = "For the majority of my career, I have focused on enterprise level applications primarily working with Microsoft tools & technologies. I've been working with Node.js, Angular.js, and other similar frameworks. In particular, I have been working with the MEAN Stack, and have become a main contributor to the project. 
+
+Software development problems are not too different but the infinite ways they can be resolved through new innovative methods inspires me. As a consequence, I have abundant experience in learning new technologies quickly. I may not know the definition of every technical term, but chances are I know it well in practice. I've always had the ability to look at a project from bird's eye view and calculate how any change will affect the project as a whole. I attribute this to an outstanding memory."
 m1.save
 m1 = MentorProfil.where(user: User.where(first_name: "Lorenzo")).first
 m1.experience = "Le Wagon
@@ -390,22 +325,92 @@ Attended Le Wagon Lyon #109
 "
 m1.save
 m1 = MentorProfil.where(user: User.where(first_name: "Laurène")).first
-m1.experience = "Hello Laurène"
+m1.experience = "I am a developer constantly looking elegant solution to solve problems. I have been working on complex application for few years at Microsoft and in software companies.
+
+I am also the lead developer of the Tweetinvi library which you can find on github"
 m1.save
 
 m1 = MentorProfil.where(user: User.where(last_name:"Coulaud")).first
-m1.experience = "Hello Antoine"
+m1.experience = "I've been coding since age of 15, starting with perl, moving to php, and finally to python. I've been a freelancer working in the US, New Zealand, Vietnam, and now working in Germany. 
+
+I'm interested in helping people solve their website problems quickly and efficiently. At the moment I focus mostly on python/django, javascript, and to a lesser extend php or wordpress problem. I can also help out with linux system admin questions, more specifically with ubuntu/debian based problems."
 m1.save
 
 m1 = MentorProfil.where(user: User.where(last_name:"Loviton")).first
-m1.experience = "Hello Ayliane"
+m1.experience = "Hello I am a full-stack web engineer and if I have to pick my top two forte, it would be Ruby on Rails and Nodejs. That being said, front-end technology as well as vim and tmux are second nature to me. Ping me and we can discuss on how I can help you!"
 m1.save
 
 m1 = MentorProfil.where(user: User.where(last_name:"Perrin")).first
-m1.experience = "Hello Ayliane"
+m1.experience = "I am 2016 graduate batch from LeWagon Lyon having Bachelors degree in Mathematics. From then I have worked with a breadth of companies from software giant EBAY to a 1 year old startups. In EBAY, I have lead a team of 4 engineers. I have solid grasp of software engineering and worked with very interesting technologies."
 m1.save
-    #seed ticket closed avec Reviews
-    50.times do
+
+MentorProfil.create!(
+  experience: "I am a freelance web developer working out of Morrocco. My weapons of choices are : HTML, CSS, Javascript, SQL, Ruby, Ruby on Rails, React JS. I literally spend as much hours as possible every day on coding.",
+  minimum_price: 20,
+  user_id: User.where(email:"belhaddadl80@gmail.com").first.id,
+  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'PHP', 'IOS', 'ANGULAR JS', 'PYTHON', 'ANDROID', 'MYSQL', 'WORDPRESS', 'XCODE', 'JAVA', 'C', 'NODE JS', 'ASP.NET', 'BOOTSTRAP', 'SHOPIFY', 'GITHUB', 'GO', 'HEROKU', 'REACT', 'MONGO DB', 'MAGENTO', 'POSTGRESQL', 'SEO', 'UX/UI']
+)
+
+
+# pour le geocoder dans match_mentor
+# const = []
+# Ticket.all.each do |ticket|
+#   if ticket.ticket_location
+#     const << ticket.ticket_location
+#   end
+# end
+
+# const = []
+# User.all.each do |user|
+#   if user.address && user.mentor_profil != nil
+#     const << user.address
+#   end
+# end
+
+# const = []
+# MentorProfil.all.each do |mentor_profil|
+#   if mentor_profil.user.address
+#     const << mentor_profil.user.address
+#   end
+# end
+
+puts 'Finished!'
+reviewstock =[["Knows his stuff, very quick and professional.",3],
+["Another great session with him. Useful and insightful I appreciate his help!",3],
+["Always a good experience with him. He is as always very understanding and helpful.",4],
+["As always, a great learning experience !",5],
+["he is a master Linux pro; easy to work with; highly recommended.",3],
+["he is simply awesome and fixed problems where three others couldn't. Really highly recommended",3],
+["Excellent. Amazing. He knows what he is talking about. And is truthful when he does not know something.",1],
+["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",2],
+["It is the best mentor I've worked with, surely a great person to learn from.",5],
+["Wow. Masterful. I could not recommend more.",3],
+["Patient and knowlagable",4],
+["Super helpful, great javascript skills.",2],
+["Professional, punctual, and courteous. Friendly guy with talent.",4],
+["Michael helped me work through Git installation and update issues on Mac OS",2],
+["Michael is knowledgeable and knows about Angular, CSS, and Heroku deployment. Very nice and friendly person. He is also someone that has been coding for a while.",2],
+["Micheal was a big help. He's very knowledgeable and a good communicator.",4],
+["Really great session with Michael. A lot of good communication before session. Starting out, we explored what I was trying to do, and when we hit a little wall, Michael was willing to suspend the session until we got back on track. Then he methodically led me to the right solution. Really like the approach, and will make it my 'leading practice' for testing.",2],
+["This guy is awesome. He was extremely helpful, provided example code for reference and helpful links for further reading on topics. He is definitely an expert! I highly recommend.",2],
+["It was a pleasure working with Mike. He is very experienced with Node, javascript, and javascript promises. He is also very patient and is an amazing and outstanding mentor. I look forward to working with Mike more over the next few months.",4],
+["Excellent help! Solved by problem and gave good advice on Angular handling.",2],
+["Amazing mentor!",3],
+["The best CodeMentor of all time.",4],
+["he was a great in helping me solve a business issue I was stuck on with my Rails application. He quickly understood my needs and was a pleasure to work with. Would highly recommend.",5],
+["Fast and effective. : )",2],
+["he is terrific! Thank you so much for your help! Really knowledgeable, really quick and really professional! Many kudos!",3],
+["I feel very pleased with the help he provided.",4],
+["Master at work...",5],
+["Awesome help! really sat me through a bug that took ages to fix and solved it with me.",2],
+["Best session I've had so far",3],
+["he was a big help with a Slack bot I am building!",5]
+]
+
+#seed ticket closed avec Reviews
+mentorall = MentorProfil.all
+100.times do
+  ticket = []
       toto = ["fr", "gb"]
       rand(4).times do
         toto << Faker::Address.country_code
@@ -413,11 +418,11 @@ m1.save
       ticket = Ticket.create!(
         title: Faker::ChuckNorris.fact,
         alumni_id: users89.sample.id,
-        mentor: mentor89.sample.user,
+        mentor: mentorall.sample.user,
         content: Faker::HowIMetYourMother.quote,
         tag_names: SKILLS.sample(3),
         ticket_location: Faker::Address.city,
-        ticket_duration: "#{rand(52)} semaines",
+        ticket_duration: "#{rand(52)} hours",
         price_cents: Faker::Number.number(2),
         priority: ["low", "medium", "high"].sample,
         status: "closed",
@@ -426,30 +431,7 @@ m1.save
 
       Review.create!(
         ticket_id: ticket.id,
-        description: Faker::ChuckNorris.fact,
+        description: reviewstock.sample[0],
         rating: rand(1..5).to_i
       )
 end
-
-const = []
-Ticket.all.each do |ticket|
-  if ticket.ticket_location
-    const << ticket.ticket_location
-  end
-end
-
-const = []
-User.all.each do |user|
-  if user.address && user.mentor_profil != nil
-    const << user.address
-  end
-end
-
-const = []
-MentorProfil.all.each do |mentor_profil|
-  if mentor_profil.user.address
-    const << mentor_profil.user.address
-  end
-end
-
-puts 'Finished!'
