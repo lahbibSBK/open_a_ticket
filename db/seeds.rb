@@ -81,12 +81,12 @@ kev = User.create!(
   address: "12 rue du twerk 42001  saint-étienne",
   batch_wagon: "Kitt",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
-  speaking_language: ["fr", "gb", "es", "ma", "br"]
+  speaking_language: ["fr", "gb", "es", "ma", "br"],
   slack_id: "U3HFUV8DA",
 )
 kevinmentor = MentorProfil.create!(
   experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk
-  Lead Teacher@Le Wagon Lyon Depuis janvier 2017, 
+  Lead Teacher@Le Wagon Lyon Depuis janvier 2017,
   j’assure la majorité des cours au Wagon Lyon.Le Wagon propose des formations intensives de 9 semaines pour apprendre à développer, maintenir et déployer un produit web.
   Co-GérantCraftsmen 2010 - 2016
   Durant 6 ans, nous avons créé, mon ex associé et moi même une société de développement d’applications webs et mobiles.Nos clients étaient : - Des personnes souhaitant développer un produit web, et nous les accompagnions à la fois sur le côté business, pilotage du produit, mais également sur le développement du premier prototype (MVP), pour leur permettre de valider leur marché.- Des équipes techniques ayant besoin de formations de mise à niveau pour une technologie précise ou d’un accompagnement provisoire sur le développement de leur produit.Ces quelques années nous ont permis d’apprendre plusieurs technologies, en nous apportant le recul nécessaire quant aux choix d’architecture, technologiques, et business à faire.",
@@ -242,7 +242,7 @@ davidhass = User.create!(
 davidmentor = MentorProfil.create!(
   experience: "a modern-day crime fighter who uses a technologically advanced, artificially intelligent automobile. I worked at
   the Foundation for Law and Government (FLAG). Don't shoot at my pretty face
-  I have experience on designing, developing and deploying web-based applications, I have over 2 in building web applications using Ruby on Rails framework. 
+  I have experience on designing, developing and deploying web-based applications, I have over 2 in building web applications using Ruby on Rails framework.
 Projects from scratch fired me up !!",
   minimum_price: "25",
   user_id: davidhass.id,
@@ -292,7 +292,7 @@ mentor89github.each do |element|
     pic_url: mentor["avatar"],
     speaking_language: toto,
     address: Faker::Address.city,
-    slack_id: student["slack_alumni_uid"],
+    slack_id: mentor["slack_alumni_uid"],
   )
 
   mentor = MentorProfil.create!(
@@ -307,13 +307,13 @@ end
 m1 = MentorProfil.where(user: User.where(first_name: "Clément")).first
 m1.experience = "Scientific software developer (image processing, data analysis, machine learning & visualisation) and computing using C++, matlab, javascript & web apps.
 
-I've been developing working professionally for over 15 years and have touched all sorts of technologies, APIs, Algorithms, build systems in that time 3D Visualisation, GPU/CUDA, Linux/Windows, boost, node.js, .... 
+I've been developing working professionally for over 15 years and have touched all sorts of technologies, APIs, Algorithms, build systems in that time 3D Visualisation, GPU/CUDA, Linux/Windows, boost, node.js, ....
 
 These days getting into js, node and web technologies. I practice BDD & TDD have led & worked on agile teams and regularly teach people over the internet."
 m1.save
 
 m1 = MentorProfil.where(user: User.where(first_name:"GACHET")).first
-m1.experience = "For the majority of my career, I have focused on enterprise level applications primarily working with Microsoft tools & technologies. I've been working with Node.js, Angular.js, and other similar frameworks. In particular, I have been working with the MEAN Stack, and have become a main contributor to the project. 
+m1.experience = "For the majority of my career, I have focused on enterprise level applications primarily working with Microsoft tools & technologies. I've been working with Node.js, Angular.js, and other similar frameworks. In particular, I have been working with the MEAN Stack, and have become a main contributor to the project.
 
 Software development problems are not too different but the infinite ways they can be resolved through new innovative methods inspires me. As a consequence, I have abundant experience in learning new technologies quickly. I may not know the definition of every technical term, but chances are I know it well in practice. I've always had the ability to look at a project from bird's eye view and calculate how any change will affect the project as a whole. I attribute this to an outstanding memory."
 m1.save
@@ -334,7 +334,7 @@ I am also the lead developer of the Tweetinvi library which you can find on gith
 m1.save
 
 m1 = MentorProfil.where(user: User.where(last_name:"Coulaud")).first
-m1.experience = "I've been coding since age of 15, starting with perl, moving to php, and finally to python. I've been a freelancer working in the US, New Zealand, Vietnam, and now working in Germany. 
+m1.experience = "I've been coding since age of 15, starting with perl, moving to php, and finally to python. I've been a freelancer working in the US, New Zealand, Vietnam, and now working in Germany.
 
 I'm interested in helping people solve their website problems quickly and efficiently. At the moment I focus mostly on python/django, javascript, and to a lesser extend php or wordpress problem. I can also help out with linux system admin questions, more specifically with ubuntu/debian based problems."
 m1.save
