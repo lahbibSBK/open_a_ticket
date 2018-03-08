@@ -1,7 +1,7 @@
 .card-invoice {
   background-position: center;
   color: black;
-  background-color: #fcfcfc;
+  background-color: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
@@ -9,6 +9,7 @@
     -webkit-transition: box-shadow .3s ease-in-out;
     transition: box-shadow .3s ease-in-out;
     outline: none;
+    height: 398px;
   p {
 
   opacity: 0.7;
@@ -48,7 +49,11 @@
   margin-right: 20px;
   margin-left: 20px;
   padding-bottom: 20px;
-  p {
+  article {
+     margin: 62px 0px;
+  }
+
+      p {
     margin: 0;
   }
 }
