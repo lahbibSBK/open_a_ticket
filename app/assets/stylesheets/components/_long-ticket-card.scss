@@ -31,13 +31,14 @@
 
 .long-card-created {
   position: absolute;
-  left: 77px;
-  top: 64px;
+  left: 84px;
+  top: 67px;
   p{
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
   color: black;
+  margin:-3px;
   }
   h2{
     font-size: 24px;
@@ -85,7 +86,7 @@
 }
 
 .skill {
-     background-color: #efefef;
+    background-color: #efefef;
     display: inline-block;
     color: black;
     margin-right: 5px;
