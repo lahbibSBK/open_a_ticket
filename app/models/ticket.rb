@@ -13,4 +13,8 @@ class Ticket < ApplicationRecord
   Gutentag::ActiveRecord.call(self)
 
   monetize :price_cents
+
+  def needs?(skill)
+    tag_names.include?(skill)
+  end
 end

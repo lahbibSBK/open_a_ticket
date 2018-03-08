@@ -25,7 +25,7 @@
 
   <div class="skills">
     <% mentor.tag_names.each do |skill| %>
-      <div class="skill <%= 'match' if [true, false].sample %>">
+      <div class="skill <%= 'match' if ticket.needs?(skill) %>">
         <p><%= skill %></p>
       </div>
     <% end %>

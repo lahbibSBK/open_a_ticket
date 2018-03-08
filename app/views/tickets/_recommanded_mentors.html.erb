@@ -2,7 +2,7 @@
   <div class="row">
     <% mentors.each do |mentor| %>
       <div class="col-xs-12 col-sm-4 col-md-6">
-        <%= render 'recommanded_mentor', mentor: mentor %>
+        <%= render 'recommanded_mentor', mentor: mentor, ticket: ticket %>
       </div>
     <% end %>
   </div>
