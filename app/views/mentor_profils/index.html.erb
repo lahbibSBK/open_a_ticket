@@ -1,9 +1,9 @@
 
-<div class="container">
+<div class="container">s
 	<div class="row">
 		<% if policy(@mentor_profils).index? %>
 			<% @mentor_profils.each do |mentor_profil| %>
-				<%= render 'shared/square-card-mentor', mentor: mentor_profil %>
+				<%= render 'tickets/recommanded_mentor', mentor: mentor_profil %>
 				<%= link_to 'Show', mentor_profil %>
 			<% end %>
 		<% end %>
