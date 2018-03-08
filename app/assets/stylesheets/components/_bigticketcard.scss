@@ -1,16 +1,25 @@
 .bigcard {
   margin-top: 2em;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
   position: relative;
   padding: 2em 2em 2em 2em;
   border-radius: 3px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    -webkit-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
   border-left: 3px solid lighten($brand-primary, 10%);
 
   h1 {
     margin-top: 0;
     font-size: 2em;
   }
+
+  .bigcard:hover {
+  background-color: white;
+  opacity: 0.9;
+  box-shadow: 0 0 35px rgba(50,50,93,.2);
+}
 
   .informations {
     display: flex;

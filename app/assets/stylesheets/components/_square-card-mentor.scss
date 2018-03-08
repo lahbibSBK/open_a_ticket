@@ -5,7 +5,10 @@
   background-color: #fcfcfc;
   border: 1px solid #EAEAEA;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(50,50,93,.1);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
+    -webkit-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
   margin-bottom: 25px;
   p {
 
