@@ -4,10 +4,16 @@
     <div class="middle-informations">
       <h3 class="no-margin mentor-full-name"><%= mentor.full_name %></h3>
       <div class="reviews">
-        <p class="no-margin secondary-title"><%= mentor.reviews.count %> reviews</p>
-        <% if true #mentor.reviews.present? %>
+        <p class="no-margin secondary-title">
+          <% if mentor.reviews.present? %>
+            <%= mentor.reviews.count %> <%= "review".pluralize(mentor.reviews.count) %>
+          <% else %>
+            No review yet
+          <% end %>
+        </p>
+        <% if mentor.reviews.present? %>
           <% 5.times do |i| %>
-            <i class="fas fa-star <%= 'active' if i < 3 %>"></i>
+            <i class="fas fa-star <%= 'active' if mentor.note > i + 1 %>"></i>
           <% end %>
         <% end %>
       </div>
