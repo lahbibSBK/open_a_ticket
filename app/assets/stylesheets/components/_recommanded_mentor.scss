@@ -1,4 +1,6 @@
 .recommanded-mentor {
+  margin-bottom: 30px;
+
   .main-mentor-informations {
     display: flex;
     align-items: center;
@@ -17,6 +19,14 @@
   .secondary-title {
     font-size: 1em;
     color: #777;
+  }
+
+  .right-informations {
+   text-align: center;
+
+    .slack_img {
+    width: 30px;
+    }
   }
 
   .fa-star {
