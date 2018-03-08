@@ -4,7 +4,8 @@ class PaymentsController < ApplicationController
   def new
     @ticket = @order.ticket
     @mentor = @ticket.mentor
-
+    @ticket.status = "pending"
+    @ticket.save
   end
 
   def create
@@ -23,6 +24,8 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
+    @ticket.status = "pending"
+    @ticket.save
     redirect_to ticket_path(@ticket)
 
   rescue Stripe::CardError => e
