@@ -11,5 +11,11 @@
     </div>
   <% else %>
     <div class="selected-mentors-container">
-
-
+      <h2></h2>
+      <% if order.state = "pending" %>
+        <!-- il faut rendre un vue -->
+      <% else %>
+        <%= render 'selected-mentor', mentor: @ticket.mentor %>
+      <% end %>
+    </div>
+  <% end %>
