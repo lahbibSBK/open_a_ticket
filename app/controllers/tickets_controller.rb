@@ -94,7 +94,7 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params
+    ret = params
       .require(:ticket)
       .permit(
         :content,
@@ -109,6 +109,9 @@ class TicketsController < ApplicationController
         speaking_language: [],
         tag_names: []
       )
+      ret[:speaking_language] = ret[:speaking_language].to_a.reject(&:blank?)
+      ret[:tag_names] =         ret[:tag_names].to_a.reject(&:blank?)
+      ret
   end
 
   def match_mentors
