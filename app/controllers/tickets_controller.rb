@@ -103,10 +103,10 @@ class TicketsController < ApplicationController
         :alumni_id,
         :ticket_location,
         :priority,
-        :speaking_language,
         :title,
         :stats,
         :status,
+        speaking_language: [],
         tag_names: []
       )
   end
@@ -118,7 +118,6 @@ class TicketsController < ApplicationController
       names: @ticket.tag_names,
       match: :any
     )
-
     match_mentors.each do |mentor|
       if mentor.minimum_price.to_i <= @ticket.price_cents.to_i
         @match_mentors_list << mentor
