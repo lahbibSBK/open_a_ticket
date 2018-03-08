@@ -25,16 +25,13 @@
    text-align: center;
   }
 
-  .fa-star {
-    color: #ccc;
-  }
-
-  .fa-star.active {
-    color: $stars-color;
-  }
-
   .experience {
     height: 65px;
+    overflow: hidden;
+  }
+
+  .skills {
+    height: 30px;
     overflow: hidden;
   }
 
@@ -120,4 +117,12 @@
     color: $brand-primary;
     font-weight: 500;
   }
+}
+
+.fa-star {
+  color: #ccc;
+}
+
+.fa-star.active {
+  color: $stars-color;
 }

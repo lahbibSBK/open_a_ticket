@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'tickets#index', as: 'dashboard'
   get '/tickets/:id/mentor/:mid', to: 'tickets#mentor', as: 'tickets_mentor'
   post '/tickets/:id/close', to: 'tickets#close', as: 'close_ticket'
+  post '/tickets/:id/choose_mentor', to: 'tickets#choose_mentor', as: 'choose_ticket_mentor'
 end
 
