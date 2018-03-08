@@ -26,10 +26,17 @@
   width: 10px;
 }
 
+.container-bg {
+
+  height: 100vh;
+}
+
 .cards {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 100vh;
+  background-color: white;
 }
 
 .card {
@@ -45,6 +52,7 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   font-weight: 100;
   opacity: 0.9;
+
   &:hover {
     opacity: 1;
   }
