@@ -1,7 +1,7 @@
 <div class="container">
   <div class="main-container">
     <div class="left-panel status-<%= @selectedstatus %>">
-      <ul style="list-style-type: none; padding: 5px;">
+      <ul class="sticky-list">
         <div class="status-item tab-open">
           <li class="status-item-text"><%= link_to "OPEN", dashboard_path(status: "open") %></li>
         </div>
