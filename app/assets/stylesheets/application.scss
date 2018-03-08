@@ -31,3 +31,17 @@ body {
 .no-margin {
   margin: 0;
 }
+
+.blankslate {
+  background-color: #fafafa;
+  padding: 2em 2em 2em 2em;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: #999;
+}

@@ -19,11 +19,21 @@
 
     <div class="right-panel">
       <div class="ticket">
-        <% @tickets.each do |ticket| %>
-        <% if policy(ticket).show? %>
-            <%= render 'shared/long-ticket-card', ticket: ticket %>
+        <% if @tickets.present? %>
+          <% @tickets.each do |ticket| %>
+            <% if policy(ticket).show? %>
+                <%= render 'shared/long-ticket-card', ticket: ticket %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="blankslate">
+                You don't have any <%= params[:status] %> tickets
+              </div>
+            </div>
+          </div>
         <% end %>
-      <% end %>
       </div>
     </div>
   </div>
