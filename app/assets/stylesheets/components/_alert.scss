@@ -5,11 +5,14 @@
 .alert {
   margin: 0;
   text-align: center;
-  color: white;
+  // color: white;
 }
 .alert-info {
-  background: $green;
+  background: $flash-success-color;
+  color: darken($flash-success-color, 30%);
+  // opacity: 0.4;
 }
 .alert-warning {
-  background: $red;
+  background: $flash-alert-color;
+  color: darken($flash-alert-color, 50%);
 }
