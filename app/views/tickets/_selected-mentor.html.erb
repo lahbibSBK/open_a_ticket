@@ -1,0 +1,40 @@
+<div class="selected-mentor general-card">
+  <div class="main-mentor-title">
+    <%= image_tag(mentor.pic_url, class: 'avatar-xlarge') %>
+    <h3 class="no-margin mentor-full-name"><%= mentor.mentor_profil.full_name %></h3>
+    <p>Batch #<%= mentor.batch_wagon %></p>
+ </div>
+
+  <div class="main-mentor-content">
+    <div class="main-mentor-contact">
+      <p><%=mentor.email %></p>
+      <p><%=mentor.phone_number %></p>
+    </div>
+    <div class="main-mentor-details">
+      <p>Number of hours with your mentor:</p>
+      <p><%=@ticket.ticket_duration %></p>
+    </div>
+  </div>
+
+  <div class="main-mentor-tools">
+    <h3>Here are your tools to work with your mentor:</h3>
+    <%= image_tag'atom-5.svg', :class=>"atom" %>
+    <%= image_tag'slack-1.svg', :class=>"slack_img" %>
+  </div>
+
+<div class="main-mentor-finish">
+  <h3>Finish your mission?</h3>
+   <div class="ticket_button">
+        <% if policy(@ticket).edit? %>
+          <%= link_to 'Complete this mission', close_ticket_path(@ticket),
+          method: :post, data: { confirm: "Are you sure?" } %>
+        <% end %>
+  </div>
+
+  <% if @ticket.status == "closed" && @review.blank? %>
+
+
+    <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+  <% end %>
+</div>
+</div>

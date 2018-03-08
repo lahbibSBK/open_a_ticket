@@ -64,12 +64,20 @@
   color: lightgrey;
 }
 
-.selected-mentor {
-  display: flex;
-  align-items: center;
-}
+// .selected-mentor {
+//   display: flex;
+//   align-items: center;
+// }
 
 .recommanded-mentors-container {
+  margin-bottom: 2em;
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+.selected-mentor-container {
   margin-bottom: 2em;
 
   h2 {

@@ -10,23 +10,8 @@
       <%= render 'recommanded_mentors', mentors: @match_mentors_list %>
     </div>
   <% else %>
-    <h2>Selected mentor</h2>
     <div class="selected-mentor-container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="selected mentor">
-            <%= render 'shared/square-card-mentor', mentor: @ticket.mentor.mentor_profil %>
-            <% if @ticket.status == "closed" && @review.blank? %>
-              <%= link_to "Add a review for #{@ticket.mentor.first_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <%= render 'shared/contactcard', mentor: @ticket.mentor.mentor_profil%>
-        </div>
-      </div>
+      <h2>Your have selected this mentor</h2>
+      <%= render 'selected-mentor', mentor: @ticket.mentor, order: @order %>
     </div>
   <% end %>
-</div>
