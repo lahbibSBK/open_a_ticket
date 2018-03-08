@@ -60,10 +60,14 @@ jos = User.create!(
 
 )
 josephmentor = MentorProfil.create!(
-  experience: "J'ai appelé némo en vain, alors je suis devenu développeur fullstack",
-  minimum_price: "50",
+  experience: "Actuellement développeur Rails chez Tilkee.
+J'ai trouvé ma place dans cette Start-Up. Déjà au niveau technologique, confronté chaque semaines à de nouveaux défis techniques et de nouveaux enjeux, il faut savoir s'adapter, et je trouve ça très stimulant.
+De plus dans une petite boîte tout le monde à un rôle à jouer. Il faut donc tous travailler la main dans la main (même avec les commerciaux ^^), remettre en question régulièrement nos process, trouver les outils adaptés.
+Chez nous on utilise Slack, Asana et d'autre, des outils modernes, et du coup au quotidien c'est agréable.
+Si demain j'ai une idée (et qu'elle est bonne ^^) elle peut être mise en place le surlendemain. (= Salarié heureux :-) )",
+  minimum_price: "25",
   user_id: jos.id,
-  tag_names: SKILLS.sample(4)
+  tag_names: SKILLS.sample(7)
 )
 
 kev = User.create!(
@@ -72,15 +76,19 @@ kev = User.create!(
   first_name: "kévin",
   last_name: "Chavanne",
   phone_number: "0612345676",
-  address: "12 rue de saint fons 42001  saint-étienne",
+  address: "12 rue du twerk 42001  saint-étienne",
   batch_wagon: "XYX",
   pic_url: "https://avatars1.githubusercontent.com/u/472453?v=4",
   speaking_language: ["fr", "gb", "Esperanto", "Le Stephanois", "Le Lyonnais mais sous la torture"]
 )
 kevinmentor = MentorProfil.create!(
-  experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk",
+  experience: "Paraît-il que je ne suis pas très à l'écoute de mes étudiantes concernant l'apprentissage du twerk
+  Lead Teacher@Le Wagon Lyon Depuis janvier 2017, 
+  j’assure la majorité des cours au Wagon Lyon.Le Wagon propose des formations intensives de 9 semaines pour apprendre à développer, maintenir et déployer un produit web.
+  Co-GérantCraftsmen 2010 - 2016
+  Durant 6 ans, nous avons créé, mon ex associé et moi même une société de développement d’applications webs et mobiles.Nos clients étaient : - Des personnes souhaitant développer un produit web, et nous les accompagnions à la fois sur le côté business, pilotage du produit, mais également sur le développement du premier prototype (MVP), pour leur permettre de valider leur marché.- Des équipes techniques ayant besoin de formations de mise à niveau pour une technologie précise ou d’un accompagnement provisoire sur le développement de leur produit.Ces quelques années nous ont permis d’apprendre plusieurs technologies, en nous apportant le recul nécessaire quant aux choix d’architecture, technologiques, et business à faire.",
   minimum_price: "100",
-  tag_names: SKILLS.sample(4),
+  tag_names: SKILLS.sample(9),
   user_id: kev.id
 )
 
