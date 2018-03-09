@@ -9,5 +9,12 @@
   <div class="contactcard-tools"></div>
     <a href="https://atom.io/"><%=image_tag'atom-5.svg', :class => "atom" %></a>
     <a href="https://www.skype.com/fr/"><i class="fab fa-skype"></i></a>
+    <% if mentor.user.slack_id %>
+        <p>
+          <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.user.slack_id}/", target: "_blank" do %>
+            <%= image_tag'slack-1.svg', :class => "slack_img" %>
+          <% end %>
+        </p>
+    <% end %>
   </div>
 </div>

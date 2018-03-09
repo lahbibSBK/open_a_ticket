@@ -19,7 +19,13 @@
   <div class="main-mentor-tools">
     <h3>Here are your tools to work with your mentor:</h3>
     <%= image_tag'atom-5.svg', :class=>"atom" %>
-    <%= image_tag'slack-1.svg', :class=>"slack_img" %>
+    <% if mentor.slack_id %>
+        <p>
+          <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.slack_id}/", target: "_blank" do %>
+            <%= image_tag'slack-1.svg', :class => "slack_img" %>
+          <% end %>
+        </p>
+    <% end %>
   </div>
 
 <div class="main-mentor-finish">
