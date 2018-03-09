@@ -67,7 +67,7 @@ J'ai trouvé ma place dans cette Start-Up. Déjà au niveau technologique, confr
 De plus dans une petite boîte tout le monde à un rôle à jouer. Il faut donc tous travailler la main dans la main (même avec les commerciaux ^^), remettre en question régulièrement nos process, trouver les outils adaptés.
 Chez nous on utilise Slack, Asana et d'autre, des outils modernes, et du coup au quotidien c'est agréable.
 Si demain j'ai une idée (et qu'elle est bonne ^^) elle peut être mise en place le surlendemain. (= Salarié heureux :-) )",
-  minimum_price: "25",
+  minimum_price: 65,
   user_id: jos.id,
   tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'NODE JS', 'BOOTSTRAP', 'GITHUB']
 )
@@ -90,7 +90,7 @@ kevinmentor = MentorProfil.create!(
   j’assure la majorité des cours au Wagon Lyon.Le Wagon propose des formations intensives de 9 semaines pour apprendre à développer, maintenir et déployer un produit web.
   Co-GérantCraftsmen 2010 - 2016
   Durant 6 ans, nous avons créé, mon ex associé et moi même une société de développement d’applications webs et mobiles.Nos clients étaient : - Des personnes souhaitant développer un produit web, et nous les accompagnions à la fois sur le côté business, pilotage du produit, mais également sur le développement du premier prototype (MVP), pour leur permettre de valider leur marché.- Des équipes techniques ayant besoin de formations de mise à niveau pour une technologie précise ou d’un accompagnement provisoire sur le développement de leur produit.Ces quelques années nous ont permis d’apprendre plusieurs technologies, en nous apportant le recul nécessaire quant aux choix d’architecture, technologiques, et business à faire.",
-  minimum_price: "30",
+  minimum_price: 70,
   tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'ANGULAR JS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU'],
   user_id: kev.id
 )
@@ -243,7 +243,7 @@ davidmentor = MentorProfil.create!(
   the Foundation for Law and Government (FLAG). Don't shoot at my pretty face
   I have experience on designing, developing and deploying web-based applications, I have over 2 in building web applications using Ruby on Rails framework.
 Projects from scratch fired me up !!",
-  minimum_price: 25,
+  minimum_price: 65,
   user_id: davidhass.id,
   tag_names: SKILLS.sample(5)
 )
@@ -296,7 +296,7 @@ mentor89github.each do |element|
 
   mentor = MentorProfil.create!(
     experience: Faker::ChuckNorris.fact,
-    minimum_price: Faker::Number.number(2),
+    minimum_price: rand(60..150),
     user_id: userm.id,
     tag_names: SKILLS.sample(4)
   )
@@ -434,8 +434,8 @@ end
 
 #Lahbib Mentor Seed
 lahmentor = MentorProfil.create!(
-  experience: "I am a freelance web developer working out of Morrocco. My weapons of choices are : HTML, CSS, Javascript, SQL, Ruby, Ruby on Rails, React JS. I literally spend as much hours as possible every day on coding.",
-  minimum_price: 20,
+  experience: "I am a freelance web developer working out of Lyon, France : The Place to be for Start-Up. My weapons of choices are : HTML, CSS, Javascript, SQL, Ruby, Ruby on Rails, React JS. I literally spend as much hours as possible every day on coding.",
+  minimum_price: 80,
   user_id: User.where(email:"belhaddadl80@gmail.com").first.id,
   tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
 )
@@ -443,12 +443,22 @@ reviewlahbib =[["Knows his stuff, very quick and professional.",4],
 ["Another great session with him. Useful and insightful I appreciate his help!",4],
 ["Always a good experience with him. He is as always very understanding and helpful.",4],
 ["As always, a great learning experience !",5],
-["he is simply awesome and fixed problems where three others couldn't. Really highly recommended",3],
+["he is simply awesome and fixed problems where three others couldn't. Really highly recommended",4],
 ["Excellent. Amazing. He knows what he is talking about. And is truthful when he does not know something.",5],
-["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",3],
+["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",4],
 ["It is the best mentor I've worked with, surely a great person to learn from.",5],
-["Wow. Masterful. I could not recommend more.",3],
-["Patient and knowlagable",4]
+["Wow. Masterful. I could not recommend more.",4],
+["Patient and knowlagable",4],
+["Super helpful, great javascript skills.",4],
+["Professional, punctual, and courteous. Friendly guy with talent.",4],
+["He helped me work through Git installation and update issues on Mac OS",4],
+["He is knowledgeable and knows about Angular, CSS, and Heroku deployment. Very nice and friendly person. He is also someone that has been coding for a while.",3],
+["He was a big help. He's very knowledgeable and a good communicator.",4],
+["Really great session with him. A lot of good communication before session. Starting out, we explored what I was trying to do, and when we hit a little wall, He was willing to suspend the session until we got back on track. Then he methodically led me to the right solution. Really like the approach, and will make it my 'leading practice' for testing.",4],
+["This guy is awesome. He was extremely helpful, provided example code for reference and helpful links for further reading on topics. He is definitely an expert! I highly recommend.",4],
+["It was a pleasure working with Him. He is very experienced with Node, javascript, and javascript promises. He is also very patient and is an amazing and outstanding mentor. I look forward to working with Mike more over the next few months.",4],
+["Excellent help! Solved by problem and gave good advice on Angular handling.",4],
+["Amazing mentor!",4]
 ]
 
 reviewlahbib.each do |review|
