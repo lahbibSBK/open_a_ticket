@@ -448,7 +448,7 @@ reviewlahbib =[["Knows his stuff, very quick and professional.",4],
 ["kidnly helped us to resolve some issues with our protractor, which was not running due to missing install files",4],
 ["It is the best mentor I've worked with, surely a great person to learn from.",5],
 ["Wow. Masterful. I could not recommend more.",4],
-["Patient and knowlagable",4]
+["Patient and knowlagable",4],
 ["Super helpful, great javascript skills.",4],
 ["Professional, punctual, and courteous. Friendly guy with talent.",4],
 ["He helped me work through Git installation and update issues on Mac OS",4],
