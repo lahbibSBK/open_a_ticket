@@ -1,49 +1,73 @@
 <div class="selected-mentor general-card">
   <div class="main-mentor-title">
-    <%= image_tag(mentor.pic_url, class: 'avatar-xlarge') %>
-    <h3 class="no-margin mentor-full-name"><%= mentor.mentor_profil.full_name %></h3>
-    <p>Batch #<%= mentor.batch_wagon %></p>
+    <%= image_tag(mentor.pic_url, class: 'avatar-xxlarge') %>
+    <div class="mentor-full-name">
+      <h3><%= mentor.mentor_profil.full_name %></h3>
+      <p><i class="fas fa-envelope"></i><%= link_to mentor.email, "mailto:#{mentor.email}" %></p>
+      <p><i class="fas fa-phone"></i><%= mentor.phone_number %></p>
+      <p><i class="fas fa-hashtag"></i><%= mentor.batch_wagon.gsub('#', 'Batch ') %></p>
+    </div>
+    <div class="credits">
+      <p class="value"><%= @ticket.ticket_duration %></p>
+      <p class="title">hours booked</p>
+    </div>
  </div>
 
-  <div class="main-mentor-content">
-    <div class="main-mentor-contact">
-      <p><i class="fas fa-phone"></i><%=mentor.email %></p>
-      <p><i class="fas fa-envelope"></i><%=mentor.phone_number %></p>
-    </div>
-    <div class="main-mentor-details">
-      <p>Hours credited:</p>
-      <p><%=@ticket.ticket_duration %></p>
-    </div>
-  </div>
+  <hr>
 
   <div class="main-mentor-tools">
-    <h3>Here are your tools to work with your mentor:</h3>
-     <p>Share your screen with <%= mentor.mentor_profil.full_name  %> </p> <%= image_tag'atom-5.svg', :class=>"atom" %></p>
-    <p>Contact <%=mentor.mentor_profil.full_name %> on slack <% if mentor.slack_id %>
-        <p>
-          <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.slack_id}/", target: "_blank" do %>
-            <%= image_tag'slack-1.svg', :class => "slack_img" %>
-          <% end %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <h4>Working with <%= mentor.first_name.capitalize %></h4>
+        <p><%= mentor.first_name.capitalize %> is running a mentor role, so his job is not to make the website or product for you, but only to help you how to start, structure, follow a method, and review what you've done to help you continue learning and gain experience.</p>
+        <p>Keep in mind that this project is <strong>your project, your work</strong>, not <%= mentor.first_name.capitalize %> one.</p>
+        <p>For asking a question, you should read and follow <a href="https://stackoverflow.com/help/how-to-ask">Stack Overflow guidelines</a> about how to ask a question.
         </p>
-    <% end %></p>
-  </div>
-
-  <div class="main-mentor-finish">
-    <h3>Finish your mission?</h3>
-     <div class="ticket_button">
-      <% if @ticket.status == "pending" %>
-          <% if policy(@ticket).edit? %>
-            <%= link_to 'Complete this mission', close_ticket_path(@ticket),
-            method: :post, data: { confirm: "Are you sure?" } %>
-          <% end %>
-      <% elsif @ticket.status == "closed" && @review.blank? %>
-        <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-      <% end %>
-      <% if @review.present? %>
-        <%= @review.rating %>
-        <%= @review.description %>
-        <%= link_to "back your ticket", dashboard_path %>
-      <%end %>
+    <!--   </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8"> -->
+        <h4>Tools you can use</h4>
+        <ul>
+          <li>Communication</li>
+          <p>We recommand you to use <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.slack_id}/", target: "_blank" do %>
+            <%= image_tag 'slack-1.svg', class: 'slack_img' %> Slack (click here to open a private conversation with <%= mentor.first_name.capitalize %>)<% end %>. You can make audio and video calls with slack. This tools are here to help organize communication between team, so don't try to reinvent the wheel, everything can be centralized and archived.</p>
+          <li>Coding</li>
+          <p>Sometimes, you will need <%= mentor.first_name.capitalize %>'s help on code problems. Good practices for sharing experience from a mentor to an apprentice are both reviewing the code written by the apprentice and pair programming when refactor is needed. We strongly recommand you to interact with <%= mentor.first_name.capitalize %> on those 2 approach. You'll learn a lot !</p>
+          <p>You already know the first tool you should use for such a collaboration : <%= link_to 'https://www.github.com', target: '_blank' do %>
+            <%= image_tag 'octocat.png', class: 'octocat' %> GitHub
+            <% end %>
+          </p>
+          <p>For distant pair programming sessions, a good tool we recommand is <%= link_to 'https://atom.io/', target: '_blank' do %>
+            <%= image_tag 'atom.svg', class: 'atom' %> Atom
+            <% end %>with <%= link_to 'https://teletype.atom.io/', target: '_blank' do %>
+              Teletype plugin for atom
+            <% end %>.
+            This plugin will let you work with your mentor on a same file, so usefull for pair programming
+          </p>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="main-mentor-finish">
+          <h4>Mission finished ?</h4>
+          <p>When your mission is finished, let us know by closing this ticket and don't forget to leave a review for <%= mentor.first_name.capitalize %></p>
+          <div class="ticket_button">
+            <% if @ticket.status == "pending" %>
+                <% if policy(@ticket).edit? %>
+                  <%= link_to 'Complete this mission', close_ticket_path(@ticket),
+                  method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary' %>
+                <% end %>
+            <% elsif @ticket.status == "closed" && @review.blank? %>
+              <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+            <% end %>
+            <% if @review.present? %>
+              <%= @review.rating %>
+              <%= @review.description %>
+              <%= link_to "back your ticket", dashboard_path %>
+            <%end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
