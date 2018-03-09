@@ -1,26 +1,81 @@
-.selected-mentor {
+.selected-mentor-container {
+  margin-top: 2em;
+}
 
-  .main-mentor-title{
+.fa-hashtag {
+  margin-right: 20px;
+}
+
+.selected-mentor {
+  .slack_img {
+    width: 20px;
+  }
+
+  .fa-github-alt {
+    font-size: 1.2em;
+  }
+
+  .octocat {
+    width: 30px;
+  }
+
+  .atom {
+    width: 20px;
+    height: 20px;
+  }
+
+  .main-mentor-finish {
+    background: #efefef;
+    padding: 1em;
+
+    h4 {
+      margin-top: 0;
+    }
+  }
+
+  .main-mentor-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-      .mentor-full-name {
-        flex-grow: 1;
-        text-align: center;
+    .mentor-full-name {
+      flex-grow: 1;
+      margin-left: 2em;
+
+      h3 {
+        font-size: 1.4em;
+        margin: 0 0 0.3em 0;
+      }
+
+      p {
+        font-size: 1em;
+        color: #777;
+        margin: 0 0 0.15em 0;
+      }
+
+      .batch {
+        font-size: 0.7em;
+        color: #777;
       }
     }
 
-  .main-mentor-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
+    .value {
+      font-size: 1.5em;
+      margin-bottom: 0.2em;
+      color: $brand-primary;
+      font-weight: 500;
+      text-align: center;
+    }
   }
 
-  .avatar-xlarge{
-    width: 120px;
-    height: 120px;
+  .main-mentor-tools {
+    h4 {
+      margin-top: 1em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
 

@@ -11,7 +11,7 @@
     </div>
   <% else %>
     <div class="selected-mentor-container">
-      <h2>Your have selected this mentor</h2>
+      <h2><%= @ticket.mentor.first_name.capitalize %> will be your mentor for this ticket !</h2>
       <%= render 'selected-mentor', mentor: @ticket.mentor, order: @order %>
     </div>
   <% end %>
