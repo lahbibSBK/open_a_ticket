@@ -22,7 +22,7 @@
         <% if @tickets.present? %>
           <% @tickets.each do |ticket| %>
             <% if policy(ticket).show? %>
-                <%= render 'shared/long-ticket-card', ticket: ticket %>
+              <%= render 'shared/long-ticket-card', ticket: ticket %>
             <% end %>
           <% end %>
         <% else %>

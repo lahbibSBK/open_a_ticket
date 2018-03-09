@@ -39,6 +39,7 @@
 .left-panel {
   color: black;
   flex-basis: 200px;
+  flex-shrink: 0;
   transition: box-shadow .3s ease-in-out;
 }
 

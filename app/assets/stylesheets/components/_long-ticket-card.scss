@@ -1,16 +1,54 @@
+
+
 .long-ticket-card {
-  height: 220px;
-  background-position: center;
+  .primary-informations {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  .ticket-creation {
+    font-size: 0.5em;
+    color: #888;
+  }
+
+  .data-container .title {
+    flex-basis: 200px;
+    color: #333;
+  }
+
+  .data-container {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  .mentors h3 {
+    margin-top: 2em;
+    font-size: 1em;
+  }
+
+  .matches {
+    display: flex;
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  // height: 220px;
+  // background-position: center;
   position: relative;
   color: black;
   background-color: #fcfcfc;
   margin-bottom: 20px;
   padding: 2em 2em 2em 2em;
   border-radius: 3px;
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
-    -webkit-transition: box-shadow .3s ease-in-out;
-    transition: box-shadow .3s ease-in-out;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.04);
   margin-left: 20px;
 
 }
@@ -113,9 +151,4 @@
     font-weight: lighter;
     color: black;
   }
-}
-.long-card-flag {
-  position: absolute;
-  top: 5px;
-  right: 10px;
 }

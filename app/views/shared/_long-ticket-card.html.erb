@@ -1,30 +1,53 @@
 <div class="long-ticket-card">
-  <div class="long-card-created">
-    <p>created the </p>
-    <p><%= l(ticket.created_at, format: :short) %></p>
+  <div class="primary-informations">
+    <h3>
+      <%= link_to ticket.title, ticket_path(ticket) %>
+      <br><span class="ticket-creation">Created <%= time_ago_in_words(ticket.created_at) %> ago</span>
+    </h3>
+    <p class="ticket-price">Budget: <%= ticket.price_cents / 100 * ticket.ticket_duration.to_i %> €</p>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <%= ticket.content %>
+    </div>
+  </div>
+
+  <div class="data-container">
+    <div class="title">Needed skills</div>
+    <div class="value">
+      <% ticket.tag_names.each do |skill| %>
+        <div class="skill">
+          <p><%= skill %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="data-container">
+    <div class="title">Languages accepted</div>
+    <div class="value">
+      <% ticket.speaking_language.each do |langue| %>
+        <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
+      <% end %>
+    </div>
+  </div>
+
   <% if ticket.mentor.blank? %>
-      <%= image_tag 'emptyavatar.png', class: "long-card-user" %>
-     <% else %>
-      <img class="long-card-user" src=<%= ticket.mentor.pic_url %>>
-    <% end %>
-  <div class="long-card-description">
-    <h2> <%= link_to ticket.title, ticket_path(ticket)  %> </h2>
-    <p><%= ticket.content %></p>
-  </div>
-  <div class="long-card-price">
-    <p> <%= ticket.price_cents %> €/hour </p>
-  </div>
-  <div class="long-card-skills">
-    <% ticket.tag_names.take(4).each do |skill| %>
-      <div class="skill">
-        <p><%= skill %></p>
+    <div class="mentors">
+      <h3><%= ticket.match_mentors.count %> mentors found</h3>
+      <div class="matches">
+      <% ticket.match_mentors.each do |mentor| %>
+        <%= image_tag mentor.pic_url, class: 'avatar-large' %>
+      <% end %>
       </div>
-    <% end %>
-  </div>
-  <div class="long-card-flag">
-    <% ticket.speaking_language.each do |langue| %>
-    <span class="flag-icon flag-icon-<%= langue.downcase %>"></span>
-    <% end %>
-  </div>
+    </div>
+   <% else %>
+   <div class="mentor">
+      <%= image_tag ticket.mentor.pic_url, class: 'avatar-large' %>
+      <%= ticket.mentor.mentor_profil.full_name %>
+   </div>
+  <% end %>
+
+
 </div>

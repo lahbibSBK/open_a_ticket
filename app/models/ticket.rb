@@ -17,4 +17,11 @@ class Ticket < ApplicationRecord
   def needs?(skill)
     tag_names.include?(skill)
   end
+
+  def match_mentors
+    MentorProfil.tagged_with(
+      names: tag_names,
+      match: :any
+    ).where('minimum_price <= ?', price_cents / 100).order(minimum_price: :asc)
+  end
 end
