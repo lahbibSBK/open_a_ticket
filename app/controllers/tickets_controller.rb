@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close, :assign_mentor, :choose_mentor]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mentor, :close, :assign_mentor]
 
   def index
     @tickets = policy_scope(Ticket)
@@ -52,17 +52,6 @@ class TicketsController < ApplicationController
     end
   end
 
-  def choose_mentor
-    @ticket.mentor = User.find(params[:ticket][:mentor_id])
-    @ticket.status = "pending"
-
-    if @ticket.save
-      redirect_to ticket_path(@ticket), notice: "You've choosen #{@ticket.mentor.mentor_profil.full_name}, the next step is to book hours"
-    else
-      render :show, alert: "It didn't work"
-    end
-  end
-
   def destroy
     @ticket.destroy
     redirect_to tickets_path(status: "open"), notice: 'Sniff, Sniff!! Ticket was successfully destroyed.'
@@ -93,7 +82,7 @@ class TicketsController < ApplicationController
     @mentor = User.find(params[:ticket][:mentor_id])
     @ticket.update(mentor: @mentor)
     order  = Order.create!(ticket_id: @ticket.id, amount: (@ticket.mentor_profil.minimum_price * @ticket.ticket_duration.to_i), state: 'pending')
-    redirect_to new_order_payment_path(order)
+    redirect_to new_order_payment_path(order), notice: "You've choosen #{@ticket.mentor.mentor_profil.full_name}, the next step is to book hours"
   end
 
   private
