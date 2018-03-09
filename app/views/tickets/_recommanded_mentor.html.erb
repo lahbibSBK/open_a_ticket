@@ -58,7 +58,7 @@
   <ul class="list-inline mentor-actions">
     <li><a class="btn btn-secondary" data-toggle="modal" data-target="#myModal<%= mentor.id%>">View more</a></li>
     <li>
-      <%= simple_form_for @ticket, url: choose_ticket_mentor_path(@ticket), method: :post do |f| %>
+      <%= simple_form_for @ticket, url: assign_mentor_ticket_path(@ticket), method: :patch do |f| %>
         <%= f.input :mentor_id, as: :hidden, input_html: { value: mentor.user.id } %>
         <%= f.submit "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn choose-mentor" %>
       <% end %>

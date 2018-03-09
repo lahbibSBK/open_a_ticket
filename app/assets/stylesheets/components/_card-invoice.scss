@@ -21,6 +21,10 @@
       font-weight: lighter;
 
   }
+
+  .button {
+    padding: 20px;
+  }
 }
 
 .card-invoice:hover {
@@ -61,11 +65,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 20px 0;
+  padding-top: 20px;
 }
 
 .stripe-checkout {
   position: relative;
+  width: 100%;
 
   button {
     position: absolute;
