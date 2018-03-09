@@ -7,19 +7,19 @@
 
   <div class="main-mentor-content">
     <div class="main-mentor-contact">
-      <p><%=mentor.email %></p>
-      <p><%=mentor.phone_number %></p>
+      <p><i class="fas fa-phone"></i><%=mentor.email %></p>
+      <p><i class="fas fa-envelope"></i><%=mentor.phone_number %></p>
     </div>
     <div class="main-mentor-details">
-      <p>Number of hours with your mentor:</p>
+      <p>Hours credited:</p>
       <p><%=@ticket.ticket_duration %></p>
     </div>
   </div>
 
   <div class="main-mentor-tools">
     <h3>Here are your tools to work with your mentor:</h3>
-    <%= image_tag'atom-5.svg', :class=>"atom" %>
-    <%= image_tag'slack-1.svg', :class=>"slack_img" %>
+     <p>Share your screen with <%= mentor.mentor_profil.full_name  %> </p> <%= image_tag'atom-5.svg', :class=>"atom" %></p>
+    <p>Contact <%=mentor.mentor_profil.full_name %> on slack <%= image_tag'slack-1.svg', :class=>"slack_img" %></p>
   </div>
 
   <div class="main-mentor-finish">
