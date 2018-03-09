@@ -12,7 +12,7 @@ MentorProfil.destroy_all
 User.destroy_all
 Gutentag::Tag.destroy_all
 
-SKILLS = ["HTML", "CSS", "RUBY ON RAILS", "RUBY", "PHP", "IOS", "ANGULAR JS", "PYTHON", "ANDROID", "MYSQL", "WORDPRESS", "XCODE", "JAVA", "C", "NODE JS", "ASP.NET", "BOOTSTRAP", "SHOPIFY", "GITHUB", "GO", "HEROKU", "REACT", "MONGO DB", "MAGENTO", "POSTGRESQL", "SEO", "UX/UI" ]
+SKILLS = ["HTML", "CSS", "RUBY ON RAILS", "RUBY", "PHP", "IOS", "SPREE", "ANGULAR JS", "PYTHON", "ANDROID", "MYSQL", "WORDPRESS", "XCODE", "JAVA", "C", "NODE JS", "ASP.NET", "BOOTSTRAP", "SHOPIFY", "GITHUB", "GO", "HEROKU", "REACT", "MONGO DB", "MAGENTO", "POSTGRESQL", "SEO", "UX/UI" ]
 
 SKILLS.each do |tag_name|
   Gutentag::Tag.create(name: tag_name)
@@ -34,6 +34,7 @@ students.each do |element|
   url = "https://kitt.lewagon.com/api/v1/users/#{element}"
   student_url = open(url, "Cookie" => COOKIES).read
   student = JSON.parse(student_url)
+  next if student["email"] == "isa.pontoizeau@gmail.com"
   users121 << User.create!(
     email: student["email"],
     password: "azerty",
@@ -67,9 +68,9 @@ J'ai trouvé ma place dans cette Start-Up. Déjà au niveau technologique, confr
 De plus dans une petite boîte tout le monde à un rôle à jouer. Il faut donc tous travailler la main dans la main (même avec les commerciaux ^^), remettre en question régulièrement nos process, trouver les outils adaptés.
 Chez nous on utilise Slack, Asana et d'autre, des outils modernes, et du coup au quotidien c'est agréable.
 Si demain j'ai une idée (et qu'elle est bonne ^^) elle peut être mise en place le surlendemain. (= Salarié heureux :-) )",
-  minimum_price: 65,
+  minimum_price: 40,
   user_id: jos.id,
-  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'NODE JS', 'BOOTSTRAP', 'GITHUB']
+  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', "SPREE", 'RUBY', 'NODE JS', 'BOOTSTRAP', 'GITHUB']
 )
 
 kev = User.create!(
@@ -90,8 +91,8 @@ kevinmentor = MentorProfil.create!(
   j’assure la majorité des cours au Wagon Lyon.Le Wagon propose des formations intensives de 9 semaines pour apprendre à développer, maintenir et déployer un produit web.
   Co-GérantCraftsmen 2010 - 2016
   Durant 6 ans, nous avons créé, mon ex associé et moi même une société de développement d’applications webs et mobiles.Nos clients étaient : - Des personnes souhaitant développer un produit web, et nous les accompagnions à la fois sur le côté business, pilotage du produit, mais également sur le développement du premier prototype (MVP), pour leur permettre de valider leur marché.- Des équipes techniques ayant besoin de formations de mise à niveau pour une technologie précise ou d’un accompagnement provisoire sur le développement de leur produit.Ces quelques années nous ont permis d’apprendre plusieurs technologies, en nous apportant le recul nécessaire quant aux choix d’architecture, technologiques, et business à faire.",
-  minimum_price: 70,
-  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', 'ANGULAR JS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU'],
+  minimum_price: 55,
+  tag_names: ['HTML', 'CSS', 'RUBY ON RAILS', 'RUBY', "SPREE", 'ANGULAR JS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU'],
   user_id: kev.id
 )
 
@@ -435,9 +436,9 @@ end
 #Lahbib Mentor Seed
 lahmentor = MentorProfil.create!(
   experience: "I am a freelance web developer working out of Lyon, France : The Place to be for Start-Up. My weapons of choices are : HTML, CSS, Javascript, SQL, Ruby, Ruby on Rails, React JS. I literally spend as much hours as possible every day on coding.",
-  minimum_price: 80,
+  minimum_price: 30,
   user_id: User.where(email:"belhaddadl80@gmail.com").first.id,
-  tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', 'CSS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
+  tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', "SPREE", 'CSS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
 )
 reviewlahbib =[["Knows his stuff, very quick and professional.",4],
 ["Another great session with him. Useful and insightful I appreciate his help!",4],

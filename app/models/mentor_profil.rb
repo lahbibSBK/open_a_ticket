@@ -5,6 +5,8 @@ class MentorProfil < ApplicationRecord
 
   delegate :pic_url, :first_name, :last_name, to: :user
 
+  before_validation :set_mentor_profil
+
   Gutentag::ActiveRecord.call self
 
   def full_name
@@ -13,5 +15,12 @@ class MentorProfil < ApplicationRecord
 
   def note
     reviews.sum(:rating) / reviews.count
+  end
+
+  private
+
+  def set_mentor_profil
+    return if commit_number
+    self.commit_number = (13..1023).to_a.sample
   end
 end
