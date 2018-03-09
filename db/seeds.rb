@@ -437,7 +437,7 @@ lahmentor = MentorProfil.create!(
   experience: "I am a freelance web developer working out of Lyon, France : The Place to be for Start-Up. My weapons of choices are : HTML, CSS, Javascript, SQL, Ruby, Ruby on Rails, React JS. I literally spend as much hours as possible every day on coding.",
   minimum_price: 80,
   user_id: User.where(email:"belhaddadl80@gmail.com").first.id,
-  tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
+  tag_names: ['HTML', 'RUBY ON RAILS', 'RUBY', 'CSS', 'MYSQL', 'BOOTSTRAP', 'GITHUB', 'HEROKU']
 )
 reviewlahbib =[["Knows his stuff, very quick and professional.",4],
 ["Another great session with him. Useful and insightful I appreciate his help!",4],
