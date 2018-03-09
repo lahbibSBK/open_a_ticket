@@ -2,8 +2,8 @@
   <div class="card-invoice-title">
     <h2>Resume of your invoice </h2>
   </div>
-  <div class="card-invoice-body">
-    <%= form_tag order_payments_path(@order) do %>
+  <%= form_tag order_payments_path(@order) do %>
+    <div class="card-invoice-body">
       <article>
         <p>Number of hours selected : <%= @ticket.ticket_duration %></p>
         <br>
@@ -14,8 +14,8 @@
         </label>
       </article>
     </div>
-      <div class="button">
-      <button class="btn btn-primary stripe-checkout">
+    <div class="button">
+      <div class="btn btn-primary stripe-checkout">
         Credit your account
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -26,8 +26,8 @@
           data-amount="<%= @order.amount_cents %>"
           data-currency="<%= @order.amount.currency %>">
         </script>
-      </button>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
 
