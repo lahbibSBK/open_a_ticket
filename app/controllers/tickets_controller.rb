@@ -96,7 +96,7 @@ class TicketsController < ApplicationController
       .require(:ticket)
       .permit(
         :content,
-        :price_cents,
+        :price,
         :ticket_duration,
         :alumni_id,
         :ticket_location,

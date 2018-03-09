@@ -4,7 +4,7 @@
       <h1><%= @ticket.title %></h1>
     </div>
     <div class="col-xs-2">
-      <p class="price"><%= humanized_money_with_symbol(ticket.price_cents) %> / hour</p>
+      <p class="price"><%= ticket.price_cents / 100 * ticket.ticket_duration.to_i %> € / hour</p>
     </div>
   </div>
 
