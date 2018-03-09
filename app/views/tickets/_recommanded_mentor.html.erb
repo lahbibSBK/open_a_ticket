@@ -34,7 +34,7 @@
 
   <div class="skills">
     <% mentor.tag_names.each do |skill| %>
-      <div class="skill <%= 'match' if [true, false].sample %>">
+      <div class="skill <%= 'match' if @ticket.needs?(skill) %>">
         <p><%= skill %></p>
       </div>
     <% end %>
@@ -57,12 +57,14 @@
 
   <ul class="list-inline mentor-actions">
     <li><a class="btn btn-secondary" data-toggle="modal" data-target="#myModal<%= mentor.id%>">View more</a></li>
-    <li>
-      <%= simple_form_for @ticket, url: assign_mentor_ticket_path(@ticket), method: :patch do |f| %>
-        <%= f.input :mentor_id, as: :hidden, input_html: { value: mentor.user.id } %>
-        <%= f.submit "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn choose-mentor" %>
-      <% end %>
-    </li>
+    <% if @ticket.mentor.blank? %>
+      <li>
+        <%= simple_form_for @ticket, url: assign_mentor_ticket_path(@ticket), method: :patch do |f| %>
+          <%= f.input :mentor_id, as: :hidden, input_html: { value: mentor.user.id } %>
+          <%= f.submit "Choose #{mentor.user.first_name} #{mentor.user.last_name}", class: "btn choose-mentor" %>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>
 
@@ -72,18 +74,21 @@
       <div class="modal-header">
         <img class="mentor-card-user" src=<%= mentor.user.pic_url %> alt="mentor-avatar">
         <h4 class="modal-title" id="myModalLabel"><%= mentor.user.first_name %> <%= mentor.user.last_name %></h4>
-        <p>Batch #<%= mentor.user.batch_wagon %></p>
+        <p>Batch <%= mentor.user.batch_wagon %></p>
       </div>
       <div class="modal-body">
         <div class="recommanded-mentor-skills">
-    <% @ticket.tag_names.take(4).each do |skill| %>
-      <div class="skill">
-        <p><%= skill %></p>
-      </div>
-    <% end %>
-  </div>
+          <h4>Mentor skills</h4>
+          <% mentor.tag_names.each do |skill| %>
+            <div class="skill <%= 'match' if @ticket.needs?(skill) %>">
+              <p><%= skill %></p>
+            </div>
+          <% end %>
+        </div>
+        <hr>
         <h4> Experiences </h4>
         <p><%= mentor.experience %></p>
+        <hr>
         <h4> Reviews </h4>
         <p><%= render 'shared/reviewscard', reviews: mentor.user.reviews %>
       </div>

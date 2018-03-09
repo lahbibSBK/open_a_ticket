@@ -1,24 +1,21 @@
-
 .reviewcard {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1em;
+  min-height: 55px;
 }
 
 .reviewcard-content {
-  max-width: 500px;
-  max-height: 50px;
-}
-
-.reviewcard-content {
-  max-width: 500px;
-  max-height: 50px;
+  flex-grow: 1;
+  margin-left: 1em;
 }
 
 .reviewcard .avatar {
   border-radius: 50%;
   width: 50px;
+  height: 50px;
 }
 
-.fa-star{
-  color: yellow;
+.modal-body, .modal-header {
+  padding: 1.5em;
 }

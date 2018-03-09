@@ -25,16 +25,13 @@
    text-align: center;
   }
 
-  .fa-star {
-    color: #ccc;
-  }
-
-  .fa-star.active {
-    color: $stars-color;
-  }
-
   .experience {
     height: 65px;
+    overflow: hidden;
+  }
+
+  .skills {
+    height: 30px;
     overflow: hidden;
   }
 
@@ -45,13 +42,6 @@
     background-color: #efefef;
     color: black;
     border-radius: 5px;
-  }
-
-  .skill.match {
-    p {
-      color: $brand-primary;
-      font-weight: 500;
-    }
   }
 
   .metrics {
@@ -84,6 +74,8 @@
 
     li {
       flex-basis: 50%;
+      flex-grow: 1;
+      flex-shrink: 0;
       padding: 0.5em 0;
       text-align: center;
       border-top: 1px solid #ccc;
@@ -120,4 +112,19 @@
       color: black;
     }
   }
+}
+
+.skill.match {
+  p {
+    color: $brand-primary;
+    font-weight: 500;
+  }
+}
+
+.fa-star {
+  color: #ccc;
+}
+
+.fa-star.active {
+  color: $stars-color;
 }

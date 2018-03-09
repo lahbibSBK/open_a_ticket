@@ -5,24 +5,24 @@
   <div class="card-invoice-body">
     <%= form_tag order_payments_path(@order) do %>
       <article>
-        <p>Number of hours : <%= @ticket.ticket_duration %></p>
+        <p>Number of hours selected : <%= @ticket.ticket_duration %></p>
         <br>
-        <p>Price/hour of the mentor : <%= @ticket.mentor_profil.minimum_price %> euros</p>
+        <p>Price/hour of <%=@ticket.mentor.mentor_profil.full_name %> : <%= @ticket.mentor_profil.minimum_price %> euros</p>
         <br>
         <label class="amount">
-          <span>Final price for <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
+          <span>You have a credit of <%= @ticket.ticket_duration  %> hours : <%= humanized_money_with_symbol(@order.amount, delimiter: ' ') %></span>
         </label>
       </article>
     </div>
       <div class="button">
       <button class="btn btn-primary stripe-checkout">
-        Checkout
+        Credit your account
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-name="Credited Hours"
           data-email="<%= current_user.email %>"
           data-description="Pay for <%=  @ticket.ticket_duration %> hours"
-          data-image="http://adli.io/wp-content/uploads/2015/07/global_438531065.jpeg"
+          data-image="http://lewagon.github.io/ui-components/images/lewagon.png"
           data-amount="<%= @order.amount_cents %>"
           data-currency="<%= @order.amount.currency %>">
         </script>

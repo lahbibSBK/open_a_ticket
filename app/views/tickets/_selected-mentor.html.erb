@@ -7,42 +7,43 @@
 
   <div class="main-mentor-content">
     <div class="main-mentor-contact">
-      <p><%=mentor.email %></p>
-      <p><%=mentor.phone_number %></p>
+      <p><i class="fas fa-phone"></i><%=mentor.email %></p>
+      <p><i class="fas fa-envelope"></i><%=mentor.phone_number %></p>
     </div>
     <div class="main-mentor-details">
-      <p>Number of hours with your mentor:</p>
+      <p>Hours credited:</p>
       <p><%=@ticket.ticket_duration %></p>
     </div>
   </div>
 
   <div class="main-mentor-tools">
     <h3>Here are your tools to work with your mentor:</h3>
-    <%= image_tag'atom-5.svg', :class=>"atom" %>
-    <% if mentor.slack_id %>
+     <p>Share your screen with <%= mentor.mentor_profil.full_name  %> </p> <%= image_tag'atom-5.svg', :class=>"atom" %></p>
+    <p>Contact <%=mentor.mentor_profil.full_name %> on slack <% if mentor.slack_id %>
         <p>
           <%= link_to "https://lewagon-alumni.slack.com/messages/#{mentor.slack_id}/", target: "_blank" do %>
             <%= image_tag'slack-1.svg', :class => "slack_img" %>
           <% end %>
         </p>
-    <% end %>
+    <% end %></p>
   </div>
 
-<div class="main-mentor-finish">
-  <h3>Finish your mission?</h3>
-   <div class="ticket_button">
-    <% if @ticket.status == "pending" %>
-        <% if policy(@ticket).edit? %>
-          <%= link_to 'Complete this mission', close_ticket_path(@ticket),
-          method: :post, data: { confirm: "Are you sure?" } %>
-        <% end %>
-    <% elsif @ticket.status == "closed" && @review.blank? %>
-      <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
-    <% end %>
-    <% if @review.present? %>
-      <%= @review.rating %>
-      <%= @review.description %>
-      <%= link_to "back your ticket", dashboard_path %>
-    <%end %>
+  <div class="main-mentor-finish">
+    <h3>Finish your mission?</h3>
+     <div class="ticket_button">
+      <% if @ticket.status == "pending" %>
+          <% if policy(@ticket).edit? %>
+            <%= link_to 'Complete this mission', close_ticket_path(@ticket),
+            method: :post, data: { confirm: "Are you sure?" } %>
+          <% end %>
+      <% elsif @ticket.status == "closed" && @review.blank? %>
+        <%= link_to "Add a review for #{mentor.mentor_profil.full_name}", new_ticket_review_path(@ticket), class: "btn-open-s font-20 text-white ml-2",  id: "open_btn"%>
+      <% end %>
+      <% if @review.present? %>
+        <%= @review.rating %>
+        <%= @review.description %>
+        <%= link_to "back your ticket", dashboard_path %>
+      <%end %>
+    </div>
   </div>
 </div>
